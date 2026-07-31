@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:q9n2k938hnz8:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 4 vies · Recurs del mestre · Sessió 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --via0:#FBFAF4;--via0-ink:#6B5C16;--via0-edge:#B8930F;
+  --via1:#1F5C3C;--via2:#234A80;--viae:#8F2A19;--amber:#B8930F;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed',Impact,'Arial Narrow','Helvetica Neue',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:50}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:14px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.tick{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:22px;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px 40px;width:100%}
+.wrap{width:100%;max-width:1060px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(46px,8vw,96px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:22px;margin-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px 18px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:15px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:32px;text-transform:uppercase;line-height:1;margin:6px 0 8px}
+.card-btn .d{font-size:15px;color:var(--ink-soft)}
+.vies{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:22px}
+.via{border:2px solid var(--ink);border-radius:3px;overflow:hidden;box-shadow:var(--shadow);background:var(--paper-2)}
+.via .head{padding:10px 14px;display:flex;align-items:baseline;gap:10px;color:#fff}
+.via .num{font-family:var(--disp);font-size:34px;line-height:1}
+.via .nm{font-family:var(--disp);font-size:21px;letter-spacing:.1em;text-transform:uppercase}
+.via .body{padding:12px 14px;font-size:15px;color:var(--ink-soft)}
+.via .ex{display:block;margin-top:8px;font-size:14px;font-style:italic}
+.v0 .head{background:var(--via0);color:var(--via0-ink);border-bottom:2px solid var(--via0-edge)}
+.v1 .head{background:var(--via1)}.v2 .head{background:var(--via2)}.ve .head{background:var(--viae)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:24px;letter-spacing:.12em;text-transform:uppercase;padding:12px 28px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.ghost:hover{background:var(--ink);color:var(--paper-2)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.deck{display:grid;gap:20px;justify-items:center}
+.objecte{background:var(--paper-2);border:2px solid var(--ink);border-radius:4px;width:100%;max-width:600px;padding:22px 24px;text-align:center;box-shadow:var(--shadow)}
+.objecte .icon{width:130px;height:130px;margin:0 auto 10px;display:block}
+.objecte .nom{font-family:var(--disp);font-size:clamp(32px,5.4vw,50px);text-transform:uppercase;line-height:1}
+.objecte .ctx{color:var(--ink-soft);font-size:17px;margin-top:8px;font-style:italic}
+.pregunta{font-family:var(--disp);font-size:26px;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--ink-soft)}
+.tries{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:860px}
+.tria{border:2px solid var(--ink);border-radius:3px;padding:14px 8px;color:#fff;box-shadow:var(--shadow);text-align:center;min-height:88px}
+.tria[disabled]{opacity:.3}
+.tria .num{display:block;font-family:var(--disp);font-size:30px;line-height:1}
+.tria .nm{display:block;font-family:var(--disp);font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.tria.t0{background:var(--via0);color:var(--via0-ink);border-color:var(--via0-edge)}
+.tria.t1{background:var(--via1)}.tria.t2{background:var(--via2)}.tria.te{background:var(--viae)}
+.panell{width:100%;max-width:720px;margin:0 auto;perspective:900px}
+.flap{background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:3px;padding:16px 20px;transform-origin:top center;animation:flap .45s cubic-bezier(.2,.8,.3,1) both;position:relative;overflow:hidden}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.14)}
+@keyframes flap{0%{transform:rotateX(-88deg);opacity:.2}60%{transform:rotateX(8deg)}100%{transform:none;opacity:1}}
+.flap .dest{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.flap .dest .n{font-family:var(--disp);font-size:clamp(34px,6vw,58px);line-height:1;color:#EFCB3A}
+.flap .dest .w{font-family:var(--disp);font-size:clamp(22px,3.4vw,32px);letter-spacing:.1em;text-transform:uppercase}
+.flap .expl{margin-top:10px;font-size:17px;color:#E2E7DF;max-width:62ch}
+.verdict{font-family:var(--disp);font-size:19px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.verdict.ok{color:#8FE0B0}.verdict.no{color:#F5C4BB}
+.pista{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:14px 18px;max-width:720px;margin:0 auto}
+.pista strong{font-family:var(--disp);font-size:19px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+.deb-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.deb-nav button{border:2px solid var(--ink);border-radius:2px;padding:8px 16px;font-family:var(--disp);font-size:19px;background:var(--paper-2)}
+.deb-nav button[aria-current=true]{background:var(--ink);color:var(--paper-2)}
+textarea{width:100%;min-height:150px;padding:14px;font-family:var(--disp);font-size:22px;letter-spacing:.12em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.marcador{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:20px 0}
+.mbox{border:2px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:14px;text-align:center;box-shadow:var(--shadow)}
+.mbox .k{font-family:var(--disp);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.mbox .v{font-family:var(--disp);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+.mbox.b0{border-color:var(--via0-edge)}.mbox.b0 .v{color:var(--via0-ink)}
+.mbox.b1{border-color:var(--via1)}.mbox.b1 .v{color:var(--via1)}
+.mbox.b2{border-color:var(--via2)}.mbox.b2 .v{color:var(--via2)}
+.mbox.be{border-color:var(--viae)}.mbox.be .v{color:var(--viae)}
+.titular{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:20px;margin-top:22px;box-shadow:var(--shadow)}
+.titular p{font-family:var(--disp);font-size:clamp(24px,3.6vw,40px);text-transform:uppercase;line-height:1.05}
+.titular p b{color:var(--viae)}.titular p i{font-style:normal;color:var(--via1)}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.n{text-align:center;font-variant-numeric:tabular-nums;font-weight:700}
+tr.alerta td{background:#FBE6E1}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:18px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.bloc ul{margin:8px 0 0 18px}
+.bloc li{margin-bottom:5px;font-size:16px}
+@media (max-width:640px){.tries{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">LES 4 <b>VIES</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="tick" id="tick" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Sessió 1 · Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>On va<br><em>cada cosa?</em></h1>
+        <p class="lede">Abans de llençar res, el sistema ha de decidir. Cada objecte de l'escola agafa una via, i només una d'elles és el contenidor.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="vies"><div class="n">Projectar</div><div class="t">Les quatre vies</div><div class="d">Presenta el sistema al grup.</div></button>
+        <button class="card-btn" data-go="debat"><div class="n">Projectar</div><div class="t">Casos per debatre</div><div class="d">Quatre objectes on no es posaran d'acord.</div></button>
+        <button class="card-btn" data-go="repte"><div class="n">Provar-ho tu</div><div class="t">El repte</div><div class="d">El mateix que faran per parelles.</div></button>
+        <button class="card-btn" data-go="dades"><div class="n">Només tu</div><div class="t">Descodificar codis</div><div class="d">Enganxa els codis i tens el resultat del grup.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia i solucions</div><div class="d">Com conduir-ho i què observar.</div></button>
+      </div>
+    </section>
+
+    <section class="screen" id="s-vies">
+      <div class="eyebrow">El sistema</div>
+      <h2>Quatre vies. Una decisió.</h2>
+      <div class="vies">
+        <div class="via v0"><div class="head"><span class="num">0</span><span class="nm">Evitar</span></div><div class="body">No calia. Aquest objecte no hauria d'haver arribat mai fins aquí.<em class="ex">«I si no el necessitéssim?»</em></div></div>
+        <div class="via v1"><div class="head"><span class="num">1</span><span class="nm">Encara serveix</span></div><div class="body">Es pot reparar, transformar, compartir o tornar a fer servir tal com està.<em class="ex">«Qui el podria fer servir ara?»</em></div></div>
+        <div class="via v2"><div class="head"><span class="num">2</span><span class="nm">Reciclar</span></div><div class="body">Ja no es pot aprofitar. Se'n recupera el material al contenidor que toca.<em class="ex">«Segur que no serveix per a res més?»</em></div></div>
+        <div class="via ve"><div class="head"><span class="num">E</span><span class="nm">Especial</span></div><div class="body">Necessita un punt de recollida propi. No es toca ni es llença amb la resta.<em class="ex">«Això on s'ha de portar?»</em></div></div>
+      </div>
+      <div class="row"><button class="cta" data-go="debat">Anem als casos →</button><button class="cta ghost" data-go="home">Tornar</button></div>
+    </section>
+
+    <section class="screen" id="s-debat">
+      <div class="eyebrow">Casos per debatre · projectar</div>
+      <div class="deb-nav" id="debNav"></div>
+      <div class="deck" id="debDeck"></div>
+    </section>
+
+    <section class="screen" id="s-repte"><div class="deck" id="repteDeck"></div></section>
+
+    <section class="screen" id="s-dades">
+      <div class="eyebrow">Només tu</div>
+      <h2>Descodificar els codis</h2>
+      <p class="lede">Enganxa un codi per línia, tal com te'ls diuen les parelles. Els espais i les minúscules no importen.</p>
+      <textarea id="entrada" placeholder="21E0 1221 01E0&#10;2110 1220 11E0&#10;..."></textarea>
+      <div class="row"><button class="cta" id="calc">Analitzar</button><button class="cta ghost small" id="neteja">Buidar</button><button class="cta ghost" data-go="home">Tornar</button></div>
+      <div id="sortida"></div>
+    </section>
+
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Com es fa servir</h3>
+          <ul>
+            <li><strong>Les quatre vies</strong> i <strong>Casos per debatre</strong>: a la pantalla tàctil, amb tot el grup.</li>
+            <li><strong>El repte</strong>: enllaç repartit a les parelles, cadascú al seu dispositiu.</li>
+            <li>Quan acabin, cada parella et dicta el seu codi de 12 caràcters.</li>
+            <li>Els escrius a <strong>Descodificar codis</strong> i projectes el resultat del grup.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui obre l'enllaç i comença sense ajuda.</li>
+            <li>Qui llegeix la pista i <strong>rectifica</strong>, i qui torna a triar a l'atzar.</li>
+            <li>Qui argumenta la decisió i qui va a corre-cuita.</li>
+            <li>Tres alumnes per sessió n'hi ha prou: en set sessions els tens tots.</li>
+          </ul></div>
+        <div class="bloc"><h3>Solucions del repte</h3>
+          <div id="solucions"></div></div>
+        <div class="bloc"><h3>El moment clau</h3>
+          <p>Quan projectis el resultat del grup, la xifra que importa és <strong>quants objectes van enviar a reciclar</strong>. Sempre en van més dels que toca.</p>
+          <p style="margin-top:8px">Pregunta a fer: <em>«Quants d'aquests encara servien?»</em> Aquesta xifra és la que programaran amb Scratch a la sessió 8.</p></div>
+      </div>
+      <div class="nota"><strong>Distribució correcta del repte:</strong> <span id="distrib"></span>. Només una quarta part dels objectes va al contenidor: aquesta és la conclusió a la qual han d'arribar sols.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Tornar</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var S=function(p){return '<svg class="icon" viewBox="0 0 100 100" fill="none" stroke="#141A18" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>';};
+var ICO={
+ full:S('<path d="M26 14h34l16 16v56H26z"/><path d="M60 14v16h16"/><path d="M36 44h28M36 56h28M36 68h16"/>'),
+ fullDos:S('<path d="M20 20h34l14 14v50H20z"/><path d="M54 20v14h14"/><path d="M30 46h26M30 56h26M30 66h26"/><path d="M40 30h34l12 12v46" stroke-dasharray="5 5"/>'),
+ llapis:S('<path d="M24 76l6-18 32-32 12 12-32 32z"/><path d="M56 30l12 12"/><path d="M24 76l14-4"/><path d="M30 58l12 12"/>'),
+ goma:S('<path d="M18 62l24-24 22 22-24 24H26a8 8 0 01-8-8z"/><path d="M42 38l10-10 22 22-10 10"/><path d="M34 84l14-14" stroke-dasharray="4 5"/>'),
+ retolador:S('<path d="M38 18h24v14H38z"/><path d="M34 32h32l-4 40H38z"/><path d="M42 72h16v12H42z"/><path d="M46 42h12"/>'),
+ carpeta:S('<path d="M18 26h26l8 10h30v46H18z"/><path d="M74 36v46"/><path d="M74 50c10 4 10 18 0 22" stroke-dasharray="4 5"/>'),
+ ampolla:S('<path d="M42 14h16v10c0 6 10 10 10 20v42a6 6 0 01-6 6H38a6 6 0 01-6-6V44c0-10 10-14 10-20z"/><path d="M32 52h36"/><path d="M40 14h20"/>'),
+ alumini:S('<path d="M20 34l16-14 14 10 14-10 16 14-10 46H30z"/><path d="M34 40c8 6 16 0 24 6s14 0 20 4" stroke-dasharray="5 4"/>'),
+ brik:S('<path d="M32 22h36v58H32z"/><path d="M32 22l10-8h16l10 8"/><path d="M56 14v8"/><path d="M40 40h20M40 52h20"/>'),
+ llauna:S('<path d="M34 26h32v50H34z"/><ellipse cx="50" cy="26" rx="16" ry="6"/><path d="M34 76c0 3 7 6 16 6s16-3 16-6"/><path d="M44 20c4 3 8 3 12 0"/>'),
+ piles:S('<path d="M22 34h26v46H22z"/><path d="M28 28h14v6H28z"/><path d="M56 34h22v46H56z"/><path d="M61 28h12v6H61z"/><path d="M29 54h12M35 48v12"/><path d="M62 56h10"/>'),
+ jersei:S('<path d="M36 20l14 8 14-8 20 12-8 16-8-4v40H32V44l-8 4-8-16z"/><path d="M42 24c4 6 12 6 16 0"/>'),
+ capsa:S('<path d="M18 38h64v42H18z"/><path d="M18 38l10-16h44l10 16"/><path d="M50 22v58"/><path d="M40 52h20" stroke-dasharray="4 4"/>'),
+ llibre:S('<path d="M20 24h24c4 0 6 3 6 6v50c0-3-2-6-6-6H20z"/><path d="M80 24H56c-4 0-6 3-6 6v50c0-3 2-6 6-6h24z"/><path d="M50 30v50"/><path d="M62 44c6-4 10-2 14 0" stroke-dasharray="4 4"/>'),
+ tauleta:S('<rect x="26" y="14" width="48" height="72" rx="5"/><path d="M44 78h12"/><path d="M34 26l32 44M66 26L34 70" stroke-width="2.6"/>'),
+ bosseta:S('<path d="M28 34h44l6 50H22z"/><path d="M40 34c0-10 4-16 10-16s10 6 10 16"/><path d="M36 52c8 6 20 6 28 0" stroke-dasharray="4 4"/>')
+};
+var VIES={"0":{n:"0",w:"Evitar",cls:"t0",c:"#B8930F"},"1":{n:"1",w:"Encara serveix",cls:"t1",c:"#1F5C3C"},"2":{n:"2",w:"Reciclar",cls:"t2",c:"#234A80"},"E":{n:"E",w:"Especial",cls:"te",c:"#8F2A19"}};
+
+var DEBAT=[
+ {nom:"Un full escrit per una cara",ico:ICO.full,ctx:"El trobes a la safata. Per l'altra cara és tot blanc.",via:"1",expl:"Encara és mig full en blanc. Serveix per a esborranys, per a càlculs, per a dibuixar. Al contenidor blau només hi ha d'anar quan les dues cares estiguin plenes."},
+ {nom:"Una ampolla d'aigua d'un sol ús",ico:ICO.ampolla,ctx:"Cada dia en compres una de nova i cada dia la llences.",via:"0",expl:"Aquesta ampolla es recicla, sí. Però amb una cantimplora no n'hi hauria hagut cap. Reciclar-ne una cada dia és molt pitjor que no necessitar-ne cap."},
+ {nom:"Un retolador que ja no pinta",ico:ICO.retolador,ctx:"L'has sacsejat, l'has provat, i res.",via:"E",expl:"Porta tinta i restes químiques, i per això no va al contenidor de casa. Hi ha punts de recollida que els recullen."},
+ {nom:"Un jersei que t'ha quedat petit",ico:ICO.jersei,ctx:"Està sencer. Simplement, ja no t'entra.",via:"1",expl:"No està trencat: només ha canviat de mida qui el porta. Es pot passar a algú més petit, deixar-lo a un punt d'intercanvi o transformar-lo."}
+];
+
+var OBJ=[
+ {id:"r01",nom:"Un full escrit per les dues cares",ico:ICO.fullDos,ctx:"Ple de dalt a baix, per davant i per darrere.",via:"2",pista:"Queda algun tros en blanc?",expl:"Ja no s'hi pot escriure ni dibuixar res més, així que el que es recupera és el material: va al contenidor blau."},
+ {id:"r02",nom:"Un llapis mig gastat",ico:ICO.llapis,ctx:"Fa la meitat del que feia, però té punta.",via:"1",pista:"Proveu d'escriure-hi. Funciona?",expl:"Encara escriu igual de bé que un de nou."},
+ {id:"r03",nom:"Una goma partida per la meitat",ico:ICO.goma,ctx:"S'ha trencat, però els dos trossos són sencers.",via:"1",pista:"Ara en teniu una o en teniu dues?",expl:"Una goma partida esborra exactament igual. De fet ara n'hi ha dues."},
+ {id:"r04",nom:"Una carpeta amb la goma trencada",ico:ICO.carpeta,ctx:"El cartró està perfecte. Només ha cedit la goma.",via:"1",pista:"Què s'ha trencat: la carpeta o una peça?",expl:"El que falla és una peça, no la carpeta."},
+ {id:"r05",nom:"El paper d'alumini de l'esmorzar",ico:ICO.alumini,ctx:"Un tros nou cada dia, cada matí del curs.",via:"0",pista:"Compteu quants en gastareu aquest curs.",expl:"Amb una carmanyola no n'hauríeu gastat cap."},
+ {id:"r06",nom:"Un brik de suc buit",ico:ICO.brik,ctx:"Buit del tot i una mica aixafat.",via:"2",pista:"Es pot tornar a omplir? Es pot arreglar?",expl:"No es repara ni es reomple, però cartró, plàstic i alumini es poden recuperar. Va al groc."},
+ {id:"r07",nom:"Una llauna buida",ico:ICO.llauna,ctx:"De la màquina. Buida i oberta.",via:"2",pista:"De quin material està feta?",expl:"El metall es pot fondre i tornar a fer servir moltíssimes vegades."},
+ {id:"r08",nom:"Les piles del comandament",ico:ICO.piles,ctx:"Gastades. El comandament ja no s'encén.",via:"E",pista:"Recordeu la norma del taller sobre les piles.",expl:"Porten metalls que contaminen molt i tenen contenidors propis."},
+ {id:"r09",nom:"Una capsa de cartró del material",ico:ICO.capsa,ctx:"Ara és buida i està sencera.",via:"1",pista:"Al taller, us farà falta guardar coses?",expl:"Una capsa sencera és emmagatzematge, estructura i base per construir."},
+ {id:"r10",nom:"Un llibre amb pàgines descosides",ico:ICO.llibre,ctx:"Se n'han soltat unes quantes, però no en falta cap.",via:"1",pista:"Falta alguna pàgina o només s'han desenganxat?",expl:"Si no en falta cap, el llibre és sencer: només s'ha de tornar a enganxar."},
+ {id:"r11",nom:"Una tauleta amb la pantalla trencada",ico:ICO.tauleta,ctx:"No s'encén i el vidre està esquerdat.",via:"E",pista:"Porta bateria a dins?",expl:"Porten bateria i materials que s'han de recuperar en llocs especials."},
+ {id:"r12",nom:"La bosseta de plàstic de l'entrepà",ico:ICO.bosseta,ctx:"Una de nova cada dia.",via:"0",pista:"Hi ha alguna manera de portar l'entrepà sense ella?",expl:"Es podia haver estalviat amb un embolcall reutilitzable."}
+];
+var CORRECTE=OBJ.reduce(function(a,o){a[o.via]++;return a;},{"0":0,"1":0,"2":0,"E":0});
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+var MAP={home:"#s-home",vies:"#s-vies",debat:"#s-debat",repte:"#s-repte",dades:"#s-dades",guia:"#s-guia"};
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  $("#tick").hidden=(n!=="repte");
+  $("#meta").textContent="";
+  window.scrollTo(0,0);
+  if(n==="debat") deb(0);
+  if(n==="repte") iniciaRepte();
+  if(n==="guia") pintaGuia();
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);
+});
+$("#back").addEventListener("click",function(){go("home");});
+
+function tries(des){
+  return '<div class="tries">'+Object.keys(VIES).map(function(k){
+    return '<button class="tria '+VIES[k].cls+'" data-v="'+k+'"'+(k===des?' disabled':'')+'><span class="num">'+VIES[k].n+'</span><span class="nm">'+VIES[k].w+'</span></button>';
+  }).join("")+'</div>';
+}
+function flap(o,encert){
+  return '<div class="panell"><div class="flap">'+
+    (encert===null?"":'<div class="verdict '+(encert?"ok":"no")+'">'+(encert?"Ho teníeu":"Anava a una altra via")+'</div>')+
+    '<div class="dest"><span class="n">VIA '+VIES[o.via].n+'</span><span class="w">'+VIES[o.via].w+'</span></div>'+
+    '<div class="expl">'+o.expl+'</div></div></div>';
+}
+
+/* ---- debat ---- */
+var di=0;
+function deb(i){
+  di=i; var o=DEBAT[i];
+  $("#debNav").innerHTML=DEBAT.map(function(_,k){return '<button data-d="'+k+'" aria-current="'+(k===i)+'">Cas '+(k+1)+'</button>';}).join("");
+  $("#debDeck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div><div class="ctx">'+o.ctx+'</div></div><div class="pregunta">A quina via va?</div>'+tries(null);
+  $$("#debDeck .tria").forEach(function(b){b.addEventListener("click",function(){
+    $("#debDeck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div></div>'+flap(o,b.dataset.v===o.via)+
+      '<div class="row" style="justify-content:center">'+
+      (di<DEBAT.length-1?'<button class="cta" id="nx">Cas següent →</button>':'<button class="cta" data-go="home">Inici</button>')+
+      '<button class="cta ghost" id="rv">Tornar a votar</button></div>';
+    var nx=$("#nx"); if(nx) nx.addEventListener("click",function(){deb(di+1);});
+    $("#rv").addEventListener("click",function(){deb(di);});
+  });});
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-d]"); if(b) deb(+b.dataset.d);});
+
+/* ---- repte (per provar-ho el mestre) ---- */
+var ri=0,rord=[],rpri={},rint=0;
+function iniciaRepte(){ri=0;rpri={};rord=OBJ.map(function(_,k){return k;});pintaR();}
+function pintaR(){
+  var o=OBJ[rord[ri]]; rint=0;
+  $("#tick").textContent=(ri+1)+" / "+OBJ.length;
+  $("#repteDeck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div><div class="ctx">'+o.ctx+'</div></div><div class="pregunta">A quina via va?</div>'+tries(null);
+  lligaR(o);
+}
+function lligaR(o){$$("#repteDeck .tria:not([disabled])").forEach(function(b){b.addEventListener("click",function(){resR(o,b.dataset.v);});});}
+function resR(o,v){
+  if(rint===0){
+    rpri[o.id]=v;
+    if(v===o.via) return revR(o,true);
+    rint=1;
+    $("#repteDeck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div><div class="ctx">'+o.ctx+'</div></div>'+
+      '<div class="pista"><strong>Encara no</strong>'+o.pista+'</div><div class="pregunta">Torneu-hi</div>'+tries(v);
+    lligaR(o); return;
+  }
+  revR(o,v===o.via);
+}
+function revR(o,e){
+  var ult=(ri===OBJ.length-1);
+  $("#repteDeck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div></div>'+flap(o,e)+
+    '<div class="row" style="justify-content:center"><button class="cta" id="sg">'+(ult?"Veure el codi →":"Següent →")+'</button></div>';
+  $("#sg").addEventListener("click",function(){
+    if(ult){
+      var c=OBJ.map(function(x){return rpri[x.id]||"-";}).join("");
+      $("#tick").hidden=true;
+      $("#repteDeck").innerHTML='<div class="objecte"><div class="nom">Codi</div><div class="ctx" style="font-family:var(--disp);font-size:34px;letter-spacing:.14em;font-style:normal;margin-top:10px">'+c.slice(0,4)+' '+c.slice(4,8)+' '+c.slice(8,12)+'</div></div>'+
+        '<div class="row" style="justify-content:center"><button class="cta ghost" data-go="dades">Descodificar →</button><button class="cta ghost" data-go="home">Inici</button></div>';
+      return;
+    }
+    ri++; pintaR();
+  });
+}
+
+/* ---- descodificador ---- */
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.replace(/[^0-9eE]/g,"").toUpperCase();}).filter(function(l){return l.length>0;});
+  var bons=[],dolents=[];
+  linies.forEach(function(l){ (l.length===12 && /^[012E]{12}$/.test(l)) ? bons.push(l) : dolents.push(l); });
+  if(!bons.length){
+    $("#sortida").innerHTML='<div class="pista" style="margin-top:20px"><strong>Cap codi vàlid</strong>Cada codi ha de tenir 12 caràcters, només 0, 1, 2 o E. Per exemple: 21E0 1221 01E0</div>';
+    return;
+  }
+  var tot={"0":0,"1":0,"2":0,"E":0};
+  var perObj=OBJ.map(function(){return {ok:0,tot:0,mal:{"0":0,"1":0,"2":0,"E":0}};});
+  bons.forEach(function(l){
+    for(var k=0;k<12;k++){
+      var v=l[k]; tot[v]++; perObj[k].tot++;
+      if(v===OBJ[k].via) perObj[k].ok++; else perObj[k].mal[v]++;
+    }
+  });
+  var np=bons.length, totalDec=np*12;
+  var real={};Object.keys(CORRECTE).forEach(function(k){real[k]=CORRECTE[k]*np;});
+  var excés=tot["2"]-real["2"];
+
+  var files=perObj.map(function(p,k){
+    var pct=Math.round(p.ok/p.tot*100);
+    var conf=Object.keys(p.mal).sort(function(a,b){return p.mal[b]-p.mal[a];})[0];
+    return '<tr'+(pct<50?' class="alerta"':'')+'><td>'+OBJ[k].nom+'</td>'+
+      '<td class="n" style="color:'+VIES[OBJ[k].via].c+'">'+VIES[OBJ[k].via].n+'</td>'+
+      '<td class="n">'+p.ok+'/'+p.tot+'</td><td class="n">'+pct+'%</td>'+
+      '<td>'+(p.mal[conf]>0?('la confonen amb la via '+VIES[conf].n):'—')+'</td></tr>';
+  }).join("");
+
+  $("#sortida").innerHTML=
+    '<div class="marcador" style="margin-top:24px">'+
+      '<div class="mbox b0"><div class="k">Via 0 · Evitar</div><div class="v">'+tot["0"]+'</div></div>'+
+      '<div class="mbox b1"><div class="k">Via 1 · Encara serveix</div><div class="v">'+tot["1"]+'</div></div>'+
+      '<div class="mbox b2"><div class="k">Via 2 · Reciclar</div><div class="v">'+tot["2"]+'</div></div>'+
+      '<div class="mbox be"><div class="k">Via E · Especial</div><div class="v">'+tot["E"]+'</div></div>'+
+    '</div>'+
+    '<div class="titular"><p>La classe va enviar <b>'+tot["2"]+' objectes</b> a reciclar.<br>Només n\'hi havien d\'anar <i>'+real["2"]+'</i>.</p>'+
+    (excés>0?'<p class="tip">Hi ha '+excés+' objectes que encara servien i que hauríem llençat.</p>':'<p class="tip">Aquest grup no ha enviat res de més al contenidor.</p>')+
+    '</div>'+
+    '<p class="tip">'+np+' parelles · '+totalDec+' decisions'+(dolents.length?' · '+dolents.length+' codi(s) descartats per format':'')+'</p>'+
+    '<table><thead><tr><th>Objecte</th><th>Via</th><th>Encerts</th><th>%</th><th>Error més freqüent</th></tr></thead><tbody>'+files+'</tbody></table>'+
+    '<div class="nota"><strong>Per a la sessió 8 (Scratch):</strong> els quatre números del grup són <strong style="font-family:var(--disp);font-size:26px;letter-spacing:.08em">'+tot["0"]+' · '+tot["1"]+' · '+tot["2"]+' · '+tot["E"]+'</strong>. Apunta\'ls.</div>'+
+    '<div class="nota">Les files marcades són els objectes que menys de la meitat del grup ha encertat. Són els que val la pena tornar a treure a debat.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---- guia ---- */
+function pintaGuia(){
+  $("#solucions").innerHTML='<table><thead><tr><th>#</th><th>Objecte</th><th>Via</th></tr></thead><tbody>'+
+    OBJ.map(function(o,k){return '<tr><td class="n">'+(k+1)+'</td><td>'+o.nom+'</td><td class="n" style="color:'+VIES[o.via].c+'">'+VIES[o.via].n+'</td></tr>';}).join("")+
+    '</tbody></table><p class="tip">Aquest és l\'ordre del codi: el primer caràcter és l\'objecte 1, el segon el 2, i així fins al 12.</p>';
+  $("#distrib").textContent=CORRECTE["0"]+" a evitar · "+CORRECTE["1"]+" que encara serveixen · "+CORRECTE["2"]+" a reciclar · "+CORRECTE["E"]+" especials";
+}
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
