@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:tvtx7gqqr5px:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 4 vies · El repte</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --via0:#FBFAF4;--via0-ink:#6B5C16;--via0-edge:#B8930F;
+  --via1:#1F5C3C;--via2:#234A80;--viae:#8F2A19;--amber:#B8930F;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed',Impact,'Arial Narrow','Helvetica Neue',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:50}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A;font-weight:700}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.tick{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:22px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+.lede{max-width:52ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:22px;max-width:520px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text]{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+.equips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:10px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:24px;letter-spacing:.12em;text-transform:uppercase;padding:12px 28px;border-radius:2px;box-shadow:var(--shadow)}
+.cta:hover{background:#000}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.ghost:hover{background:var(--ink);color:var(--paper-2)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.deck{display:grid;grid-template-columns:1fr;gap:20px;justify-items:center}
+.objecte{background:var(--paper-2);border:2px solid var(--ink);border-radius:4px;width:100%;max-width:560px;padding:22px 24px 20px;text-align:center;box-shadow:var(--shadow)}
+.objecte .icon{width:120px;height:120px;margin:0 auto 10px;display:block}
+.objecte .nom{font-family:var(--disp);font-size:clamp(30px,5vw,44px);text-transform:uppercase;letter-spacing:.03em;line-height:1}
+.objecte .ctx{color:var(--ink-soft);font-size:16px;margin-top:8px;font-style:italic}
+.pregunta{font-family:var(--disp);font-size:26px;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--ink-soft)}
+.tries{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:820px}
+.tria{border:2px solid var(--ink);border-radius:3px;padding:14px 8px 12px;color:#fff;box-shadow:var(--shadow);transition:transform .1s ease;text-align:center;min-height:88px}
+.tria:hover:not([disabled]){transform:translateY(-3px)}
+.tria[disabled]{opacity:.3;cursor:default}
+.tria .num{display:block;font-family:var(--disp);font-size:30px;line-height:1}
+.tria .nm{display:block;font-family:var(--disp);font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.tria.t0{background:var(--via0);color:var(--via0-ink);border-color:var(--via0-edge)}
+.tria.t1{background:var(--via1)}.tria.t2{background:var(--via2)}.tria.te{background:var(--viae)}
+.panell{width:100%;max-width:700px;margin:0 auto;perspective:900px}
+.flap{background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:3px;padding:16px 20px;position:relative;overflow:hidden;transform-origin:top center;animation:flap .45s cubic-bezier(.2,.8,.3,1) both}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.14)}
+@keyframes flap{0%{transform:rotateX(-88deg);opacity:.2}60%{transform:rotateX(8deg)}100%{transform:none;opacity:1}}
+.flap .dest{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.flap .dest .n{font-family:var(--disp);font-size:clamp(34px,6vw,58px);line-height:1;color:#EFCB3A}
+.flap .dest .w{font-family:var(--disp);font-size:clamp(22px,3.4vw,32px);letter-spacing:.1em;text-transform:uppercase}
+.flap .expl{margin-top:10px;font-size:17px;color:#E2E7DF;line-height:1.45;max-width:60ch}
+.verdict{font-family:var(--disp);font-size:19px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.verdict.ok{color:#8FE0B0}.verdict.no{color:#F5C4BB}
+.pista{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:14px 18px;max-width:700px;margin:0 auto;font-size:17px}
+.pista strong{font-family:var(--disp);font-size:19px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+.marcador{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:20px 0}
+.mbox{border:2px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:14px;text-align:center;box-shadow:var(--shadow)}
+.mbox .k{font-family:var(--disp);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.mbox .v{font-family:var(--disp);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+.mbox.b0{border-color:var(--via0-edge)}.mbox.b0 .v{color:var(--via0-ink)}
+.mbox.b1{border-color:var(--via1)}.mbox.b1 .v{color:var(--via1)}
+.mbox.b2{border-color:var(--via2)}.mbox.b2 .v{color:var(--via2)}
+.mbox.be{border-color:var(--viae)}.mbox.be .v{color:var(--viae)}
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(34px,7vw,64px);letter-spacing:.16em;color:#EFCB3A;line-height:1.2;word-break:break-all}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:8px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.frase{background:var(--paper-2);border:2px dashed var(--ink);border-radius:3px;padding:16px 18px;margin-top:16px;font-size:18px}
+.frase .k{font-family:var(--disp);font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media (max-width:640px){.tries{grid-template-columns:repeat(2,1fr)}.topbar{padding:8px 12px}.brand{font-size:18px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">LES 4 <b>VIES</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="tick" id="tick" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-entrada">
+      <div class="eyebrow">El repte</div>
+      <h2>Qui decideix avui?</h2>
+      <p class="lede">Us arribaran dotze objectes de l'escola. Per a cadascun heu de decidir una cosa: què n'hem de fer abans de llençar-lo?</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="equips" id="grups"></div>
+        <label>Equip</label>
+        <div class="equips" id="equips"></div>
+        <button class="cta" id="start" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <section class="screen" id="s-joc"><div class="deck" id="deck"></div></section>
+    <section class="screen" id="s-final"></section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   Si la deixes buida, l'activitat funciona igual i les parelles
+   et diuen el codi en veu alta.
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbxWmuIbDlB92iMtBbpJ01cQ0pS5AIajc-7nSSVtgzVBHQjzc1bJq6BPTyzl70jd_fcE/exec";
+/* ═══════════════════════════════════════════════════════════ */
+
+var S=function(p){return '<svg class="icon" viewBox="0 0 100 100" fill="none" stroke="#141A18" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>';};
+var ICO={
+ fullDos:S('<path d="M20 20h34l14 14v50H20z"/><path d="M54 20v14h14"/><path d="M30 46h26M30 56h26M30 66h26"/><path d="M40 30h34l12 12v46" stroke-dasharray="5 5"/>'),
+ llapis:S('<path d="M24 76l6-18 32-32 12 12-32 32z"/><path d="M56 30l12 12"/><path d="M24 76l14-4"/><path d="M30 58l12 12"/>'),
+ goma:S('<path d="M18 62l24-24 22 22-24 24H26a8 8 0 01-8-8z"/><path d="M42 38l10-10 22 22-10 10"/><path d="M34 84l14-14" stroke-dasharray="4 5"/>'),
+ carpeta:S('<path d="M18 26h26l8 10h30v46H18z"/><path d="M74 36v46"/><path d="M74 50c10 4 10 18 0 22" stroke-dasharray="4 5"/>'),
+ alumini:S('<path d="M20 34l16-14 14 10 14-10 16 14-10 46H30z"/><path d="M34 40c8 6 16 0 24 6s14 0 20 4" stroke-dasharray="5 4"/>'),
+ brik:S('<path d="M32 22h36v58H32z"/><path d="M32 22l10-8h16l10 8"/><path d="M56 14v8"/><path d="M40 40h20M40 52h20"/>'),
+ llauna:S('<path d="M34 26h32v50H34z"/><ellipse cx="50" cy="26" rx="16" ry="6"/><path d="M34 76c0 3 7 6 16 6s16-3 16-6"/><path d="M44 20c4 3 8 3 12 0"/>'),
+ piles:S('<path d="M22 34h26v46H22z"/><path d="M28 28h14v6H28z"/><path d="M56 34h22v46H56z"/><path d="M61 28h12v6H61z"/><path d="M29 54h12M35 48v12"/><path d="M62 56h10"/>'),
+ capsa:S('<path d="M18 38h64v42H18z"/><path d="M18 38l10-16h44l10 16"/><path d="M50 22v58"/><path d="M40 52h20" stroke-dasharray="4 4"/>'),
+ llibre:S('<path d="M20 24h24c4 0 6 3 6 6v50c0-3-2-6-6-6H20z"/><path d="M80 24H56c-4 0-6 3-6 6v50c0-3 2-6 6-6h24z"/><path d="M50 30v50"/><path d="M62 44c6-4 10-2 14 0" stroke-dasharray="4 4"/>'),
+ tauleta:S('<rect x="26" y="14" width="48" height="72" rx="5"/><path d="M44 78h12"/><path d="M34 26l32 44M66 26L34 70" stroke-width="2.6"/>'),
+ bosseta:S('<path d="M28 34h44l6 50H22z"/><path d="M40 34c0-10 4-16 10-16s10 6 10 16"/><path d="M36 52c8 6 20 6 28 0" stroke-dasharray="4 4"/>')
+};
+var VIES={"0":{n:"0",w:"Evitar",cls:"t0"},"1":{n:"1",w:"Encara serveix",cls:"t1"},"2":{n:"2",w:"Reciclar",cls:"t2"},"E":{n:"E",w:"Especial",cls:"te"}};
+
+/* Ordre canònic. El codi final segueix SEMPRE aquest ordre. */
+var OBJ=[
+ {id:"r01",nom:"Un full escrit per les dues cares",ico:ICO.fullDos,ctx:"Ple de dalt a baix, per davant i per darrere.",via:"2",pista:"Queda algun tros en blanc?",expl:"Ja no s'hi pot escriure ni dibuixar res més, així que el que es recupera és el material: va al contenidor blau."},
+ {id:"r02",nom:"Un llapis mig gastat",ico:ICO.llapis,ctx:"Fa la meitat del que feia, però té punta.",via:"1",pista:"Proveu d'escriure-hi. Funciona?",expl:"Encara escriu igual de bé que un de nou. Un llapis es fa servir fins que no es pot agafar amb els dits."},
+ {id:"r03",nom:"Una goma partida per la meitat",ico:ICO.goma,ctx:"S'ha trencat, però els dos trossos són sencers.",via:"1",pista:"Ara en teniu una o en teniu dues?",expl:"Una goma partida esborra exactament igual. De fet ara n'hi ha dues: una per a tu i una per a qui no en tingui."},
+ {id:"r04",nom:"Una carpeta amb la goma trencada",ico:ICO.carpeta,ctx:"El cartró està perfecte. Només ha cedit la goma.",via:"1",pista:"Què s'ha trencat: la carpeta o una peça?",expl:"El que falla és una peça, no la carpeta. Canviar una goma és una reparació de trenta segons."},
+ {id:"r05",nom:"El paper d'alumini de l'esmorzar",ico:ICO.alumini,ctx:"Un tros nou cada dia, cada matí del curs.",via:"0",pista:"Compteu quants en gastareu aquest curs.",expl:"Amb una carmanyola no n'hauríeu gastat cap. Aquest és el residu que ni tan sols cal recollir, perquè no arriba a existir."},
+ {id:"r06",nom:"Un brik de suc buit",ico:ICO.brik,ctx:"Buit del tot i una mica aixafat.",via:"2",pista:"Es pot tornar a omplir? Es pot arreglar?",expl:"Un brik no es repara ni es reomple, però està fet de cartró, plàstic i alumini, i tots tres es poden recuperar. Va al groc."},
+ {id:"r07",nom:"Una llauna buida",ico:ICO.llauna,ctx:"De la màquina. Buida i oberta.",via:"2",pista:"De quin material està feta?",expl:"El metall es pot fondre i tornar a fer servir moltíssimes vegades. És dels materials que millor es recuperen: va al groc."},
+ {id:"r08",nom:"Les piles del comandament",ico:ICO.piles,ctx:"Gastades. El comandament ja no s'encén.",via:"E",pista:"Recordeu la norma del taller sobre les piles.",expl:"Les piles porten metalls que contaminen molt i tenen contenidors propis. No es llencen amb res més i, al taller, no es toquen."},
+ {id:"r09",nom:"Una capsa de cartró del material",ico:ICO.capsa,ctx:"Ha arribat plena de material. Ara és buida i està sencera.",via:"1",pista:"Al taller, us farà falta guardar coses?",expl:"Una capsa sencera és emmagatzematge, és estructura, és una base per construir. Al contenidor hi anirà quan estigui trencada."},
+ {id:"r10",nom:"Un llibre amb pàgines descosides",ico:ICO.llibre,ctx:"Se n'han soltat unes quantes, però no en falta cap.",via:"1",pista:"Falta alguna pàgina o només s'han desenganxat?",expl:"Si no en falta cap, el llibre és sencer: només s'ha de tornar a enganxar. Reparar-lo costa menys que fer-ne un de nou."},
+ {id:"r11",nom:"Una tauleta amb la pantalla trencada",ico:ICO.tauleta,ctx:"No s'encén i el vidre està esquerdat.",via:"E",pista:"Porta bateria a dins?",expl:"Els aparells electrònics porten bateria i materials que s'han de recuperar en llocs especials. Van a la deixalleria o al punt de recollida."},
+ {id:"r12",nom:"La bosseta de plàstic de l'entrepà",ico:ICO.bosseta,ctx:"Una de nova cada dia, i sempre acaba a les escombraries.",via:"0",pista:"Hi ha alguna manera de portar l'entrepà sense ella?",expl:"Aquesta bosseta es podia haver estalviat amb un embolcall reutilitzable. El millor residu és el que no arriba a existir."}
+];
+
+var st={grup:null,equip:null,noms:"",i:0,ordre:[],primeres:{},segones:{},intent:0,t0:0};
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+
+function mostra(id){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  window.scrollTo(0,0);
+}
+
+/* ---- entrada ---- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa();
+});
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa();
+});
+$("#noms").addEventListener("input",function(ev){st.noms=ev.target.value.trim();revisa();});
+function revisa(){$("#start").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+$("#start").addEventListener("click",function(){
+  st.i=0;st.primeres={};st.segones={};st.t0=Date.now();
+  st.ordre=OBJ.map(function(_,k){return k;}).sort(function(){return Math.random()-0.5;});
+  $("#meta").textContent=st.equip;
+  $("#tick").hidden=false;
+  mostra("#s-joc"); pinta();
+});
+
+/* ---- joc ---- */
+function actual(){return OBJ[st.ordre[st.i]];}
+function tries(desactiva){
+  return '<div class="tries">'+Object.keys(VIES).map(function(k){
+    return '<button class="tria '+VIES[k].cls+'" data-v="'+k+'"'+(k===desactiva?' disabled':'')+'>'+
+      '<span class="num">'+VIES[k].n+'</span><span class="nm">'+VIES[k].w+'</span></button>';
+  }).join("")+'</div>';
+}
+function pinta(){
+  var o=actual(); st.intent=0;
+  $("#tick").textContent=(st.i+1)+" / "+OBJ.length;
+  $("#deck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div><div class="ctx">'+o.ctx+'</div></div>'+
+    '<div class="pregunta">A quina via va?</div>'+tries(null);
+  lliga(o);
+}
+function lliga(o){
+  $$("#deck .tria:not([disabled])").forEach(function(b){
+    b.addEventListener("click",function(){respon(o,b.dataset.v);});
+  });
+}
+function respon(o,v){
+  if(st.intent===0){
+    st.primeres[o.id]=v;
+    if(v===o.via) return revela(o,true);
+    st.intent=1;
+    $("#deck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div><div class="ctx">'+o.ctx+'</div></div>'+
+      '<div class="pista"><strong>Encara no</strong>'+o.pista+'</div>'+
+      '<div class="pregunta">Torneu-hi</div>'+tries(v);
+    lliga(o); return;
+  }
+  st.segones[o.id]=v;
+  revela(o,v===o.via);
+}
+function revela(o,encert){
+  var ultim=(st.i===OBJ.length-1);
+  $("#deck").innerHTML='<div class="objecte">'+o.ico+'<div class="nom">'+o.nom+'</div></div>'+
+    '<div class="panell"><div class="flap">'+
+    '<div class="verdict '+(encert?"ok":"no")+'">'+(encert?"Ho teníeu":"Anava a una altra via")+'</div>'+
+    '<div class="dest"><span class="n">VIA '+VIES[o.via].n+'</span><span class="w">'+VIES[o.via].w+'</span></div>'+
+    '<div class="expl">'+o.expl+'</div></div></div>'+
+    '<div class="row" style="justify-content:center"><button class="cta" id="seg">'+(ultim?"El nostre codi →":"Objecte següent →")+'</button></div>';
+  $("#seg").addEventListener("click",function(){
+    if(ultim) return final();
+    st.i++; pinta();
+  });
+}
+
+/* ---- final ---- */
+function codi(){
+  return OBJ.map(function(o){return st.primeres[o.id]||"-";}).join("");
+}
+function agrupa(c){return c.slice(0,4)+" "+c.slice(4,8)+" "+c.slice(8,12);}
+
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  var dades={
+    activitat:"les-4-vies",
+    grup:st.grup, equip:st.equip, noms:st.noms,
+    codi:codi(),
+    minuts:Math.round((Date.now()-st.t0)/60000),
+    respostes:OBJ.map(function(o){
+      var r={primera:st.primeres[o.id]||""};
+      if(st.segones[o.id]) r.segona=st.segones[o.id];
+      return r;
+    })
+  };
+  return fetch(ENDPOINT,{
+    method:"POST", mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(dades)
+  }).then(function(){return "ok";}).catch(function(){return "err";});
+}
+
+function final(){
+  var t={"0":0,"1":0,"2":0,"E":0};
+  OBJ.forEach(function(o){t[st.primeres[o.id]]++;});
+  var c=codi();
+  $("#tick").hidden=true;
+  $("#s-final").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Les vostres primeres decisions</h2>'+
+    '<p class="lede">Així vau repartir els dotze objectes <strong>abans</strong> de llegir cap explicació.</p>'+
+    '<div class="marcador">'+
+      '<div class="mbox b0"><div class="k">Via 0 · Evitar</div><div class="v">'+t["0"]+'</div></div>'+
+      '<div class="mbox b1"><div class="k">Via 1 · Encara serveix</div><div class="v">'+t["1"]+'</div></div>'+
+      '<div class="mbox b2"><div class="k">Via 2 · Reciclar</div><div class="v">'+t["2"]+'</div></div>'+
+      '<div class="mbox be"><div class="k">Via E · Especial</div><div class="v">'+t["E"]+'</div></div>'+
+    '</div>'+
+    '<div class="codi-box"><div class="k">Codi de la parella</div><div class="codi">'+agrupa(c)+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="frase"><span class="k">I ara escriviu això al mur</span>'+
+    "L'objecte que ens ha sorprès més és <strong>_______</strong>, perquè _______.</div>"+
+    '<div class="row"><button class="cta ghost" id="nova">Comença una altra parella</button></div>';
+  mostra("#s-final");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Copieu-lo tal com està i doneu-lo al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st.grup=null;st.equip=null;st.noms="";
+    $("#noms").value="";
+    $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#meta").textContent="";
+    revisa(); mostra("#s-entrada");
+  });
+}
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
