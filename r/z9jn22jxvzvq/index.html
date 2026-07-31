@@ -1,24 +1,196 @@
 <!doctype html>
 <html lang="ca">
 <head>
-<meta charset="utf-8">
+<!--bw-inici-->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
-<title>Fet!</title>
-<style>:root{color-scheme:light}*{box-sizing:border-box}html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;padding:24px;background:#fdfcf8;color:#1b1b1b;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}.c{max-width:30rem;text-align:center}svg{width:150px;height:150px;display:block;margin:0 auto 20px}h1{font-size:1.9rem;line-height:1.2;margin:0 0 14px;font-weight:700}p{font-size:1.2rem;line-height:1.55;margin:0 0 10px;color:#3d3d3d}@media (max-width:400px){svg{width:118px;height:118px}h1{font-size:1.6rem}p{font-size:1.1rem}}</style>
+<!--bw:z9jn22jxvzvq:v2-->
+<!--bw-fi-->
+<meta charset="utf-8">
+<title>Taules de multiplicar</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    background: #F2F3EF;
+    color: #22241E;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .caixa { width: 100%; max-width: 30rem; text-align: center; }
+
+  .marcador {
+    display: flex; justify-content: center; gap: 10px;
+    margin-bottom: 18px;
+    font-size: 1.05rem; font-weight: 600; color: #5C5F55;
+  }
+  .marcador b { color: #2F6551; }
+
+  .operacio {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+    font-weight: 800;
+    letter-spacing: .02em;
+    margin: 0 0 22px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .respostes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .respostes button {
+    min-height: 72px;
+    border: 2px solid #D5D8CF;
+    border-radius: 14px;
+    background: #fff;
+    color: #22241E;
+    font: inherit;
+    font-size: 1.7rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    transition: transform .12s ease, border-color .12s ease, background .12s ease;
+  }
+  .respostes button:hover { border-color: #9DA294; }
+  .respostes button:active { transform: scale(.97); }
+  .respostes button:disabled { cursor: default; }
+  .respostes button.be  { background: #E4EFE9; border-color: #2F6551; color: #204B3B; }
+  .respostes button.mal { background: #FBEDEB; border-color: #B23B2E; color: #7E291F; }
+
+  .senyal { min-height: 2.4rem; margin-top: 16px; font-size: 1.15rem; font-weight: 700; }
+  .senyal.be  { color: #2F6551; }
+  .senyal.mal { color: #B23B2E; }
+
+  .altre {
+    margin-top: 8px; min-height: 52px; padding: 0 26px;
+    border: 0; border-radius: 999px;
+    background: #22241E; color: #fff;
+    font: inherit; font-size: 1rem; font-weight: 700;
+    cursor: pointer;
+  }
+  .altre[hidden] { display: none; }
+
+  .tria { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 22px; }
+  .tria button {
+    min-width: 52px; min-height: 46px;
+    border: 2px solid #D5D8CF; border-radius: 999px;
+    background: #fff; color: #5C5F55;
+    font: inherit; font-size: 1.05rem; font-weight: 700;
+    cursor: pointer;
+  }
+  .tria button[aria-pressed="true"] { background: #22241E; border-color: #22241E; color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
 </head>
 <body>
-<main class="c">
-<svg viewBox="0 0 100 100" role="img" aria-label="Una carpeta guardada">
-<path d="M14 30 h26 l7 8 h39 a4 4 0 0 1 4 4 v36 a4 4 0 0 1-4 4 H14 a4 4 0 0 1-4-4 V34 a4 4 0 0 1 4-4z" fill="#dbeafe" stroke="#2563a8" stroke-width="5" stroke-linejoin="round"/>
-<path d="M32 62 q18 12 36 0" stroke="#2563a8" stroke-width="5" fill="none" stroke-linecap="round"/>
-<circle cx="38" cy="52" r="3.4" fill="#2563a8"/>
-<circle cx="62" cy="52" r="3.4" fill="#2563a8"/>
-</svg>
-<h1>Aquesta activitat ja s'ha acabat</h1>
-<p>Ara mateix no la fem servir.</p>
-<p>Si la necessites, demana-la a la mestra o al mestre.</p>
+<main class="caixa">
+  <div class="tria" id="tria" role="group" aria-label="Tria la taula"></div>
+
+  <div class="marcador">
+    <span>Encertades: <b id="be">0</b></span>
+    <span>·</span>
+    <span>Provades: <span id="total">0</span></span>
+  </div>
+
+  <p class="operacio" id="operacio" aria-live="polite">7 × 3</p>
+
+  <div class="respostes" id="respostes"></div>
+
+  <p class="senyal" id="senyal" role="status" aria-live="polite"></p>
+  <button class="altre" id="altre" hidden>Una altra</button>
 </main>
+
+<script>
+(function () {
+  var taula = 7, a = 0, b = 0, encertades = 0, provades = 0;
+
+  var elTria = document.getElementById('tria');
+  var elOp = document.getElementById('operacio');
+  var elResp = document.getElementById('respostes');
+  var elSenyal = document.getElementById('senyal');
+  var elAltre = document.getElementById('altre');
+  var elBe = document.getElementById('be');
+  var elTotal = document.getElementById('total');
+
+  for (var t = 2; t <= 10; t++) {
+    (function (n) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = n;
+      b.setAttribute('aria-pressed', n === taula ? 'true' : 'false');
+      b.onclick = function () {
+        taula = n;
+        Array.prototype.forEach.call(elTria.children, function (x) {
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+        nova();
+      };
+      elTria.appendChild(b);
+    })(t);
+  }
+
+  function barreja(llista) {
+    for (var i = llista.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = llista[i]; llista[i] = llista[j]; llista[j] = tmp;
+    }
+    return llista;
+  }
+
+  function nova() {
+    a = taula;
+    b = 1 + Math.floor(Math.random() * 10);
+    var bo = a * b;
+    elOp.textContent = a + ' × ' + b;
+    elSenyal.textContent = '';
+    elSenyal.className = 'senyal';
+    elAltre.hidden = true;
+
+    var opcions = [bo];
+    while (opcions.length < 4) {
+      var fals = bo + (Math.floor(Math.random() * 9) - 4) * (Math.random() < .5 ? 1 : a);
+      if (fals > 0 && opcions.indexOf(fals) === -1) opcions.push(fals);
+    }
+    barreja(opcions);
+
+    elResp.innerHTML = '';
+    opcions.forEach(function (v) {
+      var bo2 = document.createElement('button');
+      bo2.type = 'button';
+      bo2.textContent = v;
+      bo2.onclick = function () { respon(bo2, v, bo); };
+      elResp.appendChild(bo2);
+    });
+  }
+
+  function respon(boto, valor, correcte) {
+    Array.prototype.forEach.call(elResp.children, function (x) { x.disabled = true; });
+    provades++;
+    elTotal.textContent = provades;
+
+    if (valor === correcte) {
+      encertades++;
+      elBe.textContent = encertades;
+      boto.className = 'be';
+      elSenyal.textContent = 'Molt bé!';
+      elSenyal.className = 'senyal be';
+    } else {
+      boto.className = 'mal';
+      Array.prototype.forEach.call(elResp.children, function (x) {
+        if (Number(x.textContent) === correcte) x.className = 'be';
+      });
+      elSenyal.textContent = 'Era ' + correcte;
+      elSenyal.className = 'senyal mal';
+    }
+    elAltre.hidden = false;
+    elAltre.focus();
+  }
+
+  elAltre.onclick = nova;
+  nova();
+})();
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
 </body>
 </html>
