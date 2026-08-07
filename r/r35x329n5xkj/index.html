@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:r35x329n5xkj:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 4 · DASH-CARGO · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.passos{display:grid;gap:12px;margin-top:18px}
+.pas{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px 18px;box-shadow:var(--shadow)}
+.pas .n{font-family:var(--disp);font-size:clamp(34px,4.4vw,50px);color:var(--amber);line-height:1;min-width:40px;text-align:center}
+.pas .t{font-family:var(--disp);font-size:clamp(20px,2.6vw,27px);text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.pas .a{font-size:15px;color:var(--ink-soft);margin-top:3px}
+.blocs2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:18px}
+.bk{border:2px solid var(--ink);border-radius:3px;overflow:hidden;box-shadow:var(--shadow);background:var(--paper-2)}
+.bk .h{padding:12px 16px;color:#fff;font-family:var(--disp);font-size:24px;letter-spacing:.06em;text-transform:uppercase}
+.bk .b{padding:14px 16px;font-size:15px;color:var(--ink-soft)}
+.bk .b code{font-family:var(--disp);font-size:19px;letter-spacing:.05em;color:var(--ink);background:#fff;border:1px solid var(--rule);padding:1px 7px;border-radius:2px;display:inline-block;margin-top:6px}
+.k1 .h{background:var(--blau)}.k2 .h{background:var(--roig)}.k3 .h{background:var(--verd)}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.diu{background:#fff;border:2px dashed var(--ink);border-radius:3px;padding:14px 18px;margin-top:12px;font-size:17px;font-style:italic}
+.diu b{font-style:normal;font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>4</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>Recollir<br><em>i lliurar</em></h1>
+        <p class="lede">Dash amb pinça, només amb Blockly. La pinça no té cap sensor i només es pot obrir i tancar: per això avui la solució passa per mesurar i comptar.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="demo"><div class="n">Projectar</div><div class="t">La demostració</div><div class="d">Com fer fracassar el robot davant de tothom.</div></button>
+        <button class="card-btn" data-go="blocs"><div class="n">Projectar</div><div class="t">Els blocs</div><div class="d">Moviment i els dos únics de la pinça.</div></button>
+        <button class="card-btn" data-go="mesura"><div class="n">Projectar</div><div class="t">Com es mesura</div><div class="d">Els quatre passos, i on s'equivoquen.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Quatre tipus d'error</div><div class="d">El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut i com es reparteixen els 3 Dash.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir mesures</div><div class="d">Descodifica els codis dels equips.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">Preparació, què observar i plans B.</div></button>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="screen" id="s-demo">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>Fes fracassar el robot</h2>
+      <p class="lede">No expliquis la limitació de la pinça. Fes-la veure. Programa el Dash perquè tanqui els braços massa aviat i deixa'l anar davant de tothom.</p>
+      <div class="passos">
+        <div class="pas"><div class="n">1</div><div><div class="t">Posa l'objecte lluny i el Dash a la sortida</div><div class="a">Mig metre és perfecte. Que es vegi bé des de tot arreu.</div></div></div>
+        <div class="pas"><div class="n">2</div><div><div class="t">Programa: obrir braços, avançar poc, tancar braços</div><div class="a">Deliberadament curt. El robot tancarà la pinça a l'aire.</div></div></div>
+        <div class="pas"><div class="n">3</div><div><div class="t">Deixa'l anar i no diguis res</div><div class="a">Es tancarà en l'aire i seguirà. Deixa que reaccionin.</div></div></div>
+        <div class="pas"><div class="n">4</div><div><div class="t">Pregunta i espera</div><div class="a">No responguis tu. Que hi arribin ells.</div></div></div>
+      </div>
+      <div class="diu"><b>La pregunta</b>«Per què no l'ha agafat? Què li ha faltat saber al robot?»</div>
+      <div class="diu"><b>Si diuen que el robot s'ha equivocat</b>«El robot ha fet exactament el que li he dit. El que no sap és on és l'objecte. No té ulls. Com ho podem resoldre, doncs?»</div>
+      <div class="gran"><p>El robot no veu res.<br>Els que <b>heu de saber</b><br>on és l'objecte<br>sou vosaltres.</p></div>
+      <div class="row"><button class="cta" data-go="blocs">Els blocs →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- BLOCS -->
+    <section class="screen" id="s-blocs">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>Tot el que teniu</h2>
+      <div class="blocs2">
+        <div class="bk k1"><div class="h">Moviment</div><div class="b">Avançar, anar enrere, girar a la dreta, girar a l'esquerra.<code>Drive · Turn</code></div></div>
+        <div class="bk k2"><div class="h">Pinça</div><div class="b">Obrir els braços i tancar els braços. <strong>No n'hi ha cap més.</strong> A l'aplicació són a la secció d'accessoris.<code>Accessory · open / close arms</code></div></div>
+        <div class="bk k3"><div class="h">Espera</div><div class="b">Fer una pausa entre dues accions. Útil per assegurar que una acaba abans que comenci l'altra.<code>Wait</code></div></div>
+      </div>
+      <div class="alerta"><strong>El que no existeix:</strong> cap bloc que digui «agafa l'objecte», cap sensor que detecti que la pinça toca alguna cosa, i cap manera de controlar quant s'obren els braços. Només obert o tancat.</div>
+      <div class="nota"><strong>Que ho descobreixin ells.</strong> Deixa'ls buscar el bloc «agafa» durant un minut abans de dir que no existeix. Aquell minut val més que l'explicació.</div>
+      <div class="row"><button class="cta" data-go="mesura">Com es mesura →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- MESURA -->
+    <section class="screen" id="s-mesura">
+      <div class="eyebrow">Projectar · 12 minuts</div>
+      <h2>Mesurar el robot</h2>
+      <p class="lede">Aquest és el cor de la sessió. Sense aquests números, la resta és endevinar.</p>
+      <div class="passos">
+        <div class="pas"><div class="n">1</div><div><div class="t">Un bloc, i mesureu</div><div class="a">Marqueu la sortida amb cinta. Deixeu-lo anar amb un sol bloc d'avançar. Mesureu d'on ha sortit fins on s'atura del tot.</div></div></div>
+        <div class="pas"><div class="n">2</div><div><div class="t">Prediu abans de provar</div><div class="a">«I amb tres blocs?» Que ho diguin en veu alta i ho escriguin. Encara no ho poden provar.</div></div></div>
+        <div class="pas"><div class="n">3</div><div><div class="t">Tres blocs, i mesureu</div><div class="a">Ara sí. Compareu amb la predicció.</div></div></div>
+        <div class="pas"><div class="n">4</div><div><div class="t">Per què no és exactament el triple?</div><div class="a">Les rodes rellisquen i cada arrencada i cada frenada perden una mica. L'error s'acumula.</div></div></div>
+      </div>
+      <div class="gran"><p>Tres blocs <b>no fan</b><br>el triple d'un.<br>I això s'ha de<br>tenir en compte.</p></div>
+      <div class="nota"><strong>Els errors de mesura que faran tots.</strong> Mesurar des del davant del robot en lloc de des del mateix punt sempre · no esperar que s'aturi del tot · moure el robot sense tornar-lo a la marca de sortida · mesurar amb el regle tort. Val la pena aturar-ho i fer-ho bé una vegada davant de tothom.</div>
+      <div class="row"><button class="cta" data-go="errors">Tipus d'error →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan no agafa l'objecte</h2>
+      <div class="errors">
+        <div class="er"><h4>De distància</h4><p>S'ha quedat curt o s'ha passat de llarg.</p><span class="sig">Tanca la pinça a l'aire · hi passa per sobre</span></div>
+        <div class="er"><h4>De gir</h4><p>Ha girat massa, massa poc o cap al costat contrari.</p><span class="sig">Arriba bé però mirant cap on no toca</span></div>
+        <div class="er"><h4>De moment</h4><p>La pinça s'obre o es tanca quan no toca.</p><span class="sig">Arriba amb la pinça ja tancada · deixa l'objecte a mig camí</span></div>
+        <div class="er"><h4>D'ordre</h4><p>Les instruccions són bones però estan canviades de lloc.</p><span class="sig">Fa les coses correctes en el moment equivocat</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Una variable<br><b>cada vegada.</b></p></div>
+      <div class="nota">La pregunta que has de fer sempre és la mateixa: <strong>«quina cosa canviareu?»</strong>, en singular. Si canvien la distància, el gir i el moment alhora i funciona, no sabran mai què ho ha arreglat.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Cada cèl·lula recull el seu Dash, el Chromebook i la caixa d'objectes.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">10</td><td><strong>La demostració.</strong> Fas fracassar el robot. Descobreixen que no veu res.</td></tr>
+          <tr><td class="t">15:18</td><td class="t">10</td><td><strong>Blockly.</strong> Els blocs de moviment i els dos de la pinça.</td></tr>
+          <tr class="clau"><td class="t">15:28</td><td class="t">12</td><td><strong>Mesura.</strong> Un bloc, predicció, tres blocs. Aquí hi ha les matemàtiques.</td></tr>
+          <tr><td class="t">15:40</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol entre els dos equips de la cèl·lula.</td></tr>
+          <tr class="clau"><td class="t">15:45</td><td class="t">25</td><td><strong>La missió.</strong> Recuperen el seu CODE TABLE de la sessió 2 i l'executen. Depuren.</td></tr>
+          <tr class="clau"><td class="t">16:10</td><td class="t">7</td><td><strong>Validació doble.</strong> Dues vegades seguides igual.</td></tr>
+          <tr><td class="t">16:17</td><td class="t">5</td><td><strong>Registre</strong> del diagnòstic.</td></tr>
+          <tr><td class="t">16:22</td><td class="t">6</td><td><strong>Tancament.</strong></td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong> Pinces desmuntades i Dash a carregar.</td></tr>
+        </tbody>
+      </table>
+      <div class="bloc" style="margin-top:18px"><h3>Tres Dash per a sis equips</h3>
+        <p style="margin-bottom:10px">Els dos equips de cada cèl·lula <strong>no fan torns d'espera</strong>. Les dues feines tenen producte propi i es canvien a la pausa del minut 15:40.</p>
+        <table>
+          <thead><tr><th>Equip A</th><th>Equip B</th></tr></thead>
+          <tbody>
+            <tr><td>Programa al Chromebook</td><td>Mesura amb la regla i omple la taula</td></tr>
+            <tr><td>Prem i observa el robot</td><td>Observa l'objecte i diu si la pinça hi arriba</td></tr>
+            <tr><td>Proposa el canvi</td><td>Comprova que només se n'ha canviat un</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota">Les quatre files marcades no es poden escurçar. Si vas tard, retalla l'exploració lliure de blocs del minut 15:18, mai la mesura.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir les mesures</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="12-36-33-70-6&#10;15-45-41-70-5&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li><strong>Muntar les tres pinces</strong> (76 peces cadascuna). No es munta a l'aula.</li>
+            <li><strong>Carregar els Dash amb la pinça desmuntada</strong>: la pinça tapa el port de càrrega.</li>
+            <li>Comprovar el firmware dels tres Dash i que Blockly s'obre des del Chromebook.</li>
+            <li>Anomenar-los <strong>DASH-A, DASH-B i DASH-C</strong> per evitar connexions creuades.</li>
+            <li>Preparar els <strong>objectes de transport</strong>: lleugers, amb una zona d'agafada igual per a tots.</li>
+            <li>Marcar amb cinta de pintor el punt de sortida, el de l'objecte i el de lliurament de cada cèl·lula.</li>
+            <li>Regles o metres, un per equip.</li>
+            <li><strong>Imprimir les CODE TABLE de la sessió 2</strong> des de la pestanya PLANS del full.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Dash amb la pinça ja muntada i carregats.</li>
+            <li>Cinta al terra o a les taules, tres circuits idèntics.</li>
+            <li>Chromebooks amb Blockly obert i el robot ja emparellat.</li>
+            <li>Cartell dels quatre tipus d'error penjat.</li>
+            <li>La teva demostració muntada i provada.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui <strong>mesura</strong> i qui <strong>endevina</strong>.</li>
+            <li>Qui es queda deliberadament curt perquè és més fàcil d'arreglar que passar-se.</li>
+            <li>Qui torna a la mesura quan falla, en lloc de canviar números a l'atzar.</li>
+            <li>Qui canvia una sola cosa cada vegada.</li>
+            <li>Tres alumnes per sessió.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>Un Dash no connecta:</strong> apaga'l i torna'l a encendre, i comprova que cap altre Chromebook hi estigui connectat. És la incidència més freqüent.</li>
+            <li><strong>La pinça es desencaixa:</strong> passa. Torna a encaixar els engranatges i baixa el pes de l'objecte.</li>
+            <li><strong>Només queden dos Dash:</strong> tres equips a cada un, i el tercer equip fa de verificador i registra igualment.</li>
+            <li><strong>Blockly no s'obre al Chromebook:</strong> tauleta amb la mateixa app. Cap altra app de Wonder.</li>
+            <li><strong>Van molt endarrerits:</strong> que facin només recollir l'objecte, sense lliurar-lo. La mesura i el diagnòstic són el que compta.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi de mesures</h3>
+        <p style="margin-bottom:8px">Cinc números separats per guions:</p>
+        <table><thead><tr><th>Posició</th><th>Què és</th></tr></thead><tbody>
+          <tr><td class="t">1r</td><td>Centímetres que fa un bloc d'avançar</td></tr>
+          <tr><td class="t">2n</td><td>Centímetres que <strong>preveien</strong> amb tres blocs</td></tr>
+          <tr><td class="t">3r</td><td>Centímetres <strong>reals</strong> amb tres blocs</td></tr>
+          <tr><td class="t">4t</td><td>Distància fins a l'objecte</td></tr>
+          <tr><td class="t">5è</td><td>Blocs que hi han posat</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>12-36-33-70-6</strong> vol dir que un bloc fa 12 cm, preveien 36 amb tres, n'han sortit 33, l'objecte era a 70 cm i hi han posat 6 blocs.</p>
+      </div>
+      <div class="nota"><strong>Què t'informa de veritat.</strong> No si encerten la predicció, sinó <strong>què fan quan no l'encerten</strong>. Un equip que prediu 36, en mesura 33 i després calcula amb 11 cm per bloc en lloc de 12 ha entès que la realitat mana per sobre de l'aritmètica. Això és pensament d'enginyeria, i a 3r és molt.</div>
+      <div class="alerta"><strong>Sobre la pinça.</strong> Només es pot obrir i tancar: no hi ha control d'angle ni sensor de presència, i tot es resol per seqüència i temps. Això no és un defecte a amagar, és el problema matemàtic de la sessió. Si algun equip et demana un bloc per detectar l'objecte, la resposta és que no existeix i que per això han de mesurar.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",demo:"#s-demo",blocs:"#s-blocs",mesura:"#s-mesura",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim();}).filter(function(l){return l.length>0;});
+  if(!linies.length){
+    $("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: 12-36-33-70-6</div>';
+    return;
+  }
+  var h=linies.map(function(l,k){
+    var n=l.split(/[^0-9]+/).filter(function(x){return x.length;}).map(Number);
+    if(n.length<5) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var m1=n[0],mp=n[1],m3=n[2],dist=n[3],bl=n[4];
+    var dif=m3-mp, teoric=m1*3, recorregut=bl*m1, sobra=recorregut-dist;
+    var lect;
+    if(Math.abs(dif)<=1) lect="Predicció clavada.";
+    else if(dif<0) lect="Preveien "+Math.abs(dif)+" cm de més: encara no compten que el robot es queda curt.";
+    else lect="Preveien "+dif+" cm de menys: potser la primera mesura era curta.";
+    var lect2;
+    if(Math.abs(sobra)<=3) lect2="El càlcul dels blocs quadra amb la distància.";
+    else if(sobra>0) lect2="Amb aquests blocs es passarien uns "+sobra+" cm.";
+    else lect2="Amb aquests blocs es quedarien curts uns "+(-sobra)+" cm.";
+    var lect3 = (Math.abs(m3-teoric)>3)
+      ? "Han vist que tres blocs no fan el triple ("+teoric+" contra "+m3+")."
+      : "Al seu robot, tres blocs sí que fan gairebé el triple.";
+    return '<div class="plec"><div class="cap">Equip '+(k+1)+' · '+l+'</div>'+
+      '<p>1 bloc · '+m1+' cm</p>'+
+      '<p>3 blocs · deien '+mp+' i n\'han sortit '+m3+'</p>'+
+      '<p>Objectiu · '+dist+' cm amb '+bl+' blocs (uns '+recorregut+' cm)</p>'+
+      '<p style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink-soft);margin-top:10px">'+
+      lect+' '+lect3+' '+lect2+'</p></div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' equips.</strong> Compara els primers números: si dos equips donen valors molt diferents per a un mateix bloc, o els robots no van igual, o algú no ha mesurat des del mateix punt.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
