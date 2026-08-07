@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:trwf9tsc99kw:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 3 · La xarxa de materials · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.passos{display:grid;gap:12px;margin-top:18px}
+.pas{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px 18px;box-shadow:var(--shadow)}
+.pas .n{font-family:var(--disp);font-size:clamp(34px,4.4vw,50px);color:var(--amber);line-height:1;min-width:40px;text-align:center}
+.pas .t{font-family:var(--disp);font-size:clamp(20px,2.6vw,27px);text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.pas .a{font-size:15px;color:var(--ink-soft);margin-top:3px}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+.mapa{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px;box-shadow:var(--shadow);margin-top:16px}
+.mapa svg{width:100%;height:auto;display:block}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.mostra{display:inline-flex;gap:4px;vertical-align:middle;margin-left:6px}
+.mostra span{width:22px;height:22px;border:2px solid var(--ink);border-radius:2px;display:inline-block}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>3</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>La xarxa<br><em>de materials</em></h1>
+        <p class="lede">Ozobot Evo amb codis de color. Avui el robot transporta un objecte per la xarxa de l'escola, i a cada cruïlla un codi decideix cap a quina via va.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="calib"><div class="n">Projectar</div><div class="t">Calibratge</div><div class="d">Els quatre passos. Ningú avança sense això.</div></button>
+        <button class="card-btn" data-go="tracat"><div class="n">Projectar</div><div class="t">Com es traça</div><div class="d">Gruix, forats i on van els codis.</div></button>
+        <button class="card-btn" data-go="xarxa"><div class="n">Projectar</div><div class="t">La xarxa</div><div class="d">El mapa i les missions de cada equip.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Tres tipus d'error</div><div class="d">Traçat, calibratge o codi. El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut de la sessió.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir codis</div><div class="d">Descodifica les rutes dels equips.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">Preparació, missions, què observar i plans B.</div></button>
+      </div>
+    </section>
+
+    <!-- CALIBRATGE -->
+    <section class="screen" id="s-calib">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>Calibrar abans de res</h2>
+      <p class="lede">Un robot sense calibrar no llegeix bé els colors i sembla que estigui espatllat. És la causa número u de les avaries que no ho són.</p>
+      <div class="passos">
+        <div class="pas"><div class="n">1</div><div><div class="t">Paper blanc i pla</div><div class="a">Sense ratlles, sense ombres, sense res dibuixat a sota.</div></div></div>
+        <div class="pas"><div class="n">2</div><div><div class="t">Segueix les instruccions del robot</div><div class="a">Cada Ozobot es calibra a la seva manera. Fes-ho tu davant de tothom la primera vegada.</div></div></div>
+        <div class="pas"><div class="n">3</div><div><div class="t">Comprova-ho amb una línia recta</div><div class="a">Traça una línia negra gruixuda. Si el robot la segueix sense sortir-se'n, està calibrat.</div></div></div>
+        <div class="pas"><div class="n">4</div><div><div class="t">Torna-hi si canvia la llum o el paper</div><div class="a">Si obriu la persiana o canvieu de full, es torna a calibrar.</div></div></div>
+      </div>
+      <div class="gran"><p>Si no segueix<br>una línia recta,<br><b>no li poseu codis.</b></p></div>
+      <div class="row"><button class="cta" data-go="tracat">Com es traça →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- TRAÇAT -->
+    <section class="screen" id="s-tracat">
+      <div class="eyebrow">Projectar</div>
+      <h2>Com es traça perquè funcioni</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>La línia</h3>
+          <ul>
+            <li><strong>Gruixuda</strong>, més o menys com el retolador dona de si. Una línia prima el fa perdre.</li>
+            <li><strong>Sense forats.</strong> Repassa-la mirant a contrallum.</li>
+            <li><strong>Corbes amples.</strong> Els girs tancats el fan sortir.</li>
+            <li><strong>Negre de veritat</strong>, no gris ni blau fosc.</li>
+          </ul></div>
+        <div class="bloc"><h3>Els codis</h3>
+          <ul>
+            <li>Van <strong>sobre la línia</strong>, formant part del camí.</li>
+            <li><strong>Abans de la cruïlla</strong>, no a sobre. El robot ha de llegir-los mentre avança.</li>
+            <li>Deixa <strong>un tros de negre</strong> abans i després de cada codi.</li>
+            <li>Colors <strong>ben plens</strong>, sense clarianes.</li>
+          </ul></div>
+      </div>
+      <div class="alerta"><strong>El més important:</strong> els codis no es posen a la cruïlla, es posen al camí que hi porta. Si els posen just al creuament, el robot no té temps de llegir-los i tira on vol. Aquest error el faran tots i és el millor moment de la sessió per fer diagnòstic.</div>
+      <div class="row"><button class="cta" data-go="xarxa">La xarxa →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- XARXA -->
+    <section class="screen" id="s-xarxa">
+      <div class="eyebrow">Projectar</div>
+      <h2>La xarxa i les missions</h2>
+      <div class="mapa">
+        <svg viewBox="0 0 620 320" role="img" aria-label="Xarxa amb un punt de recollida a baix, tres cruïlles i quatre vies de sortida a dalt">
+          <rect x="10" y="10" width="600" height="300" fill="#fff" stroke="#141A18" stroke-width="2"/>
+          <path d="M310 285V215" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M310 215H150v-60" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M310 215h160v-60" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M150 155H80V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M150 155h70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M470 155h-70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M470 155h70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <rect x="255" y="285" width="110" height="30" fill="#141A18"/>
+          <text x="310" y="306" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#fff" text-anchor="middle" letter-spacing="2">RECOLLIDA</text>
+          <circle cx="310" cy="215" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="310" y="222" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">1</text>
+          <circle cx="150" cy="155" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="150" y="162" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">2</text>
+          <circle cx="470" cy="155" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="470" y="162" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">3</text>
+          <rect x="45" y="45" width="70" height="50" fill="#B8930F" stroke="#141A18" stroke-width="2"/>
+          <text x="80" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">0</text>
+          <rect x="185" y="45" width="70" height="50" fill="#1F5C3C" stroke="#141A18" stroke-width="2"/>
+          <text x="220" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">1</text>
+          <rect x="365" y="45" width="70" height="50" fill="#234A80" stroke="#141A18" stroke-width="2"/>
+          <text x="400" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">2</text>
+          <rect x="505" y="45" width="70" height="50" fill="#8F2A19" stroke="#141A18" stroke-width="2"/>
+          <text x="540" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">E</text>
+        </svg>
+      </div>
+      <table>
+        <thead><tr><th>Equip</th><th>Objecte</th><th>Ha d'arribar a</th><th>Cruïlles</th></tr></thead>
+        <tbody>
+          <tr><td class="t">1</td><td>Un full escrit per una cara</td><td>VIA 1 · Encara serveix</td><td class="t">1 i 2</td></tr>
+          <tr><td class="t">2</td><td>Les piles del comandament</td><td>VIA E · Especial</td><td class="t">1 i 3</td></tr>
+          <tr><td class="t">3</td><td>Un brik de suc buit</td><td>VIA 2 · Reciclar</td><td class="t">1 i 3</td></tr>
+          <tr><td class="t">4</td><td>El paper d'alumini de l'esmorzar</td><td>VIA 0 · Evitar</td><td class="t">1 i 2</td></tr>
+          <tr><td class="t">5</td><td>Una carpeta amb la goma trencada</td><td>VIA 1 · Encara serveix</td><td class="t">1 i 2</td></tr>
+          <tr><td class="t">6</td><td>Una tauleta amb la pantalla trencada</td><td>VIA E · Especial</td><td class="t">1 i 3</td></tr>
+        </tbody>
+      </table>
+      <div class="nota">Cada equip porta un objecte diferent a una via diferent, així que <strong>no es poden copiar la solució</strong>. L'activitat els assigna la missió sola segons l'equip que triïn.</div>
+      <div class="row"><button class="cta" data-go="errors">Tipus d'error →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan no fa el que volíeu</h2>
+      <p class="lede">Avui només hi ha tres causes possibles. Saber-les distingir és el que s'avalua.</p>
+      <div class="errors">
+        <div class="er"><h4>De traçat</h4><p>El dibuix no és prou bo perquè el robot el llegeixi.</p><span class="sig">Se surt de la línia · s'atura al mig · s'ho salta tot</span></div>
+        <div class="er"><h4>De calibratge</h4><p>El robot no interpreta bé els colors que veu.</p><span class="sig">Fa una cosa diferent cada vegada amb el mateix codi</span></div>
+        <div class="er"><h4>De codi</h4><p>Tot està ben fet, però el codi triat no és el que calia.</p><span class="sig">Ho fa perfecte, però va on no toca</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Una variable<br><b>cada vegada.</b></p></div>
+      <div class="nota">Si repassen la línia, recalibren i canvien el codi tot alhora i llavors funciona, no sabran mai què ho ha arreglat. La pregunta que has de fer és sempre la mateixa: <strong>«quina cosa canviareu?»</strong>, en singular.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Ozobot numerat, retoladors, paper. Comproven la càrrega.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">10</td><td><strong>Calibratge.</strong> Tots. Línia recta de comprovació. Qui no calibra, no avança.</td></tr>
+          <tr><td class="t">15:18</td><td class="t">12</td><td><strong>Els codis.</strong> Carta de codis projectada. Cada equip en prova dos o tres sobre una recta.</td></tr>
+          <tr class="clau"><td class="t">15:30</td><td class="t">8</td><td><strong>Planificació a la tauleta.</strong> Quin codi a cada cruïlla. Predicció obligatòria.</td></tr>
+          <tr><td class="t">15:38</td><td class="t">22</td><td><strong>Traçat i prova.</strong> Dibuixen la xarxa amb els codis planificats.</td></tr>
+          <tr><td class="t">16:00</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol.</td></tr>
+          <tr class="clau"><td class="t">16:05</td><td class="t">12</td><td><strong>Diagnòstic.</strong> Registren què ha fallat i de quin tipus. Canvien una sola cosa.</td></tr>
+          <tr class="clau"><td class="t">16:17</td><td class="t">5</td><td><strong>Validació doble.</strong> Dues vegades seguides igual.</td></tr>
+          <tr><td class="t">16:22</td><td class="t">6</td><td><strong>Evidència i tancament.</strong></td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong> Ozobots a carregar, retoladors tapats, paper guardat.</td></tr>
+        </tbody>
+      </table>
+      <div class="nota">Les quatre files marcades són les que no pots escurçar. Si vas tard, retalla la prova lliure de codis del minut 15:18, no el diagnòstic.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir les rutes</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="1·1ENVN·2ENGB&#10;E·1DVB·3DNG&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li><strong>Carregar els sis Evo.</strong> És l'avaria número u dels tallers amb Ozobot.</li>
+            <li>Comprovar els retoladors: negre, vermell, blau i verd, amb tinta i que pintin gruixut.</li>
+            <li>Paper blanc mat, gros. Un full per equip com a mínim, i de recanvi.</li>
+            <li>Imprimir la <strong>carta oficial de codis</strong> d'Ozobot, una per equip, plastificada.</li>
+            <li>Numerar cada Ozobot i assignar-ne un de fix a cada equip.</li>
+            <li>Publicar l'activitat i enganxar-hi l'ENDPOINT.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Ozobots carregats i numerats a l'armari.</li>
+            <li>Retoladors i paper per equip.</li>
+            <li>Cartell dels tres tipus d'error penjat.</li>
+            <li>Cartes de codis a les taules.</li>
+            <li>Comprovar la llum de l'aula: si hi ha reflexos forts sobre les taules, baixa la persiana.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui <strong>calibra sense que li ho diguis</strong> quan una cosa falla.</li>
+            <li>Qui sap dir <strong>de quin tipus</strong> és el problema abans de tocar res.</li>
+            <li>Qui canvia <strong>una sola cosa</strong> i qui ho canvia tot alhora.</li>
+            <li>Qui torna a mirar el mapa abans d'escriure i qui hi torna a cada pas.</li>
+            <li>Tres alumnes per sessió.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>Un Ozobot no arrenca:</strong> el de recanvi de la cèl·lula. Si no n'hi ha, l'equip fa de verificador d'un altre equip i registra igualment el diagnòstic.</li>
+            <li><strong>Cap robot llegeix res:</strong> gairebé sempre és la llum. Prova amb la persiana baixada i llum artificial.</li>
+            <li><strong>Els retoladors no pinten:</strong> qualsevol retolador de punta gruixuda funciona si el negre és negre de debò. Prova-ho abans.</li>
+            <li><strong>Van molt endarrerits:</strong> que facin només la cruïlla 1. El diagnòstic és més important que completar la ruta.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi de ruta</h3>
+        <p style="margin-bottom:8px">Format: <strong>via · cruïlla+direcció+colors · cruïlla+direcció+colors</strong></p>
+        <table><thead><tr><th>Lletra</th><th>Vol dir</th></tr></thead><tbody>
+          <tr><td class="t">E / R / D</td><td>Esquerra · Recte · Dreta</td></tr>
+          <tr><td class="t">N</td><td>Negre</td></tr>
+          <tr><td class="t">V</td><td>Vermell</td></tr>
+          <tr><td class="t">B</td><td>Blau</td></tr>
+          <tr><td class="t">G</td><td>Verd</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>1·1ENVN·2ENGB</strong> és una ruta cap a la via 1, girant a l'esquerra a la cruïlla 1 amb el codi negre-vermell-negre, i a l'esquerra a la cruïlla 2 amb negre-verd-blau.</p>
+      </div>
+      <div class="alerta"><strong>Sobre les seqüències de colors.</strong> L'activitat no comprova si el codi de colors és el correcte, i és deliberat: els codis d'Ozobot els han de llegir de la <strong>carta oficial</strong>, i copiar-los bé és part de la feina. Comprova tu la carta que fas servir abans de la sessió, i que els colors dels retoladors coincideixen amb els que espera el robot.</div>
+      <div class="nota"><strong>Per què hi ha una pantalla de diagnòstic.</strong> El que avalues avui no és si el robot arriba a la via correcta: és si saben dir per què no hi arriba. Un equip que falla i diagnostica bé té més nivell que un que encerta a la primera sense saber per què.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",calib:"#s-calib",tracat:"#s-tracat",xarxa:"#s-xarxa",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+var DIR={E:"Esquerra",R:"Recte",D:"Dreta"};
+var COL={N:"Negre",V:"Vermell",B:"Blau",G:"Verd"};
+var HEX={N:"#141A18",V:"#8F2A19",B:"#234A80",G:"#1F5C3C"};
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim().toUpperCase();}).filter(function(l){return l.length>0;});
+  if(!linies.length){$("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: 1·1ENVN·2ENGB</div>';return;}
+  var h=linies.map(function(l,k){
+    var parts=l.split(/[·.\-\s]+/).filter(function(p){return p.length>0;});
+    var via=parts.shift()||"?";
+    var cap='<div class="cap">Ruta '+(k+1)+' · cap a la via '+via+'</div>';
+    if(!parts.length) return '<div class="plec">'+cap+'<p>No s\'hi veu cap cruïlla.</p></div>';
+    var cos=parts.map(function(p){
+      var cr=p[0], d=p[1], cols=p.slice(2).split("");
+      var mal=!DIR[d] || cols.some(function(c){return !COL[c];});
+      if(mal) return '<p>Cruïlla '+cr+' · no es pot llegir ('+p+')</p>';
+      var m='<span class="mostra">'+cols.map(function(c){return '<span style="background:'+HEX[c]+'"></span>';}).join("")+'</span>';
+      return '<p>Cruïlla '+cr+' · '+DIR[d]+' · '+cols.map(function(c){return COL[c];}).join("-")+m+'</p>';
+    }).join("");
+    return '<div class="plec">'+cap+cos+'</div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' rutes.</strong> Compara-les amb la taula de missions: cada equip tenia una via diferent assignada.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
