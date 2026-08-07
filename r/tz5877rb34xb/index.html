@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:tz5877rb34xb:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OZO-TRACE · Sessió 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pas{font-family:var(--disp);font-size:20px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:22px 18px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+h3{font-family:var(--disp);font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px;max-width:540px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],textarea{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+textarea{min-height:100px;resize:vertical;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:11px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.panel{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow);margin-top:16px}
+.mapa{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px;box-shadow:var(--shadow);margin-top:16px}
+.mapa svg{width:100%;height:auto;display:block;max-height:320px}
+.missio{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:20px;box-shadow:var(--shadow);margin-top:16px}
+.missio .k{font-family:var(--disp);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.missio .v{font-family:var(--disp);font-size:clamp(26px,4.6vw,40px);text-transform:uppercase;line-height:1.05;margin-top:4px}
+.missio .v em{font-style:normal;color:var(--amber)}
+.cruilles{display:grid;gap:14px;margin-top:16px}
+.cr{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.cr .cap{font-family:var(--disp);font-size:24px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.dir{border:2px solid var(--ink);border-radius:3px;padding:13px 6px;font-family:var(--disp);font-size:18px;letter-spacing:.06em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:56px}
+.dir[aria-pressed=true]{background:var(--verd);color:#fff;border-color:var(--ink)}
+.cr .sub{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.cols{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px}
+.col{border:2px solid var(--ink);border-radius:3px;min-height:52px;min-width:52px;padding:0 6px;font-family:var(--disp);font-size:15px;letter-spacing:.05em;text-transform:uppercase;box-shadow:var(--shadow)}
+.col.n{background:#141A18;color:#fff}
+.col.v{background:#8F2A19;color:#fff}
+.col.b{background:#234A80;color:#fff}
+.col.g{background:#1F5C3C;color:#fff}
+.seqcol{display:flex;gap:6px;align-items:center;flex-wrap:wrap;min-height:52px;background:#fff;border:2px dashed var(--rule);border-radius:2px;padding:8px}
+.seqcol .t{width:34px;height:34px;border:2px solid var(--ink);border-radius:2px}
+.seqcol .buit{color:var(--ink-soft);font-size:15px;font-style:italic}
+.avis{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.avis strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.tipus{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:700px){.tipus{grid-template-columns:repeat(3,1fr)}}
+.tp{border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;background:var(--paper-2);padding:14px 16px;text-align:left;box-shadow:var(--shadow)}
+.tp[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.tp h4{font-family:var(--disp);font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.tp p{font-size:14px;color:var(--ink-soft)}
+.tp[aria-pressed=true] p{color:#C2C7B9}
+.siNo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sn{border:2px solid var(--ink);border-radius:3px;padding:16px 8px;font-family:var(--disp);font-size:24px;letter-spacing:.08em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:64px}
+.sn[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(30px,6vw,54px);letter-spacing:.16em;color:#EFCB3A;line-height:1.2;word-break:break-all;margin-top:4px}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:10px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.resum{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-top:14px}
+.resum p{font-family:var(--disp);font-size:20px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.vel{position:fixed;inset:0;background:rgba(20,26,24,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100}
+.vel[hidden]{display:none}
+.pop{background:var(--paper-2);border:3px solid var(--ink);border-radius:4px;padding:22px;max-width:760px;width:100%;box-shadow:0 6px 0 rgba(0,0,0,.28);text-align:center}
+.pop h3{border:none;padding:0;font-size:clamp(24px,4vw,32px);margin-bottom:14px}
+.pop svg{width:100%;height:auto;display:block;margin-bottom:16px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">OZO<b>-TRACE</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="pas" id="pas" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <!-- 1 · ENTRADA -->
+    <section class="screen on" id="s1">
+      <div class="eyebrow">Sessió 3 · La xarxa de materials</div>
+      <h2>Qui condueix avui?</h2>
+      <p class="lede">El robot ha de portar un objecte per la xarxa de l'escola fins a la via que li toca. A cada cruïlla, un codi de colors decideix cap a on va.</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="chips" id="grups"></div>
+        <label>Equip</label>
+        <div class="chips" id="equips"></div>
+        <button class="cta" id="anar1" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <!-- 2 · LA MISSIÓ -->
+    <section class="screen" id="s2">
+      <div class="eyebrow">La vostra missió</div>
+      <h2 id="titolM">On ha d'arribar</h2>
+      <div class="missio" id="missio"></div>
+      <div class="mapa" id="mapaCaixa">
+        <svg viewBox="0 0 620 320" role="img" aria-label="Xarxa amb un punt de recollida a baix, dues cruïlles i quatre vies de sortida a dalt">
+          <rect x="10" y="10" width="600" height="300" fill="#fff" stroke="#141A18" stroke-width="2"/>
+          <!-- traçat -->
+          <path d="M310 285V215" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M310 215H150v-60" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M310 215h160v-60" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M150 155H80V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M150 155h70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M470 155h-70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <path d="M470 155h70V95" stroke="#141A18" stroke-width="6" fill="none"/>
+          <!-- recollida -->
+          <rect x="255" y="285" width="110" height="30" fill="#141A18"/>
+          <text x="310" y="306" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#fff" text-anchor="middle" letter-spacing="2">RECOLLIDA</text>
+          <!-- cruïlles -->
+          <circle cx="310" cy="215" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="310" y="222" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">1</text>
+          <circle cx="150" cy="155" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="150" y="162" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">2</text>
+          <circle cx="470" cy="155" r="15" fill="#B8930F" stroke="#141A18" stroke-width="3"/>
+          <text x="470" y="162" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="19" fill="#141A18" text-anchor="middle">3</text>
+          <!-- vies -->
+          <rect x="45" y="45" width="70" height="50" fill="#B8930F" stroke="#141A18" stroke-width="2"/>
+          <text x="80" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">0</text>
+          <rect x="185" y="45" width="70" height="50" fill="#1F5C3C" stroke="#141A18" stroke-width="2"/>
+          <text x="220" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">1</text>
+          <rect x="365" y="45" width="70" height="50" fill="#234A80" stroke="#141A18" stroke-width="2"/>
+          <text x="400" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">2</text>
+          <rect x="505" y="45" width="70" height="50" fill="#8F2A19" stroke="#141A18" stroke-width="2"/>
+          <text x="540" y="78" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#fff" text-anchor="middle">E</text>
+        </svg>
+      </div>
+      <div class="avis"><strong>Fixeu-vos</strong>Els cercles grocs són cruïlles. El robot hi arriba i ha de saber cap a on tirar. Si no hi ha cap codi, el robot decideix ell.</div>
+      <div class="row"><button class="cta" id="anar2">A planificar →</button></div>
+    </section>
+
+    <!-- 3 · PLANIFICACIÓ -->
+    <section class="screen" id="s3">
+      <div class="eyebrow">Planificació</div>
+      <h2>Quin codi a cada cruïlla?</h2>
+      <p class="lede">Consulteu la carta de codis. Trieu la direcció i copieu l'ordre dels colors tal com surt a la carta.</p>
+      <div class="cruilles" id="cruilles"></div>
+      <div class="row">
+        <button class="cta ghost small" id="veureMapa">Tornar a veure el mapa</button>
+        <button class="cta" id="anar3" disabled>Ja ho tenim →</button>
+      </div>
+    </section>
+
+    <!-- 4 · PREDICCIÓ -->
+    <section class="screen" id="s4">
+      <div class="eyebrow">Abans de dibuixar res</div>
+      <h2>Què farà el robot?</h2>
+      <p class="lede">Llegiu el vostre pla en veu alta. Després escriviu què creieu que passarà quan el robot surti de la recollida.</p>
+      <div class="resum" id="resum"></div>
+      <div class="form" style="max-width:100%">
+        <label for="pred">La nostra predicció</label>
+        <textarea id="pred" placeholder="Per exemple: sortirà recte, a la cruïlla 1 girarà a l'esquerra i a la cruïlla 2 tirarà cap a la via 1."></textarea>
+      </div>
+      <div class="row">
+        <button class="cta ghost small" id="tornar3">← Canviar el pla</button>
+        <button class="cta" id="anar4" disabled>Anem a dibuixar-ho</button>
+      </div>
+    </section>
+
+    <!-- 5 · PROVA -->
+    <section class="screen" id="s5">
+      <div class="eyebrow">Ara toca paper i retoladors</div>
+      <h2>Dibuixeu-ho i proveu-ho</h2>
+      <div class="panel">
+        <h3>Abans de deixar anar el robot</h3>
+        <ol style="margin-left:22px">
+          <li style="margin-bottom:7px">Calibreu el robot sobre paper blanc.</li>
+          <li style="margin-bottom:7px">Traceu la línia negra ben gruixuda i sense forats.</li>
+          <li style="margin-bottom:7px">Poseu els codis just abans de cada cruïlla, no a sobre.</li>
+          <li>Deixeu un tros de línia negra abans i després de cada codi.</li>
+        </ol>
+      </div>
+      <div class="avis"><strong>No toqueu la tauleta fins que l'hàgiu provat</strong>Quan el robot hagi fet el recorregut, torneu aquí i expliqueu què ha passat.</div>
+      <div class="row"><button class="cta" id="anar5">Ja ho hem provat →</button></div>
+    </section>
+
+    <!-- 6 · DIAGNÒSTIC -->
+    <section class="screen" id="s6">
+      <div class="eyebrow">Diagnòstic</div>
+      <h2>Ha fet el que havíeu dit?</h2>
+      <div class="siNo" id="funciona1">
+        <button class="sn" data-f="SI">Sí, exacte</button>
+        <button class="sn" data-f="NO">No del tot</button>
+      </div>
+      <div id="blocError" hidden>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="quePassa">Què ha fet exactament</label>
+          <textarea id="quePassa" placeholder="Per exemple: a la cruïlla 2 no ha girat i ha continuat recte."></textarea>
+        </div>
+        <h3 style="margin-top:22px">De quin tipus és el problema?</h3>
+        <div class="tipus" id="tipus">
+          <button class="tp" data-t="Traçat"><h4>De traçat</h4><p>La línia és massa fina, té forats, o el codi està massa a prop de la cruïlla.</p></button>
+          <button class="tp" data-t="Calibratge"><h4>De calibratge</h4><p>El robot no llegeix bé els colors. No s'ha calibrat o el paper no era blanc.</p></button>
+          <button class="tp" data-t="Codi"><h4>De codi</h4><p>El codi està ben dibuixat i ben llegit, però no és el que necessitàvem.</p></button>
+        </div>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="queCanviem">Què canviem · només una cosa</label>
+          <textarea id="queCanviem" placeholder="Per exemple: repassarem la línia més gruixuda entre el codi i la cruïlla."></textarea>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar6" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 7 · VALIDACIÓ -->
+    <section class="screen" id="s7">
+      <div class="eyebrow">Última prova</div>
+      <h2>Funciona dues vegades seguides?</h2>
+      <p class="lede">Un cop pot ser sort. Torneu a posar el robot a la recollida i deixeu-lo anar dues vegades més. Han de sortir iguals.</p>
+      <div class="siNo" id="funciona2">
+        <button class="sn" data-f="SI">Sí, les dues</button>
+        <button class="sn" data-f="NO">Encara no</button>
+      </div>
+      <div class="row"><button class="cta" id="anar7" disabled>Guardar</button></div>
+    </section>
+
+    <!-- 8 · FINAL -->
+    <section class="screen" id="s8"></section>
+
+  </div></main>
+
+  <div class="vel" id="velMapa" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="mapT">
+      <h3 id="mapT">La xarxa</h3>
+      <div id="mapCopia"></div>
+      <button class="cta small" id="mapX">Ja ho tenim</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbxWmuIbDlB92iMtBbpJ01cQ0pS5AIajc-7nSSVtgzVBHQjzc1bJq6BPTyzl70jd_fcE/exec";
+/* ═══════════════════════════════════════════════════════════ */
+
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+
+/* Cada equip porta un objecte diferent a una via diferent.
+   Així cap equip pot copiar la solució del veí. */
+var MISSIONS={
+  "Equip 1":{obj:"Un full escrit per una cara",via:"1",nom:"Encara serveix"},
+  "Equip 2":{obj:"Les piles del comandament",via:"E",nom:"Especial"},
+  "Equip 3":{obj:"Un brik de suc buit",via:"2",nom:"Reciclar"},
+  "Equip 4":{obj:"El paper d'alumini de l'esmorzar",via:"0",nom:"Evitar"},
+  "Equip 5":{obj:"Una carpeta amb la goma trencada",via:"1",nom:"Encara serveix"},
+  "Equip 6":{obj:"Una tauleta amb la pantalla trencada",via:"E",nom:"Especial"}
+};
+/* Quina cruïlla ha de resoldre cada via */
+var CAMI={"0":[1,2],"1":[1,2],"2":[1,3],"E":[1,3]};
+
+var COLORS=[{k:"N",n:"Negre",c:"n"},{k:"V",n:"Vermell",c:"v"},{k:"B",n:"Blau",c:"b"},{k:"G",n:"Verd",c:"g"}];
+var HEX={N:"#141A18",V:"#8F2A19",B:"#234A80",G:"#1F5C3C"};
+var DIRS=[{k:"E",n:"Esquerra"},{k:"R",n:"Recte"},{k:"D",n:"Dreta"}];
+
+var st={grup:null,equip:null,noms:"",missio:null,cr:{},mirades:0,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",f2:null,t0:0};
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function mostra(id,n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  if(n){$("#pas").hidden=false;$("#pas").textContent=n;} else $("#pas").hidden=true;
+  window.scrollTo(0,0);
+}
+
+/* ---------- 1 · entrada ---------- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa1();
+});
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa1();
+});
+$("#noms").addEventListener("input",function(e){st.noms=e.target.value.trim();revisa1();});
+function revisa1(){$("#anar1").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+
+$("#anar1").addEventListener("click",function(){
+  st.t0=Date.now();
+  st.missio=MISSIONS[st.equip];
+  $("#meta").textContent=st.equip;
+  $("#missio").innerHTML='<div class="k">Porteu aquest objecte</div>'+
+    '<div class="v">'+st.missio.obj+'</div>'+
+    '<div class="k" style="margin-top:14px">Ha d\'arribar a</div>'+
+    '<div class="v"><em>VIA '+st.missio.via+'</em> · '+st.missio.nom+'</div>';
+  muntaCruilles();
+  mostra("#s2","1 de 6");
+});
+$("#anar2").addEventListener("click",function(){mostra("#s3","2 de 6");});
+
+/* ---------- 3 · planificació ---------- */
+function muntaCruilles(){
+  var llista=CAMI[st.missio.via];
+  st.cr={};
+  $("#cruilles").innerHTML=llista.map(function(n){
+    st.cr[n]={dir:null,cols:[]};
+    return '<div class="cr" data-cr="'+n+'"><div class="cap">Cruïlla '+n+'</div>'+
+      '<div class="sub">Cap a on ha de tirar</div>'+
+      '<div class="dirs">'+DIRS.map(function(d){
+        return '<button class="dir" data-d="'+d.k+'" aria-pressed="false">'+d.n+'</button>';}).join("")+'</div>'+
+      '<div class="sub">Els colors del codi, per ordre</div>'+
+      '<div class="cols">'+COLORS.map(function(c){
+        return '<button class="col '+c.c+'" data-c="'+c.k+'">'+c.n+'</button>';}).join("")+
+        '<button class="col" data-c="X" style="background:#fff">Treu</button></div>'+
+      '<div class="seqcol" data-seq="'+n+'"><span class="buit">Encara no heu posat cap color</span></div></div>';
+  }).join("");
+  $$("#cruilles .cr").forEach(function(cr){
+    var n=+cr.dataset.cr;
+    cr.querySelectorAll("[data-d]").forEach(function(b){
+      b.addEventListener("click",function(){
+        st.cr[n].dir=b.dataset.d;
+        cr.querySelectorAll("[data-d]").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.d===b.dataset.d);});
+        revisa3();
+      });
+    });
+    cr.querySelectorAll("[data-c]").forEach(function(b){
+      b.addEventListener("click",function(){
+        if(b.dataset.c==="X") st.cr[n].cols.pop();
+        else if(st.cr[n].cols.length<5) st.cr[n].cols.push(b.dataset.c);
+        pintaSeq(n); revisa3();
+      });
+    });
+  });
+}
+function pintaSeq(n){
+  var d=$('[data-seq="'+n+'"]'), c=st.cr[n].cols;
+  d.innerHTML=c.length?c.map(function(k){return '<span class="t" style="background:'+HEX[k]+'"></span>';}).join("")
+                      :'<span class="buit">Encara no heu posat cap color</span>';
+}
+function revisa3(){
+  var ok=Object.keys(st.cr).every(function(n){return st.cr[n].dir && st.cr[n].cols.length>=2;});
+  $("#anar3").disabled=!ok;
+}
+
+/* mapa consultable, amb registre */
+function obreMapa(){
+  var svg=$("#mapaCaixa svg");
+  if(svg && !$("#mapCopia").firstChild) $("#mapCopia").appendChild(svg.cloneNode(true));
+  st.mirades++;
+  $("#velMapa").hidden=false; $("#mapX").focus();
+}
+function tancaMapa(){$("#velMapa").hidden=true;}
+$("#veureMapa").addEventListener("click",obreMapa);
+$("#mapX").addEventListener("click",tancaMapa);
+$("#velMapa").addEventListener("click",function(ev){if(ev.target===$("#velMapa"))tancaMapa();});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&!$("#velMapa").hidden)tancaMapa();});
+tancaMapa();
+
+function nomDir(k){for(var i=0;i<DIRS.length;i++) if(DIRS[i].k===k) return DIRS[i].n; return "";}
+function nomCol(k){for(var i=0;i<COLORS.length;i++) if(COLORS[i].k===k) return COLORS[i].n; return "";}
+function textPla(){
+  return Object.keys(st.cr).map(function(n){
+    return "Cruïlla "+n+": "+nomDir(st.cr[n].dir)+" ("+st.cr[n].cols.map(nomCol).join("-")+")";
+  }).join(" | ");
+}
+$("#anar3").addEventListener("click",function(){
+  $("#resum").innerHTML=Object.keys(st.cr).map(function(n){
+    return '<p>Cruïlla '+n+' · '+nomDir(st.cr[n].dir)+' · '+st.cr[n].cols.map(nomCol).join(" · ")+'</p>';
+  }).join("");
+  mostra("#s4","3 de 6");
+});
+$("#tornar3").addEventListener("click",function(){mostra("#s3","2 de 6");});
+$("#pred").addEventListener("input",function(e){
+  st.pred=e.target.value.trim();
+  $("#anar4").disabled=st.pred.length<10;
+});
+$("#anar4").addEventListener("click",function(){mostra("#s5","4 de 6");});
+$("#anar5").addEventListener("click",function(){mostra("#s6","5 de 6");});
+
+/* ---------- 6 · diagnòstic ---------- */
+$("#funciona1").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f1=b.dataset.f;
+  $$("#funciona1 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f1);});
+  $("#blocError").hidden=(st.f1==="SI");
+  revisa6();
+});
+$("#tipus").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-t]"); if(!b) return;
+  st.tipus=b.dataset.t;
+  $$("#tipus .tp").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.t===st.tipus);});
+  revisa6();
+});
+$("#quePassa").addEventListener("input",function(e){st.quePassa=e.target.value.trim();revisa6();});
+$("#queCanviem").addEventListener("input",function(e){st.queCanviem=e.target.value.trim();revisa6();});
+function revisa6(){
+  if(st.f1==="SI"){$("#anar6").disabled=false;return;}
+  $("#anar6").disabled=!(st.f1==="NO" && st.quePassa.length>5 && st.tipus && st.queCanviem.length>5);
+}
+$("#anar6").addEventListener("click",function(){mostra("#s7","6 de 6");});
+
+$("#funciona2").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f2=b.dataset.f;
+  $$("#funciona2 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f2);});
+  $("#anar7").disabled=false;
+});
+
+/* ---------- final ---------- */
+function codi(){
+  return st.missio.via+"·"+Object.keys(st.cr).map(function(n){
+    return n+st.cr[n].dir+st.cr[n].cols.join("");
+  }).join("·");
+}
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  return fetch(ENDPOINT,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({
+      activitat:"ozo-trace",
+      grup:st.grup,equip:st.equip,noms:st.noms,
+      codi:codi(),
+      pla:textPla(),
+      prediccio:st.pred,
+      mirades:st.mirades,
+      objectiu:"VIA "+st.missio.via+" · "+st.missio.obj,
+      primera:st.f1,
+      quePassa:st.quePassa,
+      tipusError:st.tipus||"",
+      queCanviem:st.queCanviem,
+      dobleProva:st.f2,
+      minuts:Math.round((Date.now()-st.t0)/60000)
+    })}).then(function(){return "ok";}).catch(function(){return "err";});
+}
+$("#anar7").addEventListener("click",function(){
+  var missatge = (st.f1==="SI")
+    ? "A la primera. Ara ja sabeu que el pla era bo abans de dibuixar-lo."
+    : "No ha anat a la primera, i heu sabut dir per què. Això és el que compta.";
+  $("#s8").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Guardat</h2>'+
+    '<p class="lede">'+missatge+'</p>'+
+    '<div class="codi-box"><div class="k">Codi de la vostra ruta</div><div class="codi">'+codi()+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="resum">'+$("#resum").innerHTML+
+      '<p style="color:var(--ink-soft);margin-top:10px">Dues proves seguides: '+(st.f2==="SI"?"sí":"encara no")+'</p></div>'+
+    '<div class="row"><button class="cta ghost small" id="nova">Comença un altre equip</button></div>';
+  mostra("#s8");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Digueu el codi al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st={grup:null,equip:null,noms:"",missio:null,cr:{},mirades:0,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",f2:null,t0:0};
+    $("#noms").value="";$("#pred").value="";$("#quePassa").value="";$("#queCanviem").value="";
+    $$(".chip").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$(".sn").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#blocError").hidden=true;
+    $("#anar4").disabled=true;$("#anar6").disabled=true;$("#anar7").disabled=true;
+    $("#meta").textContent="";
+    revisa1(); mostra("#s1");
+  });
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
