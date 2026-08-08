@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:35p33z7gq5sn:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 7 · CIRCULA · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.pont{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-top:18px}
+.pont .cx{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.pont .cx .k{font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.pont .cx .v{font-family:var(--disp);font-size:clamp(18px,2.4vw,24px);text-transform:uppercase;line-height:1.2}
+.pont .fx{font-family:var(--disp);font-size:34px;color:var(--amber);text-align:center}
+@media(max-width:640px){.pont{grid-template-columns:1fr}}
+.blq{display:inline-block;border-radius:5px;padding:9px 15px;font-family:var(--disp);font-size:19px;letter-spacing:.03em;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.25);margin:3px 0}
+.blq.ev{background:#C79A2A}.blq.ct{background:#C9962E}.blq.op{background:#8B4FBF}.blq.ap{background:#8B5FCF}
+.pila{background:#fff;border:2px dashed var(--rule);border-radius:3px;padding:14px;margin-top:12px}
+.pila .ind{margin-left:26px}
+.passos{display:grid;gap:12px;margin-top:18px}
+.pas{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px 18px;box-shadow:var(--shadow)}
+.pas .n{font-family:var(--disp);font-size:clamp(34px,4.4vw,50px);color:var(--amber);line-height:1;min-width:40px;text-align:center}
+.pas .t{font-family:var(--disp);font-size:clamp(20px,2.6vw,27px);text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.pas .a{font-size:15px;color:var(--ink-soft);margin-top:3px}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.diu{background:#fff;border:2px dashed var(--ink);border-radius:3px;padding:14px 18px;margin-top:12px;font-size:17px;font-style:italic}
+.diu b{font-style:normal;font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>7</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>La decisió<br><em>en pantalla</em></h1>
+        <p class="lede">Scratch. La mateixa decisió que prenia la comporta, ara amb blocs. Un esdeveniment, una condició i tres sortides possibles.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="base"><div class="n">Preparació</div><div class="t">El projecte base</div><div class="d">Què has de deixar preparat. Es fa una sola vegada.</div></button>
+        <button class="card-btn" data-go="pont"><div class="n">Projectar</div><div class="t">El pont</div><div class="d">De la comporta al programa.</div></button>
+        <button class="card-btn" data-go="blocs"><div class="n">Projectar</div><div class="t">Esdeveniment i condició</div><div class="d">Els dos conceptes del dia.</div></button>
+        <button class="card-btn" data-go="ajuda"><div class="n">Com funciona</div><div class="t">L'ajuda de l'activitat</div><div class="d">Mapa de blocs i pistes. Què donen i què no.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Quatre tipus d'error</div><div class="d">El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir codis</div><div class="d">Descodifica els programes dels equips.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">Comptes, què observar i plans B.</div></button>
+      </div>
+    </section>
+
+    <!-- PROJECTE BASE -->
+    <section class="screen" id="s-base">
+      <div class="eyebrow">Preparació · es fa una sola vegada</div>
+      <h2>El projecte base</h2>
+      <p class="lede">Sense això, els 25 minuts de programació se'n van a buscar objectes i a dibuixar fons. El projecte base evita la pantalla en blanc sense donar-los res programat.</p>
+      <div class="passos">
+        <div class="pas"><div class="n">1</div><div><div class="t">Un sol objecte, amb cinc vestits</div><div class="a">Full de paper, brik de suc, pila, llapis mig i bosseta. Poden ser dibuixos senzills o cercats a la biblioteca de Scratch.</div></div></div>
+        <div class="pas"><div class="n">2</div><div><div class="t">Un fons qualsevol</div><div class="a">Que es vegi que és la planta. No cal res elaborat.</div></div></div>
+        <div class="pas"><div class="n">3</div><div><div class="t">Cap bloc programat</div><div class="a">L'àrea de programa ha d'estar buida. Els blocs els posen ells.</div></div></div>
+        <div class="pas"><div class="n">4</div><div><div class="t">Anomena'l i comparteix-lo</div><div class="a">Cada equip el duplica i li posa el seu nom. Convenció: <strong>GRUP_EQUIP_S7</strong>.</div></div></div>
+      </div>
+      <div class="alerta"><strong>El vestit és la clau tècnica.</strong> Amb un sol objecte i cinc vestits, la condició que han d'escriure és una pregunta sobre el vestit. Si en comptes d'això fas cinc objectes diferents, la programació es complica molt i no cap dins la sessió.</div>
+      <div class="nota">Comprova abans de la sessió que <strong>scratch.mit.edu no està bloquejat</strong> a la xarxa de l'escola i decideix si treballaran amb compte o sense. Si van sense compte, hauran de descarregar el projecte al Chromebook, i llavors la convenció de noms de fitxer és encara més important.</div>
+      <div class="row"><button class="cta" data-go="pont">El pont →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- PONT -->
+    <section class="screen" id="s-pont">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>De la comporta al programa</h2>
+      <div class="pont">
+        <div class="cx"><div class="k">Fa dues setmanes</div><div class="v">Si el sensor veu vermell,<br>la comporta s'obre.<br>Si no, es queda tancada.</div></div>
+        <div class="fx">→</div>
+        <div class="cx"><div class="k">Avui</div><div class="v">Si l'objecte és un brik,<br>digues «via 2».<br>Si no, digues una altra cosa.</div></div>
+      </div>
+      <div class="gran"><p>Qui mirava era el sensor.<br>Ara qui mira és<br><b>una pregunta.</b></p></div>
+      <div class="diu"><b>La pregunta d'obertura</b>«A la comporta, qui mirava? I qui feia la feina? Avui no tenim ni sensor ni motor. Qui ho farà?»</div>
+      <div class="nota">Deixa que ho diguin ells. La resposta que busques és que ara qui mira és <strong>la pregunta del «si»</strong> i qui fa la feina són <strong>els blocs de dins</strong>. La comparació els estalvia mitja explicació.</div>
+      <div class="row"><button class="cta" data-go="blocs">Esdeveniment i condició →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- BLOCS -->
+    <section class="screen" id="s-blocs">
+      <div class="eyebrow">Projectar</div>
+      <h2>Dos conceptes i prou</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>L'esdeveniment</h3>
+          <p style="margin-bottom:8px">Un programa no comença sol. Alguna cosa l'ha de despertar.</p>
+          <div class="pila">
+            <div class="blq ev">quan es clica la bandera verda</div><br>
+            <div class="blq ap">digues «Hola!»</div>
+          </div>
+          <p class="tip">Que ho provin i que canviïn el text. Dos minuts i ja ho tenen.</p>
+        </div>
+        <div class="bloc"><h3>La condició</h3>
+          <p style="margin-bottom:8px">Una pregunta que només té dues respostes, i cada resposta porta a un lloc diferent.</p>
+          <div class="pila">
+            <div class="blq ct">si <span class="blq op" style="padding:4px 10px;font-size:16px">el vestit és «brik»</span> llavors</div>
+            <div class="ind"><div class="blq ap">digues «via 2»</div></div><br>
+            <div class="blq ct">si no</div>
+            <div class="ind"><div class="blq ap">digues «via 1»</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="alerta"><strong>El bloc «si no» és el que costa.</strong> La majoria posaran només el «si» i es quedaran sense resposta per a la resta d'objectes. És exactament el mateix problema que van tenir amb la comporta i els colors que no havien programat. Recorda'ls-ho en lloc de resoldre'ls-ho.</div>
+      <div class="row"><button class="cta" data-go="ajuda">L'ajuda de l'activitat →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- AJUDA -->
+    <section class="screen" id="s-ajuda">
+      <div class="eyebrow">Com funciona l'activitat</div>
+      <h2>On, mai què</h2>
+      <p class="lede">L'activitat té dos botons d'ajuda a les pantalles de treball. Tots dos els ajuden a <strong>trobar</strong> els blocs. Cap dels dos els diu què hi han de posar a dins.</p>
+
+      <div class="gran"><p>La forma i el color<br>d'un bloc són <b>navegació</b>.<br>El que hi va a dins<br>és <b>pensament</b>.</p></div>
+
+      <div class="grid2">
+        <div class="bloc"><h3>«On són els blocs?»</h3>
+          <p style="margin-bottom:8px">Un mapa de la paleta de Scratch: quin color és cada categoria i què hi trobaran.</p>
+          <ul>
+            <li>Cap programa muntat, cap exemple resolt.</li>
+            <li>També explica les tres formes: barret, C i punxa.</li>
+            <li>El poden obrir tantes vegades com vulguin.</li>
+          </ul>
+          <p class="tip">Sense això, es passarien mitja sessió fent scroll per la paleta. Buscar no és l'aprenentatge d'avui.</p>
+        </div>
+        <div class="bloc"><h3>«Estem encallats»</h3>
+          <p style="margin-bottom:8px">Tres pistes que es desbloquegen d'una en una, i només si les demanen.</p>
+          <ul>
+            <li><strong>Pista 1</strong> · una pregunta que els fa pensar. Cap informació.</li>
+            <li><strong>Pista 2</strong> · una orientació sobre quina <em>forma</em> de bloc necessiten.</li>
+            <li><strong>Pista 3</strong> · en quina categoria és. I s'acaba aquí.</li>
+          </ul>
+          <p class="tip">Després de la tercera, l'activitat els diu: «fins aquí us puc ajudar; el que va dins dels blocs ho heu de decidir vosaltres».</p>
+        </div>
+      </div>
+
+      <div class="alerta"><strong>El que has de fer tu i l'activitat no pot fer.</strong> Modela la primera pila en directe a la Promethean, amb el Scratch de veritat: bandera verda més «digues Hola», i prou. Trenta segons. Així veuen l'app real i no un dibuix. L'activitat només els serveix de recordatori quan ja no els tens a sobre.</div>
+
+      <div class="bloc" style="margin-top:15px"><h3>Què et diu el registre</h3>
+        <p style="margin-bottom:10px">Al full trobaràs, per a cada equip, quantes pistes han demanat i de quin nivell. Es llegeix així:</p>
+        <table>
+          <thead><tr><th>Què hi veus</th><th>Què vol dir</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Cap pista</td><td>O ho tenien clar, o s'han encallat i no han demanat ajuda. Contrasta-ho amb si el programa funciona.</td></tr>
+            <tr><td class="t">Nivell 1 i prou</td><td>Amb una pregunta n'han tingut prou. És el millor resultat possible.</td></tr>
+            <tr><td class="t">Fins al 3</td><td>Han necessitat saber la categoria. Perfectament normal el primer dia amb Scratch.</td></tr>
+            <tr class="clau"><td class="t">Fins al 3 als tres contextos</td><td>Aquest equip encara no s'orienta sol a Scratch. Val la pena seure-hi a la sessió 8.</td></tr>
+          </tbody>
+        </table>
+        <p class="tip">Demanar pistes no és una penalització i als nens no se'ls diu res del registre. Si ho sabessin, deixarien de demanar-ne i perdries la informació.</p>
+      </div>
+
+      <div class="nota"><strong>Per què les pistes són preguntes i no respostes.</strong> A la investigació prèvia consta que, amb l'Ozobot, donar pistes i preguntes funciona millor que donar la solució, tant per a l'aprenentatge com per al gaudi. El mateix principi val aquí.</div>
+      <div class="row"><button class="cta" data-go="errors">Tipus d'error →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan el programa no diu el que toca</h2>
+      <div class="errors">
+        <div class="er"><h4>D'esdeveniment</h4><p>No s'engega, o s'engega quan no toca.</p><span class="sig">No passa res en clicar · s'engega tot sol</span></div>
+        <div class="er"><h4>De condició</h4><p>La pregunta del «si» no és la que calia.</p><span class="sig">Diu sempre el mateix, fos quin fos l'objecte</span></div>
+        <div class="er"><h4>D'ordre</h4><p>Els blocs hi són però estan mal col·locats.</p><span class="sig">Diu les dues coses seguides · diu la segona i prou</span></div>
+        <div class="er"><h4>De blocs solts</h4><p>Hi ha blocs que no estan enganxats a la pila.</p><span class="sig">Falta la meitat del que havia de passar</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Un programa que funciona<br>però que <b>no saben explicar</b><br>no compta.</p></div>
+      <div class="nota">Aquesta frase val la pena dir-la en veu alta. És el criteri d'avaluació del taller sencer, i avui és quan es fa més visible.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Entren, obren Scratch i obren el projecte base.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">10</td><td><strong>El pont.</strong> De la comporta al programa. No te'l saltis.</td></tr>
+          <tr><td class="t">15:18</td><td class="t">12</td><td><strong>L'esdeveniment.</strong> Un bloc i que passi alguna cosa.</td></tr>
+          <tr><td class="t">15:30</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol.</td></tr>
+          <tr class="clau"><td class="t">15:35</td><td class="t">25</td><td><strong>La condició.</strong> Si l'objecte és X, digues una via; si no, una altra.</td></tr>
+          <tr class="clau"><td class="t">16:00</td><td class="t">10</td><td><strong>Explicar el codi.</strong> Un explica a l'altre assenyalant els blocs. Aquí és on avalues.</td></tr>
+          <tr><td class="t">16:10</td><td class="t">7</td><td><strong>Prova creuada.</strong> Un altre equip el fa servir sense explicacions.</td></tr>
+          <tr class="clau"><td class="t">16:17</td><td class="t">5</td><td><strong>Registre i desar amb nom.</strong> Si no es desa, la sessió 8 comença de zero.</td></tr>
+          <tr><td class="t">16:22</td><td class="t">6</td><td><strong>Tancament.</strong></td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="nota">Si vas tard, retalla la prova creuada, no els deu minuts d'explicar el codi. I no retallis mai el temps de desar: la sessió 8 continua aquest mateix projecte.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir els programes</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full amb l'explicació sencera, i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="B-210-OE&#10;O-12E-X-&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li><strong>Comprovar que Scratch no està bloquejat</strong> a la xarxa de l'escola.</li>
+            <li>Decidir: amb compte de Scratch o sense. Si és sense, prepara on es desaran els fitxers.</li>
+            <li><strong>Muntar el projecte base</strong> i duplicar-lo per als sis equips.</li>
+            <li>Convenció de noms: <strong>GRUP_EQUIP_S7</strong>.</li>
+            <li>Posar Scratch al marcador dels Chromebooks.</li>
+            <li>Provar-ho tu en un Chromebook d'alumne, no al teu.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Chromebooks carregats i repartits.</li>
+            <li>Scratch obert amb el projecte base a cada equip, si pots.</li>
+            <li>Cartell dels quatre tipus d'error penjat.</li>
+            <li>El pont projectat a la Promethean.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui, en explicar el codi, <strong>assenyala els blocs</strong> mentre parla.</li>
+            <li>Qui es recorda sol del cas dels altres objectes.</li>
+            <li>Qui prova les tres situacions abans de dir que funciona.</li>
+            <li>Qui busca els blocs solts quan alguna cosa no va.</li>
+            <li>Tres alumnes per sessió.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>Scratch va molt lent:</strong> tanca les altres pestanyes. És el remei que funciona el 90% de les vegades.</li>
+            <li><strong>Es perd un projecte:</strong> el tornen a fer. Amb el projecte base, són deu minuts.</li>
+            <li><strong>Scratch està bloquejat:</strong> avisa'm i muntem l'activitat amb blocs impresos i taula de decisions. Es perd l'execució, no el concepte.</li>
+            <li><strong>Van molt endarrerits:</strong> que quedin amb el «si» sense el «si no». El cas dels altres objectes passa a la sessió 8.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi</h3>
+        <p style="margin-bottom:8px">Format: <strong>esdeveniment - tres vies - resultat</strong></p>
+        <table><thead><tr><th>Part</th><th>Què és</th></tr></thead><tbody>
+          <tr><td class="t">Primera lletra</td><td>Com l'engeguen: B bandera, O objecte, T tecla</td></tr>
+          <tr><td class="t">Tres caràcters</td><td>Les vies que diu a cada cas: regla 1, regla 2 i la resta</td></tr>
+          <tr><td class="t">Dues lletres</td><td>O si va a la primera (X si no) · E si l'altre equip l'ha entès</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>B-210-OE</strong> vol dir que s'engega amb la bandera, diu via 2 amb el primer objecte, via 1 amb el segon i via 0 amb la resta, va anar a la primera i un altre equip el va entendre sol.</p>
+      </div>
+      <div class="alerta"><strong>La columna que has de mirar al full és l'explicació.</strong> L'activitat guarda, amb les seves paraules, què fa el seu programa. Aquest text és l'evidència d'aquesta sessió: un programa que funciona i que saben explicar val més que un de més complicat que no saben descriure.</div>
+      <div class="nota"><strong>La prova creuada et dona una segona lectura.</strong> Un equip que respon que l'altre <strong>no</strong> ho ha entès sol no ha fet res malament: sovint vol dir que el programa funciona però està desordenat, o que el text que diu l'objecte no és prou clar. És una conversa que val la pena tenir a la sessió 8.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",base:"#s-base",pont:"#s-pont",blocs:"#s-blocs",ajuda:"#s-ajuda",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+var ESD={B:"la bandera verda",O:"clicar l'objecte",T:"prémer una tecla"};
+var VIA={"0":"Via 0 · Evitar","1":"Via 1 · Serveix","2":"Via 2 · Reciclar","E":"Via E · Especial"};
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim().toUpperCase();}).filter(function(l){return l.length>0;});
+  if(!linies.length){
+    $("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: B-210-OE</div>';
+    return;
+  }
+  var h=linies.map(function(l,k){
+    var p=l.split("-");
+    if(p.length<3) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var e=ESD[p[0].charAt(0)]||"?";
+    var v=p[1].split("");
+    var res=p[2];
+    var primera=(res.charAt(0)==="O");
+    var entes=(res.charAt(1)==="E");
+    var iguals=(v[0]===v[1] && v[1]===v[2]);
+    var lect;
+    if(iguals) lect="Les tres sortides són la mateixa: la condició no arriba a decidir res. Val la pena revisar-ho amb ells.";
+    else if(primera && entes) lect="Programa correcte a la primera i comprensible per a un altre equip.";
+    else if(primera) lect="Funciona a la primera, però l'altre equip no l'ha entès sol. Sovint és qüestió d'ordre o de com estan escrits els textos.";
+    else if(entes) lect="No va anar a la primera, però està prou clar perquè un altre equip l'entengui. Bona senyal.";
+    else lect="Ni a la primera ni comprensible encara. Mira l'explicació que han escrit al full.";
+    return '<div class="plec"><div class="cap">Equip '+(k+1)+' · '+l+'</div>'+
+      '<p>S\'engega amb · '+e+'</p>'+
+      '<p>Regla 1 · '+(VIA[v[0]]||"?")+'</p>'+
+      '<p>Regla 2 · '+(VIA[v[1]]||"?")+'</p>'+
+      '<p>Qualsevol altre · '+(VIA[v[2]]||"?")+'</p>'+
+      '<p style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;color:'+(iguals?"var(--roig)":"var(--ink-soft)")+';margin-top:10px">'+lect+'</p></div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' equips.</strong> El que més t\'informa no és aquest codi sinó l\'explicació que han escrit, que tens a la columna corresponent del full.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
