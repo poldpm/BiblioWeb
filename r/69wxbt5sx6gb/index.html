@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:69wxbt5sx6gb:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIRCULA · Sessió 7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pas{font-family:var(--disp);font-size:20px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:22px 18px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+h3{font-family:var(--disp);font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px;max-width:540px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],textarea{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+textarea{min-height:110px;resize:vertical;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:11px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.panel{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.avis{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.avis strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.alerta{background:#FBE6E1;border:2px solid var(--roig);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.alerta strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--roig)}
+/* pont */
+.pont{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-top:18px}
+.pont .cx{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.pont .cx .k{font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.pont .cx .v{font-family:var(--disp);font-size:clamp(18px,2.4vw,23px);text-transform:uppercase;line-height:1.2}
+.pont .fx{font-family:var(--disp);font-size:34px;color:var(--amber);text-align:center}
+@media(max-width:640px){.pont{grid-template-columns:1fr}}
+/* blocs scratch */
+.blq{display:inline-block;border-radius:5px;padding:9px 15px;font-family:var(--disp);font-size:19px;letter-spacing:.03em;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.25);margin:3px 0}
+.blq.ev{background:#C79A2A}
+.blq.ct{background:#C9962E}
+.blq.op{background:#8B4FBF}
+.blq.ap{background:#8B5FCF}
+.pila{background:#fff;border:2px dashed var(--rule);border-radius:3px;padding:14px;margin-top:12px}
+.pila .ind{margin-left:26px}
+/* selector d'esdeveniment */
+.opcions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+@media(min-width:700px){.opcions{grid-template-columns:repeat(3,1fr)}}
+.op{border:2px solid var(--ink);border-radius:3px;background:#fff;padding:14px;text-align:left;box-shadow:var(--shadow);min-height:74px}
+.op[aria-pressed=true]{background:var(--verd);color:#fff}
+.op h4{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.op p{font-size:14px;color:var(--ink-soft)}
+.op[aria-pressed=true] p{color:#D8E5DC}
+/* regla */
+.regla{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow);margin-top:14px}
+.regla .cap{font-family:var(--disp);font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.regla .cap span{color:var(--amber)}
+.regla .sub{font-family:var(--disp);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 7px}
+.objs{display:flex;flex-wrap:wrap;gap:8px}
+.ob{border:2px solid var(--ink);border-radius:3px;min-height:52px;padding:0 14px;font-family:var(--disp);font-size:16px;letter-spacing:.04em;text-transform:uppercase;box-shadow:var(--shadow);background:#fff}
+.ob[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.ob[disabled]{opacity:.25}
+.vies{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.vi{border:2px solid var(--ink);border-radius:3px;min-height:58px;font-family:var(--disp);font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#fff;box-shadow:var(--shadow);padding:0 4px}
+.vi[aria-pressed=true]{outline:4px solid var(--ink);outline-offset:2px}
+.v0{background:#B8930F;color:#141A18}.v1{background:#1F5C3C}.v2{background:#234A80}.ve{background:#8F2A19}
+.taula-regles{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border:2px solid var(--ink)}
+.taula-regles td,.taula-regles th{padding:11px 12px;border-bottom:1px solid var(--rule);font-size:16px;text-align:left}
+.taula-regles th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+.taula-regles td.c{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.tipus{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:700px){.tipus{grid-template-columns:repeat(2,1fr)}}
+.tp{border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;background:var(--paper-2);padding:14px 16px;text-align:left;box-shadow:var(--shadow)}
+.tp[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.tp h4{font-family:var(--disp);font-size:21px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.tp p{font-size:14px;color:var(--ink-soft)}
+.tp[aria-pressed=true] p{color:#C2C7B9}
+.siNo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sn{border:2px solid var(--ink);border-radius:3px;padding:16px 8px;font-family:var(--disp);font-size:23px;letter-spacing:.08em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:64px}
+.sn[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(26px,5vw,44px);letter-spacing:.14em;color:#EFCB3A;line-height:1.2;word-break:break-all;margin-top:4px}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:10px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.resum{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-top:14px}
+.resum p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+@media(max-width:560px){.vies{grid-template-columns:repeat(2,1fr)}}
+/* mapa de la paleta i pistes */
+.vel{position:fixed;inset:0;background:rgba(20,26,24,.74);display:flex;align-items:center;justify-content:center;padding:18px;z-index:100;overflow-y:auto}
+.vel[hidden]{display:none}
+.pop{background:var(--paper-2);border:3px solid var(--ink);border-radius:4px;padding:22px;max-width:640px;width:100%;box-shadow:0 6px 0 rgba(0,0,0,.28);margin:auto}
+.pop h3{border:none;padding:0;font-size:clamp(23px,4vw,30px);margin-bottom:6px;text-align:center}
+.pop .sot{text-align:center;font-size:15px;color:var(--ink-soft);margin-bottom:16px}
+.cat{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--ink);border-radius:3px;padding:11px 13px;margin-bottom:8px}
+.cat .pastilla{width:34px;height:34px;border-radius:6px;border:2px solid rgba(0,0,0,.28);flex:0 0 auto}
+.cat .tx{flex:1}
+.cat .tx b{display:block;font-family:var(--disp);font-size:19px;letter-spacing:.05em;text-transform:uppercase;line-height:1.1}
+.cat .tx span{font-size:14px;color:var(--ink-soft)}
+.formes{display:grid;grid-template-columns:1fr;gap:9px;margin-top:14px}
+.fm{background:#fff;border:2px solid var(--ink);border-radius:3px;padding:11px 13px;font-size:15px;color:var(--ink-soft)}
+.fm b{font-family:var(--disp);font-size:18px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:2px}
+/* pistes */
+.pista{background:#fff;border:2px solid var(--ink);border-left:8px solid var(--amber);border-radius:3px;padding:14px 16px;margin-bottom:10px;animation:fade .2s ease both}
+.pista .niv{font-family:var(--disp);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.pista p{font-size:17px}
+.encallats{position:relative}
+.btn-ajuda{display:inline-block;border:2px solid var(--ink);border-radius:2px;background:#FFF7DB;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;box-shadow:var(--shadow)}
+.btn-ajuda:hover{background:var(--amber)}
+@media(max-width:560px){.vies{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">CIRC<b>ULA</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="pas" id="pas" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <!-- 1 · ENTRADA -->
+    <section class="screen on" id="s1">
+      <div class="eyebrow">Sessió 7 · La decisió en pantalla</div>
+      <h2>Qui programa avui?</h2>
+      <p class="lede">La vostra comporta decidia amb un sensor i un motor. Avui construireu la mateixa decisió, però dins d'un programa.</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="chips" id="grups"></div>
+        <label>Equip</label>
+        <div class="chips" id="equips"></div>
+        <button class="cta" id="anar1" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <!-- 2 · EL PONT -->
+    <section class="screen" id="s2">
+      <div class="eyebrow">El pont</div>
+      <h2>És la mateixa decisió</h2>
+      <div class="pont">
+        <div class="cx"><div class="k">Amb la comporta</div><div class="v">Si el sensor veu vermell,<br>la comporta s'obre.<br>Si no, es queda tancada.</div></div>
+        <div class="fx">→</div>
+        <div class="cx"><div class="k">Amb el programa</div><div class="v">Si l'objecte és un brik,<br>digues «via 2».<br>Si no, digues una altra cosa.</div></div>
+      </div>
+      <div class="panel">
+        <h3>El que canvia</h3>
+        <p style="margin-bottom:8px">A la comporta, el <strong>sensor</strong> mirava i el <strong>motor</strong> feia la feina.</p>
+        <p>Al programa, qui mira és una <strong>pregunta</strong> i qui fa la feina són els <strong>blocs</strong> que hi ha a dins. Però qui decideix continueu sent vosaltres.</p>
+      </div>
+      <div class="row"><button class="cta" id="anar2">Al primer repte →</button></div>
+    </section>
+
+    <!-- 3 · L'ESDEVENIMENT -->
+    <section class="screen" id="s3">
+      <div class="eyebrow">Primer repte</div>
+      <h2>Què fa que el programa comenci?</h2>
+      <p class="lede">Un programa no s'engega sol. Alguna cosa l'ha de despertar. Proveu-ho a Scratch i després digueu quin heu triat.</p>
+      <div class="panel">
+        <h3>Feu que passi alguna cosa</h3>
+        <p>Poseu un bloc que engegui el programa i, a sota, un bloc que faci que l'objecte digui alguna cosa. Res més. Comproveu que funciona.</p>
+        <div class="pila">
+          <div class="blq ev">quan es clica la bandera verda</div><br>
+          <div class="blq ap">digues «Hola!»</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Quin bloc heu fet servir per engegar-lo?</h3>
+        <div class="opcions" id="qEsd">
+          <button class="op" data-v="Bandera" aria-pressed="false"><h4>La bandera</h4><p>Quan es clica la bandera verda.</p></button>
+          <button class="op" data-v="Objecte" aria-pressed="false"><h4>L'objecte</h4><p>Quan es clica aquest objecte.</p></button>
+          <button class="op" data-v="Tecla" aria-pressed="false"><h4>Una tecla</h4><p>Quan es prem una tecla.</p></button>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar3" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 4 · LA REGLA -->
+    <section class="screen" id="s4">
+      <div class="eyebrow">Segon repte · planifiqueu abans d'escriure</div>
+      <h2>Quina decisió ha de prendre?</h2>
+      <p class="lede">Igual que amb la comporta: primer decidiu la regla, i després la programeu.</p>
+
+      <div class="regla">
+        <div class="cap">Regla <span>1</span> · si l'objecte és…</div>
+        <div class="objs" id="ob1"></div>
+        <div class="sub">…el programa ha de dir</div>
+        <div class="vies" id="vi1"></div>
+      </div>
+
+      <div class="regla">
+        <div class="cap">Regla <span>2</span> · si l'objecte és…</div>
+        <div class="objs" id="ob2"></div>
+        <div class="sub">…el programa ha de dir</div>
+        <div class="vies" id="vi2"></div>
+      </div>
+
+      <div class="alerta"><strong>Recordeu la comporta</strong>I si l'objecte no és cap dels dos? El programa ha de saber què dir <strong>sempre</strong>.</div>
+      <div class="regla">
+        <div class="cap">Amb qualsevol altre objecte, digues…</div>
+        <div class="vies" id="viX"></div>
+      </div>
+      <div class="row"><button class="cta" id="anar4" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 5 · PREDICCIÓ -->
+    <section class="screen" id="s5">
+      <div class="eyebrow">Abans de programar-ho</div>
+      <h2>La vostra taula de decisions</h2>
+      <div id="taulaR"></div>
+      <div class="panel">
+        <h3>Com es veurà al programa</h3>
+        <div class="pila">
+          <div class="blq ev">quan es clica la bandera verda</div><br>
+          <div class="blq ct">si <span class="blq op" style="padding:4px 10px;font-size:16px">l'objecte és …</span> llavors</div>
+          <div class="ind"><div class="blq ap">digues «via …»</div></div><br>
+          <div class="blq ct">si no</div>
+          <div class="ind"><div class="blq ap">digues «via …»</div></div>
+        </div>
+      </div>
+      <div class="form" style="max-width:100%">
+        <label for="pred">Què passarà quan l'engegueu?</label>
+        <textarea id="pred" placeholder="Per exemple: si surt el brik dirà via 2, i amb qualsevol altra cosa dirà via 1."></textarea>
+      </div>
+      <div class="row"><button class="cta" id="anar5" disabled>Anem a programar-ho</button></div>
+    </section>
+
+    <!-- 6 · PROVA -->
+    <section class="screen" id="s6">
+      <div class="eyebrow">Ara toca Scratch</div>
+      <h2>Programeu-ho i proveu-ho</h2>
+      <div class="panel">
+        <h3>Abans de dir que funciona</h3>
+        <ol style="margin-left:22px">
+          <li style="margin-bottom:7px">Proveu-ho amb l'objecte de la regla 1.</li>
+          <li style="margin-bottom:7px">Proveu-ho amb l'objecte de la regla 2.</li>
+          <li style="margin-bottom:7px">Proveu-ho amb un objecte que no hàgiu programat.</li>
+          <li>Mireu que no us hagi quedat cap bloc solt fora de la pila.</li>
+        </ol>
+      </div>
+      <div class="avis"><strong>Deseu-ho amb el vostre nom</strong>Poseu-hi el nom del vostre equip. La setmana vinent hi continuareu.</div>
+      <div class="row"><button class="cta" id="anar6">Ja ho hem provat →</button></div>
+    </section>
+
+    <!-- 7 · DIAGNÒSTIC -->
+    <section class="screen" id="s7">
+      <div class="eyebrow">Diagnòstic</div>
+      <h2>Ha dit el que havíeu dit, les tres vegades?</h2>
+      <div class="siNo" id="funciona1">
+        <button class="sn" data-f="SI">Sí, les tres</button>
+        <button class="sn" data-f="NO">No del tot</button>
+      </div>
+      <div id="blocError" hidden>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="quePassa">Què ha fet exactament</label>
+          <textarea id="quePassa" placeholder="Per exemple: deia sempre la mateixa via, fos quin fos l'objecte."></textarea>
+        </div>
+        <h3 style="margin-top:22px">De quin tipus és el problema?</h3>
+        <div class="tipus" id="tipus">
+          <button class="tp" data-t="Esdeveniment"><h4>D'esdeveniment</h4><p>No s'engega, o s'engega quan no toca.</p></button>
+          <button class="tp" data-t="Condició"><h4>De condició</h4><p>La pregunta del «si» no és la que calia.</p></button>
+          <button class="tp" data-t="Ordre"><h4>D'ordre</h4><p>Els blocs hi són però estan mal col·locats.</p></button>
+          <button class="tp" data-t="Blocs solts"><h4>De blocs solts</h4><p>Hi ha blocs que no estan enganxats a la pila.</p></button>
+        </div>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="queCanviem">Què canvieu · només una cosa</label>
+          <textarea id="queCanviem" placeholder="Per exemple: posarem el bloc de «si no» que ens havíem deixat."></textarea>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar7" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 8 · EXPLICAR I PROVA CREUADA -->
+    <section class="screen" id="s8">
+      <div class="eyebrow">La part més important del dia</div>
+      <h2>Expliqueu el vostre codi</h2>
+      <p class="lede">Un de vosaltres li explica a l'altre què fa el programa, assenyalant els blocs. Després escriviu-ho aquí amb les vostres paraules.</p>
+      <div class="form" style="max-width:100%">
+        <label for="expl">El nostre programa fa això</label>
+        <textarea id="expl" placeholder="Per exemple: quan cliquem la bandera, el programa mira quin objecte hi ha. Si és un brik diu via 2, i si no ho és diu via 1."></textarea>
+      </div>
+      <h3 style="margin-top:26px">Prova creuada</h3>
+      <p class="lede">Ara un altre equip prova el vostre programa. No li expliqueu res: han d'entendre'l sols.</p>
+      <div class="form" style="max-width:540px;margin-top:14px">
+        <label>Quin equip us l'ha provat?</label>
+        <div class="chips" id="equipProva"></div>
+        <label>Han entès què feia sense que els ho expliquéssiu?</label>
+        <div class="siNo" id="entes" style="margin-top:0">
+          <button class="sn" data-e="SI">Sí</button>
+          <button class="sn" data-e="NO">No</button>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar8" disabled>Guardar</button></div>
+    </section>
+
+    <!-- 9 · FINAL -->
+    <section class="screen" id="s9"></section>
+
+  </div></main>
+
+  <!-- MAPA DE LA PALETA -->
+  <div class="vel" id="velMapa" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="mapT">
+      <h3 id="mapT">On són els blocs</h3>
+      <p class="sot">Els colors de la llista de l'esquerra de Scratch</p>
+      <div class="cat"><span class="pastilla" style="background:#FFBF00"></span>
+        <span class="tx"><b>Esdeveniments</b><span>Els que fan que el programa comenci.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#FFAB19"></span>
+        <span class="tx"><b>Control</b><span>Els que decideixen, esperen o repeteixen.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#9966FF"></span>
+        <span class="tx"><b>Aparença</b><span>Els que fan dir coses i canviar de vestit.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#59C059"></span>
+        <span class="tx"><b>Operadors</b><span>Els que comparen dues coses i responen sí o no.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#4C97FF"></span>
+        <span class="tx"><b>Moviment</b><span>Els que mouen l'objecte per la pantalla.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#FF8C1A"></span>
+        <span class="tx"><b>Variables</b><span>Els que recorden un número o una paraula.</span></span></div>
+
+      <div class="formes">
+        <div class="fm"><b>Forma de barret</b>Arrodonits a dalt. Cap bloc s'hi pot enganxar per sobre: sempre van al principi de tot.</div>
+        <div class="fm"><b>Forma de C</b>Tenen un buit a dins per posar-hi altres blocs. El que hi poses a dins només passa de vegades.</div>
+        <div class="fm"><b>Forma de punxa</b>Els que responen sí o no. Van dins del forat d'un bloc que pregunta.</div>
+      </div>
+      <div class="row" style="justify-content:center"><button class="cta small" id="mapX">Ja ho tenim</button></div>
+    </div>
+  </div>
+
+  <!-- PISTES -->
+  <div class="vel" id="velPista" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="piT">
+      <h3 id="piT">Us hi ajudo una mica</h3>
+      <p class="sot" id="piSot"></p>
+      <div id="piCos"></div>
+      <div class="row" style="justify-content:center">
+        <button class="cta ghost small" id="piMes">Encara no ho veiem</button>
+        <button class="cta small" id="piX">Ja ho provem</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "";
+/* ═══════════════════════════════════════════════════════════ */
+
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+var OBJECTES=["Full de paper","Brik de suc","Pila","Llapis mig","Bosseta"];
+var VIES=[{k:"0",n:"Via 0 · Evitar",c:"v0"},{k:"1",n:"Via 1 · Serveix",c:"v1"},
+          {k:"2",n:"Via 2 · Reciclar",c:"v2"},{k:"E",n:"Via E · Especial",c:"ve"}];
+
+var st={grup:null,equip:null,noms:"",esd:null,
+        o1:null,v1:null,o2:null,v2:null,vx:null,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",
+        expl:"",equipProva:null,entes:null,consultes:0,pistes:[],t0:0};
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function mostra(id,n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  if(n){$("#pas").hidden=false;$("#pas").textContent=n;} else $("#pas").hidden=true;
+  window.scrollTo(0,0);
+}
+function nomVia(k){for(var i=0;i<VIES.length;i++) if(VIES[i].k===k) return VIES[i].n; return "";}
+
+/* ---------- 1 · entrada ---------- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa1();
+});
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa1();
+});
+$("#noms").addEventListener("input",function(e){st.noms=e.target.value.trim();revisa1();});
+function revisa1(){$("#anar1").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+$("#anar1").addEventListener("click",function(){
+  st.t0=Date.now(); $("#meta").textContent=st.equip;
+  $("#equipProva").innerHTML=EQUIPS.filter(function(e){return e!==st.equip;})
+    .map(function(e){return '<button class="chip" data-p="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+  mostra("#s2","1 de 7");
+});
+$("#anar2").addEventListener("click",function(){mostra("#s3","2 de 7");});
+
+/* ---------- 3 · esdeveniment ---------- */
+$("#qEsd").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-v]"); if(!b) return;
+  st.esd=b.dataset.v;
+  $$("#qEsd .op").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.v===st.esd);});
+  $("#anar3").disabled=false;
+});
+$("#anar3").addEventListener("click",function(){mostra("#s4","3 de 7");});
+
+/* ---------- 4 · regla ---------- */
+function pintaObjectes(){
+  ["#ob1","#ob2"].forEach(function(id,idx){
+    var altre=idx===0?st.o2:st.o1, meu=idx===0?st.o1:st.o2;
+    $(id).innerHTML=OBJECTES.map(function(o){
+      return '<button class="ob" data-o="'+o+'" aria-pressed="'+(o===meu)+'"'+(o===altre?" disabled":"")+'>'+o+'</button>';}).join("");
+  });
+}
+function pintaVies(){
+  [["#vi1","v1"],["#vi2","v2"],["#viX","vx"]].forEach(function(p){
+    $(p[0]).innerHTML=VIES.map(function(v){
+      return '<button class="vi '+v.c+'" data-v="'+v.k+'" aria-pressed="'+(v.k===st[p[1]])+'">'+v.n+'</button>';}).join("");
+  });
+}
+pintaObjectes(); pintaVies();
+["#ob1","#ob2"].forEach(function(id,idx){
+  $(id).addEventListener("click",function(ev){
+    var b=ev.target.closest("[data-o]"); if(!b||b.disabled) return;
+    if(idx===0) st.o1=b.dataset.o; else st.o2=b.dataset.o;
+    pintaObjectes(); revisa4();
+  });
+});
+[["#vi1","v1"],["#vi2","v2"],["#viX","vx"]].forEach(function(p){
+  $(p[0]).addEventListener("click",function(ev){
+    var b=ev.target.closest("[data-v]"); if(!b) return;
+    st[p[1]]=b.dataset.v; pintaVies(); revisa4();
+  });
+});
+function revisa4(){$("#anar4").disabled=!(st.o1&&st.v1&&st.o2&&st.v2&&st.vx);}
+$("#anar4").addEventListener("click",function(){
+  $("#taulaR").innerHTML='<table class="taula-regles"><thead><tr><th>Si l\'objecte és…</th><th>El programa diu…</th></tr></thead><tbody>'+
+    '<tr><td class="c">'+st.o1+'</td><td class="c">'+nomVia(st.v1)+'</td></tr>'+
+    '<tr><td class="c">'+st.o2+'</td><td class="c">'+nomVia(st.v2)+'</td></tr>'+
+    '<tr><td class="c">qualsevol altre</td><td class="c">'+nomVia(st.vx)+'</td></tr>'+
+    '</tbody></table>';
+  mostra("#s5","4 de 7");
+});
+$("#pred").addEventListener("input",function(e){
+  st.pred=e.target.value.trim();
+  $("#anar5").disabled=st.pred.length<10;
+});
+$("#anar5").addEventListener("click",function(){mostra("#s6","5 de 7");});
+$("#anar6").addEventListener("click",function(){mostra("#s7","6 de 7");});
+
+/* ---------- 7 · diagnòstic ---------- */
+$("#funciona1").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f1=b.dataset.f;
+  $$("#funciona1 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f1);});
+  $("#blocError").hidden=(st.f1==="SI");
+  revisa7();
+});
+$("#tipus").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-t]"); if(!b) return;
+  st.tipus=b.dataset.t;
+  $$("#tipus .tp").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.t===st.tipus);});
+  revisa7();
+});
+$("#quePassa").addEventListener("input",function(e){st.quePassa=e.target.value.trim();revisa7();});
+$("#queCanviem").addEventListener("input",function(e){st.queCanviem=e.target.value.trim();revisa7();});
+function revisa7(){
+  if(st.f1==="SI"){$("#anar7").disabled=false;return;}
+  $("#anar7").disabled=!(st.f1==="NO" && st.quePassa.length>5 && st.tipus && st.queCanviem.length>5);
+}
+$("#anar7").addEventListener("click",function(){mostra("#s8","7 de 7");});
+
+/* ---------- 8 · explicar ---------- */
+$("#expl").addEventListener("input",function(e){st.expl=e.target.value.trim();revisa8();});
+$("#equipProva").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-p]"); if(!b) return;
+  st.equipProva=b.dataset.p;
+  $$("#equipProva .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.p===st.equipProva);});
+  revisa8();
+});
+$("#entes").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.entes=b.dataset.e;
+  $$("#entes .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.e===st.entes);});
+  revisa8();
+});
+function revisa8(){$("#anar8").disabled=!(st.expl.length>=20 && st.equipProva && st.entes);}
+
+/* ═══════════════════════════════════════════════════════════
+   PISTES GRADUADES
+   Mai donen la solució muntada: primer una pregunta, després
+   una orientació, i com a molt on buscar el bloc.
+   ═══════════════════════════════════════════════════════════ */
+var PISTES={
+  esdeveniment:{
+    titol:"Fer que el programa comenci",
+    n:[
+      "Poseu-vos d'acord primer: què voleu que passi perquè el programa arrenqui? Que cliqueu una cosa? Que premeu una tecla? Decidiu-ho abans de buscar cap bloc.",
+      "El bloc que busqueu és el primer de tots: cap altre bloc s'hi pot enganxar per sobre. Per això té la part de dalt arrodonida, com un barret.",
+      "Mireu la categoria dels blocs grocs, que es diu Esdeveniments. Tots els que hi ha serveixen per començar."
+    ]
+  },
+  condicio:{
+    titol:"Fer que el programa decideixi",
+    n:[
+      "Torneu a mirar la comporta: quantes preguntes es feia? I quantes respostes diferents podia donar? El vostre programa ha de fer exactament el mateix.",
+      "Necessiteu un bloc que tingui un forat per posar-hi la pregunta i un espai a dins per posar-hi què passa. I un segon espai per quan la resposta sigui que no.",
+      "Són a Control, els taronges. N'hi ha dos que s'assemblen: un només té un espai i l'altre en té dos. Vosaltres necessiteu el dels dos espais."
+    ]
+  },
+  pregunta:{
+    titol:"Escriure la pregunta",
+    n:[
+      "Què ha de mirar el programa per poder decidir? A la comporta ho mirava el sensor. Aquí, què hi ha per mirar?",
+      "La pregunta ha de comparar dues coses i respondre només sí o no. Una part serà allò que canvia, i l'altra allò amb què ho compareu.",
+      "El bloc de comparar és verd i és a Operadors. El que us diu quin vestit té l'objecte és morat i és a Aparença."
+    ]
+  }
+};
+
+var mapaObert=null, pistaCtx=null, pistaNiv=0;
+
+function obreMapa(){
+  st.consultes++;
+  $("#velMapa").hidden=false; $("#mapX").focus();
+}
+function tancaMapa(){$("#velMapa").hidden=true;}
+$("#mapX").addEventListener("click",tancaMapa);
+$("#velMapa").addEventListener("click",function(ev){if(ev.target===$("#velMapa"))tancaMapa();});
+
+function obrePista(ctx){
+  pistaCtx=ctx; pistaNiv=0;
+  $("#piSot").textContent=PISTES[ctx].titol;
+  $("#piCos").innerHTML="";
+  mesPista();
+  $("#velPista").hidden=false; $("#piX").focus();
+}
+function mesPista(){
+  var p=PISTES[pistaCtx]; if(pistaNiv>=p.n.length) return;
+  pistaNiv++;
+  st.pistes.push(pistaCtx+":"+pistaNiv);
+  var d=document.createElement("div");
+  d.className="pista";
+  d.innerHTML='<div class="niv">Pista '+pistaNiv+' de '+p.n.length+'</div><p>'+p.n[pistaNiv-1]+'</p>';
+  $("#piCos").appendChild(d);
+  $("#piMes").hidden=(pistaNiv>=p.n.length);
+  if(pistaNiv>=p.n.length){
+    var f=document.createElement("p");
+    f.className="tip"; f.style.marginTop="10px";
+    f.textContent="Fins aquí us puc ajudar. El que va dins dels blocs ho heu de decidir vosaltres.";
+    $("#piCos").appendChild(f);
+  }
+}
+function tancaPista(){$("#velPista").hidden=true;}
+$("#piMes").addEventListener("click",mesPista);
+$("#piX").addEventListener("click",tancaPista);
+$("#velPista").addEventListener("click",function(ev){if(ev.target===$("#velPista"))tancaPista();});
+document.addEventListener("keydown",function(ev){
+  if(ev.key!=="Escape") return;
+  if(!$("#velPista").hidden) tancaPista();
+  else if(!$("#velMapa").hidden) tancaMapa();
+});
+tancaMapa(); tancaPista();
+
+/* botons d'ajuda a les pantalles de treball */
+function ajuda(idPantalla,ctx){
+  var r=document.createElement("div");
+  r.className="row";
+  var b1=document.createElement("button");
+  b1.className="btn-ajuda"; b1.textContent="On són els blocs?";
+  b1.addEventListener("click",obreMapa);
+  var b2=document.createElement("button");
+  b2.className="btn-ajuda"; b2.textContent="Estem encallats";
+  b2.addEventListener("click",function(){obrePista(ctx);});
+  r.appendChild(b1); r.appendChild(b2);
+  $(idPantalla).appendChild(r);
+}
+ajuda("#s3","esdeveniment");
+ajuda("#s5","condicio");
+ajuda("#s6","pregunta");
+
+/* ---------- final ---------- */
+function codi(){
+  return st.esd.charAt(0)+"-"+st.v1+st.v2+st.vx+"-"+(st.f1==="SI"?"O":"X")+(st.entes==="SI"?"E":"-");
+}
+function textPla(){
+  return "Esdeveniment: "+st.esd+
+    " | Si "+st.o1+" -> "+nomVia(st.v1)+
+    " | Si "+st.o2+" -> "+nomVia(st.v2)+
+    " | Qualsevol altre -> "+nomVia(st.vx)+
+    " | Prova creuada: "+st.equipProva+" ("+(st.entes==="SI"?"ho ha entès":"no ho ha entès")+")"+
+    " | Pistes: "+(st.pistes.length?st.pistes.join(", "):"cap")+
+    " | Consultes al mapa de blocs: "+st.consultes;
+}
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  return fetch(ENDPOINT,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({
+      activitat:"circula-scratch",
+      grup:st.grup,equip:st.equip,noms:st.noms,
+      codi:codi(), pla:textPla(),
+      prediccio:st.pred,
+      mirades:st.consultes,
+      pistes:st.pistes.length,
+      detallPistes:st.pistes.join(", "),
+      objectiu:"Un esdeveniment i una condició amb tres sortides",
+      primera:st.f1, quePassa:st.quePassa,
+      tipusError:st.tipus||"", queCanviem:st.queCanviem,
+      dobleProva:"Explica: "+st.expl,
+      minuts:Math.round((Date.now()-st.t0)/60000)
+    })}).then(function(){return "ok";}).catch(function(){return "err";});
+}
+$("#anar8").addEventListener("click",function(){
+  var m = (st.entes==="SI")
+    ? "Un altre equip ha entès el vostre programa sense que li expliquéssiu res. Això vol dir que està ben fet i ben ordenat."
+    : "L'altre equip encara no l'ha entès sol. No passa res: vol dir que hi ha alguna cosa per ordenar o per anomenar millor.";
+  $("#s9").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Guardat</h2><p class="lede">'+m+'</p>'+
+    '<div class="codi-box"><div class="k">Codi del vostre programa</div><div class="codi">'+codi()+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="resum">'+
+      '<p>S\'engega amb · '+st.esd+'</p>'+
+      '<p>'+st.o1+' · '+nomVia(st.v1)+'</p>'+
+      '<p>'+st.o2+' · '+nomVia(st.v2)+'</p>'+
+      '<p>Qualsevol altre · '+nomVia(st.vx)+'</p>'+
+    '</div>'+
+    '<div class="avis"><strong>No oblideu desar-ho</strong>Amb el nom del vostre equip. La setmana vinent aquest programa haurà de comptar.</div>'+
+    '<div class="row"><button class="cta ghost small" id="nova">Comença un altre equip</button></div>';
+  mostra("#s9");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Digueu el codi al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st={grup:null,equip:null,noms:"",esd:null,
+        o1:null,v1:null,o2:null,v2:null,vx:null,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",
+        expl:"",equipProva:null,entes:null,consultes:0,pistes:[],t0:0};
+    ["#noms","#pred","#quePassa","#queCanviem","#expl"].forEach(function(i){$(i).value="";});
+    $$(".chip,.op,.sn,.ob,.vi").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$(".tp").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#blocError").hidden=true;
+    pistaCtx=null; pistaNiv=0; $("#piCos").innerHTML="";
+    pintaObjectes(); pintaVies();
+    ["#anar3","#anar4","#anar5","#anar7","#anar8"].forEach(function(b){$(b).disabled=true;});
+    $("#meta").textContent="";
+    revisa1(); mostra("#s1");
+  });
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
