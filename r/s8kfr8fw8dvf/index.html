@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:s8kfr8fw8dvf:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MISSIÓ FINAL · Sessió 9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pas{font-family:var(--disp);font-size:20px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:22px 18px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+h3{font-family:var(--disp);font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px;max-width:540px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],textarea{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+textarea{min-height:95px;resize:vertical;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:11px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.panel{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.avis{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.avis strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.alerta{background:#FBE6E1;border:2px solid var(--roig);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.alerta strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--roig)}
+/* comprovació del sistema */
+.eines{display:grid;gap:10px;margin-top:14px}
+.ei{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:13px 15px;box-shadow:var(--shadow)}
+.ei .nm{font-family:var(--disp);font-size:22px;letter-spacing:.05em;text-transform:uppercase;line-height:1.05}
+.ei .nm small{display:block;font-family:var(--body);font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.ei button{border:2px solid var(--ink);border-radius:3px;min-height:52px;min-width:60px;font-family:var(--disp);font-size:18px;letter-spacing:.05em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow)}
+.ei button[aria-pressed=true][data-e="OK"]{background:var(--verd);color:#fff}
+.ei button[aria-pressed=true][data-e="NO"]{background:var(--roig);color:#fff}
+.semafor{display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:3px;padding:16px 18px;margin-top:16px}
+.semafor .n{font-family:var(--disp);font-size:clamp(38px,8vw,58px);line-height:1;color:#EFCB3A}
+.semafor .t{font-size:16px;color:#D6DBD4}
+/* cas */
+.casos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.cs{border:2px solid var(--ink);border-radius:3px;min-height:66px;font-family:var(--disp);font-size:24px;background:#fff;box-shadow:var(--shadow)}
+.cs[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cadena{display:grid;gap:9px;margin-top:14px}
+.cd{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:#fff;border:2px solid var(--ink);border-radius:3px;padding:11px 13px}
+.cd .num{font-family:var(--disp);font-size:26px;color:var(--amber);min-width:28px;text-align:center}
+.cd .sel{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.cd .buit{color:var(--ink-soft);font-style:italic;font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none}
+.cd .x{border:2px solid var(--ink);border-radius:2px;width:38px;min-height:38px;font-family:var(--disp);font-size:18px;background:#fff;line-height:1}
+.tries{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+@media(min-width:700px){.tries{grid-template-columns:repeat(3,1fr)}}
+.tr{border:2px solid var(--ink);border-radius:3px;min-height:60px;font-family:var(--disp);font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:#fff;box-shadow:var(--shadow);padding:0 8px}
+.t-sc{background:#8B5FCF}.t-oz{background:#1F5C3C}.t-da{background:#234A80}
+.t-sp{background:#B8930F;color:#141A18}.t-cr{background:#8B4FBF}.t-no{background:#8F2A19}
+/* diagnòstic */
+.tipus{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:700px){.tipus{grid-template-columns:repeat(2,1fr)}}
+.tp{border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;background:var(--paper-2);padding:14px 16px;text-align:left;box-shadow:var(--shadow)}
+.tp[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.tp h4{font-family:var(--disp);font-size:21px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.tp p{font-size:14px;color:var(--ink-soft)}
+.tp[aria-pressed=true] p{color:#C2C7B9}
+.siNo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sn{border:2px solid var(--ink);border-radius:3px;padding:16px 8px;font-family:var(--disp);font-size:23px;letter-spacing:.08em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:64px}
+.sn[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+/* qui podria ensenyar */
+.mestres{display:grid;gap:10px;margin-top:14px}
+.me{display:grid;grid-template-columns:1fr 1.3fr;gap:12px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:12px 15px;box-shadow:var(--shadow)}
+.me .nm{font-family:var(--disp);font-size:21px;letter-spacing:.05em;text-transform:uppercase}
+.me input{margin:0;min-height:48px}
+/* final */
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(26px,5vw,44px);letter-spacing:.14em;color:#EFCB3A;line-height:1.2;word-break:break-all;margin-top:4px}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:10px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.resum{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-top:14px}
+.resum p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.resum .cita{font-family:var(--body);font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink-soft);font-style:italic;margin:2px 0 8px 14px}
+.tancament{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:24px;margin-top:18px;box-shadow:var(--shadow);text-align:center}
+.tancament p{font-family:var(--disp);font-size:clamp(24px,4.4vw,40px);text-transform:uppercase;line-height:1.06}
+.tancament p b{color:var(--amber)}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+@media(max-width:560px){.casos{grid-template-columns:repeat(2,1fr)}.me{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">MISSIÓ <b>FINAL</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="pas" id="pas" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <!-- 1 · ENTRADA -->
+    <section class="screen on" id="s1">
+      <div class="eyebrow">Sessió 9 · L'última</div>
+      <h2>Avui no us ajuda ningú</h2>
+      <p class="lede">Vuit setmanes. Cinc eines. Avui les fareu servir totes alhora, amb un cas que no heu vist mai, i sense que el mestre us digui res.</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="chips" id="grups"></div>
+        <label>Equip</label>
+        <div class="chips" id="equips"></div>
+        <button class="cta" id="anar1" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <!-- 2 · COMPROVACIÓ -->
+    <section class="screen" id="s2">
+      <div class="eyebrow">Comprovació del sistema</div>
+      <h2>Abans de res, funciona tot?</h2>
+      <p class="lede">Proveu cada eina una vegada. Encara no cal que faci res de la missió: només que respongui.</p>
+      <div class="eines" id="eines"></div>
+      <div id="semafor"></div>
+      <div class="avis"><strong>Si alguna cosa no va</strong>Arregleu-la vosaltres. Ja sabeu com: mireu primer el muntatge i la connexió, i canvieu <strong>una sola cosa</strong> cada vegada.</div>
+      <div class="row"><button class="cta" id="anar2" disabled>Obrim el sobre →</button></div>
+    </section>
+
+    <!-- 3 · EL CAS -->
+    <section class="screen" id="s3">
+      <div class="eyebrow">El sobre</div>
+      <h2>Quin cas us ha tocat?</h2>
+      <div class="casos" id="casos"></div>
+      <div class="panel" style="margin-top:20px">
+        <h3>Com el resoldreu</h3>
+        <p style="margin-bottom:6px">Poseu en ordre les eines que fareu servir. No cal que les feu servir totes: només les que calguin.</p>
+        <div class="cadena" id="cadena"></div>
+        <div class="tries" id="tries"></div>
+      </div>
+      <div class="alerta"><strong>Compte</strong>De vegades la millor solució és no moure res. Si creieu que és el cas, digueu-ho: també és una resposta.</div>
+      <div class="row"><button class="cta" id="anar3" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 4 · PREDICCIÓ -->
+    <section class="screen" id="s4">
+      <div class="eyebrow">Per última vegada</div>
+      <h2>Digueu què passarà</h2>
+      <div id="resumPla"></div>
+      <div class="form" style="max-width:100%">
+        <label for="pred">La nostra predicció</label>
+        <textarea id="pred" placeholder="Per exemple: l'Ozobot portarà l'objecte fins a la cruïlla 3, el Dash el recollirà i el deixarà a la comporta, i la comporta el deixarà passar."></textarea>
+      </div>
+      <div class="row"><button class="cta" id="anar4" disabled>A la missió</button></div>
+    </section>
+
+    <!-- 5 · EXECUCIÓ -->
+    <section class="screen" id="s5">
+      <div class="eyebrow">Ara</div>
+      <h2>Executeu la missió</h2>
+      <div class="panel">
+        <h3>Recordeu</h3>
+        <ol style="margin-left:22px">
+          <li style="margin-bottom:7px">Un de vosaltres diu en veu alta el que passarà, abans de començar.</li>
+          <li style="margin-bottom:7px">Si alguna cosa falla, no la toqueu tots alhora: mireu primer <strong>de quin tipus</strong> és.</li>
+          <li style="margin-bottom:7px">Canvieu <strong>una sola cosa</strong> i torneu a provar.</li>
+          <li>Ha de funcionar <strong>dues vegades seguides</strong>.</li>
+        </ol>
+      </div>
+      <div class="avis"><strong>Us estan gravant</strong>No cal que us hi fixeu. Feu-ho com sempre.</div>
+      <div class="row"><button class="cta" id="anar5">Ja hem acabat →</button></div>
+    </section>
+
+    <!-- 6 · COM HA ANAT -->
+    <section class="screen" id="s6">
+      <div class="eyebrow">Com ha anat</div>
+      <h2>Ha funcionat la cadena sencera?</h2>
+      <div class="siNo" id="funciona1">
+        <button class="sn" data-f="SI">Sí, sencera</button>
+        <button class="sn" data-f="NO">S'ha trencat</button>
+      </div>
+      <div id="blocError" hidden>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="quePassa">On s'ha trencat, exactament</label>
+          <textarea id="quePassa" placeholder="Per exemple: el Dash agafava bé l'objecte però el deixava massa lluny de la comporta."></textarea>
+        </div>
+        <h3 style="margin-top:22px">De quin tipus era el problema?</h3>
+        <div class="tipus" id="tipus">
+          <button class="tp" data-t="Planificació"><h4>De planificació</h4><p>L'ordre de les eines no era el bo.</p></button>
+          <button class="tp" data-t="Una eina"><h4>D'una eina</h4><p>Una de les màquines no feia el que havia de fer.</p></button>
+          <button class="tp" data-t="Coordinació"><h4>De coordinació</h4><p>Cada eina anava bé, però entre elles no encaixaven.</p></button>
+          <button class="tp" data-t="Temps"><h4>De temps</h4><p>Funcionava, però no ens hi ha donat temps.</p></button>
+        </div>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="queCanviem">Què vau canviar</label>
+          <textarea id="queCanviem" placeholder="Per exemple: vam moure la marca del terra dos centímetres."></textarea>
+        </div>
+      </div>
+      <div class="siNo" id="dosCops" style="margin-top:22px">
+        <button class="sn" data-d="SI">Va anar bé dos cops</button>
+        <button class="sn" data-d="NO">Només un cop</button>
+      </div>
+      <div class="row"><button class="cta" id="anar6" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 7 · EL LLEGAT -->
+    <section class="screen" id="s7">
+      <div class="eyebrow">El vídeo de llegat · dos minuts</div>
+      <h2>Què deixeu dit</h2>
+      <p class="lede">Això ho gravareu i quedarà per als qui vinguin després. Escriviu-ho primer aquí i després digueu-ho davant la càmera.</p>
+      <div class="form" style="max-width:100%">
+        <label for="lFunciona">Què funciona bé</label>
+        <textarea id="lFunciona" placeholder="Per exemple: la comporta no ha fallat cap vegada perquè vam enganxar el sensor amb dues peces."></textarea>
+      </div>
+      <div class="form" style="max-width:100%;margin-top:14px">
+        <label for="lTrencat">Què no hem acabat de resoldre</label>
+        <textarea id="lTrencat" placeholder="Per exemple: el Dash es queda curt quan la bateria està baixa i no hem trobat com arreglar-ho."></textarea>
+      </div>
+      <div class="form" style="max-width:100%;margin-top:14px">
+        <label for="lConsell">Un consell per als qui ho facin l'any que ve</label>
+        <textarea id="lConsell" placeholder="Per exemple: mesureu el robot cada dia, perquè no sempre fa el mateix."></textarea>
+      </div>
+      <div class="row"><button class="cta" id="anar7" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 8 · QUI PODRIA ENSENYAR-HO -->
+    <section class="screen" id="s8">
+      <div class="eyebrow">L'última pregunta del taller</div>
+      <h2>Qui ho podria ensenyar?</h2>
+      <p class="lede">De cada eina, escriviu el nom de qui del vostre equip la podria ensenyar a algú que no l'hagi feta servir mai. Pot repetir-se una persona.</p>
+      <div class="mestres" id="mestres"></div>
+      <div class="avis"><strong>No és una nota</strong>És per saber a qui pot preguntar algú que s'encalli l'any que ve.</div>
+      <div class="row"><button class="cta" id="anar8" disabled>Tancar el taller</button></div>
+    </section>
+
+    <!-- 9 · FINAL -->
+    <section class="screen" id="s9"></section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "";
+/* ═══════════════════════════════════════════════════════════ */
+
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+
+var EINES=[
+  {k:"Scottie",n:"Scottie Go!",d:"Munteu una seqüència qualsevol i escanegeu-la."},
+  {k:"Ozobot",n:"Ozobot",d:"Calibreu-lo i que segueixi una línia recta."},
+  {k:"Dash",n:"Dash",d:"Connecteu-lo i que avanci un bloc."},
+  {k:"SPIKE",n:"SPIKE",d:"Engegueu el hub i que el braç es mogui."},
+  {k:"Scratch",n:"Scratch",d:"Obriu el vostre projecte i cliqueu la bandera."}
+];
+var PASSOS=[
+  {k:"Scottie",n:"Planificar amb Scottie",c:"t-sc"},
+  {k:"Ozobot",n:"Portar amb l'Ozobot",c:"t-oz"},
+  {k:"Dash",n:"Transportar amb el Dash",c:"t-da"},
+  {k:"SPIKE",n:"Passar per la comporta",c:"t-sp"},
+  {k:"Scratch",n:"Comptar amb Scratch",c:"t-cr"},
+  {k:"Res",n:"No cal moure res",c:"t-no"}
+];
+
+var st={grup:null,equip:null,noms:"",check:{},cas:null,cadena:[],pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",dos:null,
+        lFunciona:"",lTrencat:"",lConsell:"",mestres:{},t0:0};
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function mostra(id,n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  if(n){$("#pas").hidden=false;$("#pas").textContent=n;} else $("#pas").hidden=true;
+  window.scrollTo(0,0);
+}
+function nomPas(k){for(var i=0;i<PASSOS.length;i++) if(PASSOS[i].k===k) return PASSOS[i].n; return k;}
+
+/* ---------- 1 · entrada ---------- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa1();
+});
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa1();
+});
+$("#noms").addEventListener("input",function(e){st.noms=e.target.value.trim();revisa1();});
+function revisa1(){$("#anar1").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+$("#anar1").addEventListener("click",function(){
+  st.t0=Date.now(); $("#meta").textContent=st.equip; mostra("#s2","1 de 7");
+});
+
+/* ---------- 2 · comprovació ---------- */
+$("#eines").innerHTML=EINES.map(function(e){
+  return '<div class="ei" data-ei="'+e.k+'"><div class="nm">'+e.n+'<small>'+e.d+'</small></div>'+
+    '<button data-e="OK" aria-pressed="false">Va</button>'+
+    '<button data-e="NO" aria-pressed="false">No va</button></div>';
+}).join("");
+$("#eines").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  var fila=b.closest("[data-ei]"), k=fila.dataset.ei;
+  st.check[k]=b.dataset.e;
+  fila.querySelectorAll("[data-e]").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.e===st.check[k]);});
+  var fets=Object.keys(st.check).length;
+  var ok=0; for(var x in st.check) if(st.check[x]==="OK") ok++;
+  if(fets===EINES.length){
+    var t;
+    if(ok===5) t="Les cinc responen. El sistema està a punt.";
+    else if(ok>=3) t="En van "+ok+". Arregleu les que fallen abans de començar: després, enmig de la missió, costa molt més.";
+    else t="En van només "+ok+". Comenceu per les connexions i les bateries, que és el que falla més sovint.";
+    $("#semafor").innerHTML='<div class="semafor"><div class="n">'+ok+'/5</div><div class="t">'+t+'</div></div>';
+    $("#anar2").disabled=false;
+  }
+});
+$("#anar2").addEventListener("click",function(){mostra("#s3","2 de 7");});
+
+/* ---------- 3 · el cas ---------- */
+$("#casos").innerHTML=[1,2,3,4,5,6].map(function(n){
+  return '<button class="cs" data-c="'+n+'" aria-pressed="false">Cas '+n+'</button>';}).join("");
+$("#casos").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-c]"); if(!b) return;
+  st.cas=b.dataset.c;
+  $$("#casos .cs").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.c===st.cas);});
+  revisa3();
+});
+$("#tries").innerHTML=PASSOS.map(function(p){
+  return '<button class="tr '+p.c+'" data-p="'+p.k+'">'+p.n+'</button>';}).join("");
+$("#tries").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-p]"); if(!b) return;
+  if(b.dataset.p==="Res") st.cadena=["Res"];
+  else{
+    if(st.cadena[0]==="Res") st.cadena=[];
+    if(st.cadena.length<5) st.cadena.push(b.dataset.p);
+  }
+  pintaCadena(); revisa3();
+});
+function pintaCadena(){
+  if(!st.cadena.length){
+    $("#cadena").innerHTML='<div class="cd"><span class="num">–</span><span class="buit">Encara no heu triat cap eina. Toqueu-les per ordre.</span><span></span></div>';
+    return;
+  }
+  $("#cadena").innerHTML=st.cadena.map(function(k,i){
+    return '<div class="cd"><span class="num">'+(i+1)+'</span><span class="sel">'+nomPas(k)+'</span>'+
+      (i===st.cadena.length-1?'<button class="x" data-treu="1" aria-label="Treu">×</button>':'<span></span>')+'</div>';
+  }).join("");
+  var x=$("#cadena [data-treu]");
+  if(x) x.addEventListener("click",function(){st.cadena.pop();pintaCadena();revisa3();});
+}
+pintaCadena();
+function revisa3(){$("#anar3").disabled=!(st.cas && st.cadena.length);}
+$("#anar3").addEventListener("click",function(){
+  $("#resumPla").innerHTML='<div class="resum"><p>Cas '+st.cas+'</p>'+
+    st.cadena.map(function(k,i){return '<p style="color:var(--ink-soft)">'+(i+1)+' · '+nomPas(k)+'</p>';}).join("")+
+    '</div>';
+  mostra("#s4","3 de 7");
+});
+$("#pred").addEventListener("input",function(e){
+  st.pred=e.target.value.trim();
+  $("#anar4").disabled=st.pred.length<10;
+});
+$("#anar4").addEventListener("click",function(){mostra("#s5","4 de 7");});
+$("#anar5").addEventListener("click",function(){mostra("#s6","5 de 7");});
+
+/* ---------- 6 · com ha anat ---------- */
+$("#funciona1").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f1=b.dataset.f;
+  $$("#funciona1 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f1);});
+  $("#blocError").hidden=(st.f1==="SI");
+  revisa6();
+});
+$("#dosCops").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-d]"); if(!b) return;
+  st.dos=b.dataset.d;
+  $$("#dosCops .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.d===st.dos);});
+  revisa6();
+});
+$("#tipus").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-t]"); if(!b) return;
+  st.tipus=b.dataset.t;
+  $$("#tipus .tp").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.t===st.tipus);});
+  revisa6();
+});
+$("#quePassa").addEventListener("input",function(e){st.quePassa=e.target.value.trim();revisa6();});
+$("#queCanviem").addEventListener("input",function(e){st.queCanviem=e.target.value.trim();revisa6();});
+function revisa6(){
+  if(!st.f1||!st.dos){$("#anar6").disabled=true;return;}
+  if(st.f1==="SI"){$("#anar6").disabled=false;return;}
+  $("#anar6").disabled=!(st.quePassa.length>5 && st.tipus && st.queCanviem.length>5);
+}
+$("#anar6").addEventListener("click",function(){mostra("#s7","6 de 7");});
+
+/* ---------- 7 · llegat ---------- */
+["#lFunciona","#lTrencat","#lConsell"].forEach(function(id){
+  $(id).addEventListener("input",function(e){
+    st[id.substring(1)]=e.target.value.trim();
+    $("#anar7").disabled=!(st.lFunciona.length>=10 && st.lTrencat.length>=10 && st.lConsell.length>=10);
+  });
+});
+$("#anar7").addEventListener("click",function(){
+  $("#mestres").innerHTML=EINES.map(function(e){
+    return '<div class="me"><span class="nm">'+e.n+'</span>'+
+      '<input type="text" data-m="'+e.k+'" placeholder="Nom" autocomplete="off"></div>';
+  }).join("");
+  $("#mestres").addEventListener("input",function(ev){
+    var i=ev.target.closest("[data-m]"); if(!i) return;
+    st.mestres[i.dataset.m]=i.value.trim();
+    var fets=0;
+    for(var x in st.mestres) if(st.mestres[x].length>1) fets++;
+    $("#anar8").disabled=(fets<EINES.length);
+  });
+  mostra("#s8","7 de 7");
+});
+
+/* ---------- final ---------- */
+function codi(){
+  var ok=0; for(var x in st.check) if(st.check[x]==="OK") ok++;
+  return ok+"/5-C"+st.cas+"-"+st.cadena.length+"p-"+(st.f1==="SI"?"O":"X")+(st.dos==="SI"?"2":"1");
+}
+function textPla(){
+  var av=[]; for(var x in st.check) if(st.check[x]==="NO") av.push(x);
+  return "Comprovació: "+(av.length?("no anaven "+av.join(", ")):"les cinc anaven")+
+    " | Cas "+st.cas+
+    " | Cadena: "+st.cadena.map(nomPas).join(" > ")+
+    " | Funciona bé: "+st.lFunciona+
+    " | No resolt: "+st.lTrencat+
+    " | Consell: "+st.lConsell+
+    " | Podrien ensenyar: "+EINES.map(function(e){return e.n+" = "+(st.mestres[e.k]||"—");}).join("; ");
+}
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  return fetch(ENDPOINT,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({
+      activitat:"missio-final",
+      grup:st.grup,equip:st.equip,noms:st.noms,
+      codi:codi(), pla:textPla(), prediccio:st.pred,
+      mirades:"",
+      objectiu:"Cas "+st.cas+" amb les cinc eines, sense ajuda",
+      primera:st.f1, quePassa:st.quePassa,
+      tipusError:st.tipus||"", queCanviem:st.queCanviem,
+      dobleProva:(st.dos==="SI"?"Dues vegades seguides":"Només un cop"),
+      minuts:Math.round((Date.now()-st.t0)/60000)
+    })}).then(function(){return "ok";}).catch(function(){return "err";});
+}
+$("#anar8").addEventListener("click",function(){
+  var m;
+  if(st.cadena[0]==="Res") m="Vau decidir que no calia moure res. Si el cas era d'aquells, heu entès el més difícil de tot el taller.";
+  else if(st.f1==="SI"&&st.dos==="SI") m="Cadena sencera i dues vegades seguides, sense que ningú us digués res. Això és exactament el que havíeu d'arribar a fer.";
+  else if(st.f1==="SI") m="La cadena ha funcionat. Que encara no vagi sempre igual és el següent pas, no un fracàs.";
+  else m="S'ha trencat i heu sabut dir on i per què. Amb cinc màquines encadenades, saber on mirar val més que encertar.";
+  $("#s9").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Taller acabat</h2><p class="lede">'+m+'</p>'+
+    '<div class="codi-box"><div class="k">Codi de la missió</div><div class="codi">'+codi()+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="resum">'+
+      '<p>Cas '+st.cas+' · '+st.cadena.map(nomPas).join(" › ")+'</p>'+
+      '<p style="margin-top:10px">Què funciona</p><div class="cita">'+st.lFunciona+'</div>'+
+      '<p>Què no hem resolt</p><div class="cita">'+st.lTrencat+'</div>'+
+      '<p>El nostre consell</p><div class="cita">'+st.lConsell+'</div>'+
+    '</div>'+
+    '<div class="tancament"><p>Cinc eines.<br>Nou dimecres.<br><b>I avui, sols.</b></p></div>'+
+    '<div class="row"><button class="cta ghost small" id="nova">Comença un altre equip</button></div>';
+  mostra("#s9");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Digueu el codi al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st={grup:null,equip:null,noms:"",check:{},cas:null,cadena:[],pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",dos:null,
+        lFunciona:"",lTrencat:"",lConsell:"",mestres:{},t0:0};
+    ["#noms","#pred","#quePassa","#queCanviem","#lFunciona","#lTrencat","#lConsell"]
+      .forEach(function(i){$(i).value="";});
+    $$(".chip,.cs,.sn").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$(".tp").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$("#eines [data-e]").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#blocError").hidden=true; $("#semafor").innerHTML=""; $("#mestres").innerHTML="";
+    pintaCadena();
+    ["#anar2","#anar3","#anar4","#anar6","#anar7","#anar8"].forEach(function(b){$(b).disabled=true;});
+    $("#meta").textContent="";
+    revisa1(); mostra("#s1");
+  });
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
