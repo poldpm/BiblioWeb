@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:9kvt4rjkswvt:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 8 · El marcador que explica · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.gran p i{font-style:normal;color:var(--verd)}
+.marcador{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.mbox{border:2px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:14px 8px;text-align:center;box-shadow:var(--shadow)}
+.mbox .k{font-family:var(--disp);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.mbox .v{font-family:var(--disp);font-size:clamp(34px,6vw,52px);line-height:1;font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+.b0{border-color:#B8930F}.b1{border-color:#1F5C3C}.b2{border-color:#234A80}.be{border-color:#8F2A19}
+.blq{display:inline-block;border-radius:5px;padding:9px 15px;font-family:var(--disp);font-size:19px;letter-spacing:.03em;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.25);margin:3px 0}
+.blq.ev{background:#C79A2A}.blq.ct{background:#C9962E}.blq.op{background:#59C059}
+.blq.ap{background:#9966FF}.blq.va{background:#FF8C1A}
+.pila{background:#fff;border:2px dashed var(--rule);border-radius:3px;padding:14px;margin-top:12px}
+.pila .ind{margin-left:26px}
+.compara{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media(max-width:640px){.compara{grid-template-columns:1fr}}
+.cx{border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.cx.no{background:#FBE6E1;border-left:8px solid var(--roig)}
+.cx.si{background:#EAF3ED;border-left:8px solid var(--verd)}
+.cx .k{font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.cx .q{font-size:17px;font-style:italic;margin-bottom:6px}
+.cx .por{font-size:14px;color:var(--ink-soft)}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.diu{background:#fff;border:2px dashed var(--ink);border-radius:3px;padding:14px 18px;margin-top:12px;font-size:17px;font-style:italic}
+.diu b{font-style:normal;font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media(max-width:560px){.marcador{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>8</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>El marcador<br><em>que explica</em></h1>
+        <p class="lede">Scratch amb una variable i amb les dades que aquest mateix grup va produir el primer dia. El programa no ha de dir si està bé: ha de dir per què.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="dades"><div class="n">Projectar · el moment del dia</div><div class="t">Les dades del grup</div><div class="d">Els números que van fer ells fa vuit setmanes.</div></button>
+        <button class="card-btn" data-go="variable"><div class="n">Projectar</div><div class="t">La variable</div><div class="d">Una capsa que recorda un número.</div></button>
+        <button class="card-btn" data-go="explica"><div class="n">Projectar</div><div class="t">Explicar, no jutjar</div><div class="d">El criteri que fa diferent aquesta sessió.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Quatre tipus d'error</div><div class="d">El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir codis</div><div class="d">Descodifica els marcadors dels equips.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">On treure les dades, què observar i plans B.</div></button>
+      </div>
+    </section>
+
+    <!-- DADES -->
+    <section class="screen" id="s-dades">
+      <div class="eyebrow">Projectar · 10 minuts · el moment del dia</div>
+      <h2>Aquests números els vau fer vosaltres</h2>
+      <p class="lede">Abans de la sessió, treu del full les xifres d'aquest grup i posa-les aquí. Projecta-les i deixa-les a la vista tota l'estona: les han de copiar a l'activitat.</p>
+      <div class="marcador">
+        <div class="mbox b0"><div class="k">Via 0 · Evitar</div><div class="v" contenteditable="true">—</div></div>
+        <div class="mbox b1"><div class="k">Via 1 · Serveix</div><div class="v" contenteditable="true">—</div></div>
+        <div class="mbox b2"><div class="k">Via 2 · Reciclar</div><div class="v" contenteditable="true">—</div></div>
+        <div class="mbox be"><div class="k">Via E · Especial</div><div class="v" contenteditable="true">—</div></div>
+      </div>
+      <p class="tip">Pots clicar sobre cada número i escriure-hi directament.</p>
+      <div class="gran"><p>Fa vuit setmanes<br>vau decidir això.<br>Avui ho<br><b>programareu.</b></p></div>
+      <div class="diu"><b>La frase que has de dir</b>«Això no és un exercici inventat. Aquests números els vau fer vosaltres el primer dia, i encara no sabíeu res del que sabeu ara.»</div>
+      <div class="nota"><strong>On són les dades.</strong> Al full de càlcul, pestanya <strong>RESPOSTES</strong>: filtra per aquest grup i suma les columnes Via 0, Via 1, Via 2 i Via E. Són les <em>primeres</em> decisions de cada parella, abans de llegir cap explicació.</div>
+      <div class="row"><button class="cta" data-go="variable">La variable →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- VARIABLE -->
+    <section class="screen" id="s-variable">
+      <div class="eyebrow">Projectar · 15 minuts</div>
+      <h2>Una capsa que recorda</h2>
+      <p class="lede">Fins ara el programa decidia i oblidava. Una variable és una capsa amb un nom que guarda un número i el va canviant.</p>
+      <div class="grid2">
+        <div class="bloc"><h3>Els tres moments</h3>
+          <div class="pila">
+            <div class="blq ev">quan es clica la bandera verda</div><br>
+            <div class="blq va">posa <b>evitables</b> a 0</div><br>
+            <div class="blq ct">si <span class="blq op" style="padding:4px 10px;font-size:16px">…</span> llavors</div>
+            <div class="ind"><div class="blq va">canvia <b>evitables</b> per 1</div></div>
+          </div>
+          <p class="tip">Crear-la, posar-la a zero i fer-la pujar. Tres coses, i cadascuna en un lloc diferent.</p>
+        </div>
+        <div class="bloc"><h3>Els dos errors que faran tots</h3>
+          <ul>
+            <li><strong>Oblidar el «posa a 0».</strong> El número de la partida anterior es queda i cada vegada comencen més amunt. És l'error més freqüent i el més instructiu.</li>
+            <li><strong>Posar el «canvia per 1» fora del «si».</strong> Llavors suma sempre, encara que la resposta sigui que no.</li>
+          </ul>
+          <p class="tip">Tots dos són visibles amb dues execucions seguides. No els avisis: deixa que ho descobreixin provant.</p>
+        </div>
+      </div>
+      <div class="gran"><p>Si el número no torna a zero,<br>és que <b>ningú li ha dit</b><br>que ho faci.</p></div>
+      <div class="row"><button class="cta" data-go="explica">Explicar, no jutjar →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- EXPLICA -->
+    <section class="screen" id="s-explica">
+      <div class="eyebrow">Projectar · el criteri de la sessió</div>
+      <h2>Explicar, no jutjar</h2>
+      <p class="lede">Un programa que només diu «bé» o «malament» no serveix de res: qui el fa servir no aprèn res.</p>
+      <div class="compara">
+        <div class="cx no"><div class="k">Això no val</div>
+          <div class="q">«Molt bé!»</div>
+          <div class="q">«Error.»</div>
+          <div class="por">Qui ho llegeix sap si ha encertat, però no sap res més. La propera vegada tornarà a dubtar igual.</div></div>
+        <div class="cx si"><div class="k">Això sí</div>
+          <div class="q">«Aquest full encara té una cara en blanc, així que serveix per a esborranys.»</div>
+          <div class="q">«Amb una cantimplora no hi hauria hagut cap ampolla per llençar.»</div>
+          <div class="por">Qui ho llegeix entén el motiu, i el pot aplicar a un altre objecte que no surti al programa.</div></div>
+      </div>
+      <div class="gran"><p>La prova:<br>llegiu-ho a algú<br>que <b>no hagi fet</b> el taller.</p></div>
+      <div class="nota"><strong>L'activitat els avisa sola, sense bloquejar-los.</strong> Si escriuen «bé», «malament», «correcte» o qualsevol cosa massa curta, els surt un missatge que els diu que allò encara no explica res. Poden continuar igualment: la decisió és seva i tu la veuràs al full.</div>
+      <div class="diu"><b>La pregunta per als que s'encallen</b>«Si aquest missatge el llegís un nen de primer, sabria què ha de fer la propera vegada?»</div>
+      <div class="row"><button class="cta" data-go="errors">Tipus d'error →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan el marcador no va</h2>
+      <div class="errors">
+        <div class="er"><h4>De variable</h4><p>No compta, o compta sempre encara que no toqui.</p><span class="sig">El número no es mou mai · puja amb tot</span></div>
+        <div class="er"><h4>De posició del bloc</h4><p>El bloc de sumar està fora del «si».</p><span class="sig">Suma amb tots els objectes, sense distingir</span></div>
+        <div class="er"><h4>De reinici</h4><p>No torna a zero quan es torna a engegar.</p><span class="sig">Cada partida comença més amunt que l'anterior</span></div>
+        <div class="er"><h4>De missatge</h4><p>Diu sempre el mateix, o no dona temps a llegir-lo.</p><span class="sig">Apareix i desapareix de seguida</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Proveu-ho <b>dues vegades</b><br>seguides.<br>La segona és la que<br>ensenya la veritat.</p></div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Obren el seu projecte de la setmana passada.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">10</td><td><strong>Les dades.</strong> Projectes els números d'aquest grup. El moment del dia.</td></tr>
+          <tr class="clau"><td class="t">15:18</td><td class="t">15</td><td><strong>La variable.</strong> Crear-la, posar-la a zero i fer-la pujar.</td></tr>
+          <tr><td class="t">15:33</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol.</td></tr>
+          <tr class="clau"><td class="t">15:38</td><td class="t">25</td><td><strong>El marcador.</strong> Que compti i que expliqui.</td></tr>
+          <tr><td class="t">16:03</td><td class="t">7</td><td><strong>Prova.</strong> Amb tots els vestits, i dues vegades seguides.</td></tr>
+          <tr class="clau"><td class="t">16:10</td><td class="t">7</td><td><strong>Validació i desar.</strong> Aquest projecte torna a la sessió 9.</td></tr>
+          <tr><td class="t">16:17</td><td class="t">5</td><td><strong>Registre.</strong></td></tr>
+          <tr><td class="t">16:22</td><td class="t">6</td><td><strong>Tancament.</strong></td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="nota">Si vas tard, retalla la variable a comptar i prou i deixa un sol missatge en lloc de dos. El que no pots retallar són els deu minuts de les dades: és el que dona sentit a tota la sessió.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir els marcadors</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full amb els dos missatges sencers, i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="14.31.18.9-E-O&#10;14.31.18.9-C-X&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li><strong>Treure les dades del grup</strong> de la pestanya RESPOSTES i escriure-les a la pantalla «Les dades del grup» d'aquest recurs.</li>
+            <li>Comprovar que els projectes de la sessió 7 s'obren tots.</li>
+            <li>Si algun s'ha perdut, tenir el projecte base a punt per duplicar.</li>
+            <li>Comprovar que Scratch no està bloquejat.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Chromebooks carregats i repartits.</li>
+            <li>Les dades projectades a la Promethean.</li>
+            <li>Cartell dels quatre tipus d'error penjat.</li>
+            <li>Un projecte de recanvi obert, per si algun equip ha perdut el seu.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui prova <strong>dues vegades seguides</strong> sense que li ho diguis.</li>
+            <li>Qui troba sol que el bloc de sumar està fora del «si».</li>
+            <li>Qui escriu un missatge que explica de veritat, i no un «molt bé».</li>
+            <li>Qui relaciona el número del marcador amb les dades de la pantalla.</li>
+            <li>Tres alumnes per sessió. Amb aquesta ja n'hauries de tenir de tots.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>S'ha perdut un projecte:</strong> duplica el base. Amb la condició de la S7 refeta són deu minuts, i és bon repàs.</li>
+            <li><strong>La variable no apareix:</strong> l'han de crear primer amb el botó de fer-ne una de nova. Fins que no existeix, els blocs no hi són.</li>
+            <li><strong>Scratch va lent:</strong> tancar les altres pestanyes.</li>
+            <li><strong>Van molt endarrerits:</strong> que quedin amb la variable comptant i un sol missatge. El segon missatge passa a la sessió 9.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi</h3>
+        <p style="margin-bottom:8px">Format: <strong>dades del grup - què compta - resultat</strong></p>
+        <table><thead><tr><th>Part</th><th>Què és</th></tr></thead><tbody>
+          <tr><td class="t">Quatre números</td><td>Les dades que han copiat: via 0, 1, 2 i E</td></tr>
+          <tr><td class="t">Una lletra</td><td>Què compta la variable: E evitables, A aprofitables, C contenidor</td></tr>
+          <tr><td class="t">Última lletra</td><td>O si ha anat a la primera, X si han hagut de depurar</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>14.31.18.9-E-O</strong> vol dir que han copiat bé les dades, la variable compta els evitables i va anar a la primera.</p>
+      </div>
+      <div class="alerta"><strong>El que has de mirar al full no és el codi: són els dos missatges.</strong> L'activitat te'ls guarda sencers. Un equip que escriu «Aquest full encara té una cara en blanc» ha entès per què decidim, i no només com. Aquesta és l'evidència més forta de tot el taller, perquè uneix les 3R amb la programació en una sola frase escrita per ells.</div>
+      <div class="nota"><strong>Els números copiats també et diuen alguna cosa.</strong> Si un equip ha copiat malament les xifres de la pantalla, val la pena mirar-ho: a la sessió 1 la còpia amb teclat era un dels objectius, i vuit setmanes després hauria d'estar resolt.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",dades:"#s-dades",variable:"#s-variable",explica:"#s-explica",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+var VAR={E:"els evitables",A:"els que encara serveixen",C:"els que van al contenidor"};
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim().toUpperCase();}).filter(function(l){return l.length>0;});
+  if(!linies.length){
+    $("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: 14.31.18.9-E-O</div>';
+    return;
+  }
+  var h=linies.map(function(l,k){
+    var p=l.split("-");
+    if(p.length<3) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var d=p[0].split(".").map(Number);
+    if(d.length<4 || d.some(isNaN)) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var quin=VAR[p[1].charAt(0)]||"?";
+    var primera=(p[2].charAt(0)==="O");
+    var total=d[0]+d[1]+d[2]+d[3], noCalia=d[0]+d[1];
+    return '<div class="plec"><div class="cap">Equip '+(k+1)+' · '+l+'</div>'+
+      '<p>Dades copiades · '+d[0]+' / '+d[1]+' / '+d[2]+' / '+d[3]+' (total '+total+')</p>'+
+      '<p>No calia llençar-ne · '+noCalia+'</p>'+
+      '<p>La variable compta · '+quin+'</p>'+
+      '<p style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink-soft);margin-top:10px">'+
+      (primera?"Va anar a la primera.":"Van haver de depurar-ho.")+
+      ' Mira els dos missatges al full: és el que compta d\'aquesta sessió.</p></div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' equips.</strong> Si els quatre números no coincideixen entre equips, algú ha copiat malament de la pantalla.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
