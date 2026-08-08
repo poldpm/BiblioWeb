@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:zkt6x86g8439:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 6 · Dues regles · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.badge.el{background:var(--roig);color:#fff}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.passos{display:grid;gap:12px;margin-top:18px}
+.pas{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px 18px;box-shadow:var(--shadow)}
+.pas .n{font-family:var(--disp);font-size:clamp(34px,4.4vw,50px);color:var(--amber);line-height:1;min-width:40px;text-align:center}
+.pas .t{font-family:var(--disp);font-size:clamp(20px,2.6vw,27px);text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.pas .a{font-size:15px;color:var(--ink-soft);margin-top:3px}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+.pont{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-top:18px}
+.pont .cx{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.pont .cx .k{font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.pont .cx .v{font-family:var(--disp);font-size:clamp(18px,2.4vw,24px);text-transform:uppercase;line-height:1.2}
+.pont .fx{font-family:var(--disp);font-size:34px;color:var(--amber)}
+@media(max-width:640px){.pont{grid-template-columns:1fr}.pont .fx{text-align:center}}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.diu{background:#fff;border:2px dashed var(--ink);border-radius:3px;padding:14px 18px;margin-top:12px;font-size:17px;font-style:italic}
+.diu b{font-style:normal;font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>6</b></div>
+    <span class="badge">Mestre</span>
+    <span class="badge el">Elàstica</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>Dues<br><em>regles</em></h1>
+        <p class="lede">La comporta de la setmana passada torna a sortir de l'armari. Primer es comprova, després aprèn a distingir dos colors, i finalment ha de saber què fer amb els que no coneix.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="auditoria"><div class="n">Projectar</div><div class="t">L'auditoria</div><div class="d">Què passa a una màquina en set dies.</div></button>
+        <button class="card-btn" data-go="dues"><div class="n">Projectar</div><div class="t">Dues regles</div><div class="d">I la pregunta difícil: i la resta de colors?</div></button>
+        <button class="card-btn" data-go="pont"><div class="n">Projectar</div><div class="t">El pont cap a Scratch</div><div class="d">El que fan avui, la setmana vinent en pantalla.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Quatre tipus d'error</div><div class="d">El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut i què retallar si cal.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir codis</div><div class="d">Descodifica les taules de decisions.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">Preparació, què observar i com comprimir-la.</div></button>
+      </div>
+    </section>
+
+    <!-- AUDITORIA -->
+    <section class="screen" id="s-auditoria">
+      <div class="eyebrow">Projectar · 12 minuts</div>
+      <h2>Set dies a l'armari</h2>
+      <p class="lede">Abans de canviar res, la màquina s'ha de comprovar. Cinc proves amb el color de la setmana passada, sense tocar-hi res.</p>
+      <div class="gran"><p>Una màquina que<br>funcionava dimecres passat<br><b>no funciona igual</b><br>dimecres següent.</p></div>
+      <div class="grid2">
+        <div class="bloc"><h3>El que haurà canviat</h3>
+          <ul>
+            <li>El sensor s'ha bellugat uns mil·límetres i ja no veu igual.</li>
+            <li>Alguna peça del braç s'ha afluixat.</li>
+            <li>La bateria del hub està més baixa i el motor va més fluix.</li>
+            <li>La llum de l'aula no és la mateixa que fa una setmana.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què han de fer</h3>
+          <ul>
+            <li>Comprovar <strong>abans</strong> de programar res nou.</li>
+            <li>Buscar la causa al muntatge, no al programa.</li>
+            <li>Deixar-la a 5 de 5 abans de continuar.</li>
+            <li>Anotar què havia canviat.</li>
+          </ul></div>
+      </div>
+      <div class="diu"><b>La pregunta</b>«Ningú ha tocat res en set dies. Per què avui no va igual?»</div>
+      <div class="nota">Això és <strong>manteniment</strong>, i és una cosa que amb un robot de rodes no poden viure mai. És l'aportació pròpia de SPIKE al taller: les màquines de veritat es desajusten soles.</div>
+      <div class="row"><button class="cta" data-go="dues">Dues regles →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- DUES REGLES -->
+    <section class="screen" id="s-dues">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>I si no és cap dels dos?</h2>
+      <p class="lede">Programar dos colors és fàcil. El que costa d'entendre a 3r és que la màquina ha de saber què fer <strong>sempre</strong>, també amb el que no li han ensenyat.</p>
+      <table>
+        <thead><tr><th>Si el sensor veu…</th><th>La comporta…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vermell</strong></td><td>S'obre</td></tr>
+          <tr><td><strong>Blau</strong></td><td>Es queda tancada</td></tr>
+          <tr class="clau"><td><strong>Qualsevol altre color</strong></td><td>?</td></tr>
+        </tbody>
+      </table>
+      <div class="diu"><b>La demostració que ho fa entendre</b>Programa només dos colors i deixa-hi caure un objecte verd. Fes-ho tu, davant de tothom. La comporta farà una cosa qualsevol, o cap. Llavors pregunta: «Qui li ha dit què havia de fer amb el verd?»</div>
+      <div class="gran"><p>Ningú.<br>I per això<br><b>fa qualsevol cosa.</b></p></div>
+      <div class="nota"><strong>L'activitat els força a decidir-ho.</strong> Hi ha tres opcions: es queda tancada, s'obre, o «no ho hem previst». Aquesta tercera també és una resposta vàlida i honesta, i te la registra: així saps quins equips encara no hi han arribat.</div>
+      <div class="row"><button class="cta" data-go="pont">El pont cap a Scratch →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- PONT -->
+    <section class="screen" id="s-pont">
+      <div class="eyebrow">Projectar · al tancament</div>
+      <h2>Això mateix, la setmana vinent</h2>
+      <p class="lede">Val la pena que els ho diguis explícitament abans de recollir. El que acaben de construir amb peces, d'aquí a set dies el faran en pantalla.</p>
+      <div class="pont">
+        <div class="cx"><div class="k">Avui, amb la màquina</div><div class="v">Si el sensor veu vermell,<br>la comporta s'obre.<br>Si no, es queda tancada.</div></div>
+        <div class="fx">→</div>
+        <div class="cx"><div class="k">La setmana vinent, amb Scratch</div><div class="v">Si l'objecte és de la via 1,<br>suma un punt.<br>Si no, no en sumis cap.</div></div>
+      </div>
+      <div class="gran"><p>És la <b>mateixa</b> decisió.<br>Un cop amb peces<br>i un cop amb blocs.</p></div>
+      <div class="nota">Aquesta frase és el que converteix cinc eines en un sol aprenentatge. Si no la dius, cada sessió els queda com una activitat solta.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan les dues regles es barallen</h2>
+      <div class="errors">
+        <div class="er"><h4>De muntatge</h4><p>Alguna peça es mou, l'engranatge patina o el braç frega.</p><span class="sig">A vegades sí i a vegades no</span></div>
+        <div class="er"><h4>De sensor</h4><p>Confon els dos colors o no en veu un dels dos.</p><span class="sig">Sempre falla amb el mateix color</span></div>
+        <div class="er"><h4>D'ordre de les regles</h4><p>Les dues hi són, però es trepitgen i sempre en mana una.</p><span class="sig">Fa el mateix amb els dos colors</span></div>
+        <div class="er"><h4>De cas no previst</h4><p>Amb els colors que no han programat, fa qualsevol cosa.</p><span class="sig">Va bé fins que hi cau un objecte diferent</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Amb els colors <b>barrejats</b>,<br>no per tandes.<br>Una màquina no sap<br>quin li vindrà.</p></div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Treuen el mecanisme tal com el van deixar.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">12</td><td><strong>Auditoria.</strong> Cinc proves abans de tocar res. Reparen el que s'hagi mogut.</td></tr>
+          <tr class="clau"><td class="t">15:20</td><td class="t">10</td><td><strong>El repte nou.</strong> Dues regles, i què passa amb la resta de colors.</td></tr>
+          <tr><td class="t">15:30</td><td class="t">20</td><td><strong>Construcció.</strong> Programen les dues condicions.</td></tr>
+          <tr><td class="t">15:50</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol.</td></tr>
+          <tr><td class="t">15:55</td><td class="t">15</td><td><strong>Proves i depuració.</strong></td></tr>
+          <tr class="clau"><td class="t">16:10</td><td class="t">7</td><td><strong>Validació final.</strong> Cinc proves amb els colors barrejats.</td></tr>
+          <tr><td class="t">16:17</td><td class="t">5</td><td><strong>Registre.</strong></td></tr>
+          <tr class="clau"><td class="t">16:22</td><td class="t">6</td><td><strong>Tancament.</strong> El pont cap a Scratch. No te'l saltis.</td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong> Es guarda muntat: tornarà a la sessió 9.</td></tr>
+        </tbody>
+      </table>
+      <div class="alerta"><strong>Aquesta és la sessió elàstica.</strong> Si perds un dimecres per una excursió o un imprevist, és la que se salta. El mínim de SPIKE ja està assolit a la sessió 5, i les dues de Scratch queden intactes. Si te la saltes, digues igualment la frase del pont cap a Scratch al final de la sessió 5.</div>
+      <div class="nota">Si vas tard però la fas: retalla la construcció del minut 15:30 i que només programin la regla 2. L'auditoria i la validació barrejada no es toquen.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir les taules de decisions</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="5/VO-BQ-E/5&#10;3/VO-GO-N/2&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li>Comprovar que els tres mecanismes segueixen sencers a l'armari.</li>
+            <li><strong>Carregar els tres hubs.</strong> És la causa més freqüent que la màquina vagi diferent que la setmana passada.</li>
+            <li>Comprovar que els projectes de la sessió 5 s'obren. Si l'app no els va desar, tens les fotos que vau fer.</li>
+            <li>Preparar objectes de <strong>tres colors</strong>, no dos: cal el tercer per al cas no previst.</li>
+            <li>Safata petita amb peces de recanvi per a reparacions ràpides.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Mecanismes a les taules, tal com es van guardar.</li>
+            <li>Objectes de tres colors per cèl·lula.</li>
+            <li>Tauletes amb l'app oberta i els hubs emparellats.</li>
+            <li>Cartell dels quatre tipus d'error penjat.</li>
+            <li>La teva demostració del tercer color, muntada.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui, a l'auditoria, <strong>mira el muntatge</strong> abans de tocar el programa.</li>
+            <li>Qui es pregunta sol què passa amb la resta de colors.</li>
+            <li>Qui posa les dues regles en un ordre que no es trepitgin.</li>
+            <li>Qui entén que barrejar els colors és més difícil que fer-ho per tandes.</li>
+            <li>Tres alumnes per sessió.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>El projecte s'ha perdut:</strong> el tornen a fer amb la foto. Es triga uns cinc minuts i és bon repàs.</li>
+            <li><strong>El sensor confon dos colors:</strong> que en triïn dos de més diferents. És una decisió d'enginyeria vàlida, no una rendició.</li>
+            <li><strong>El mecanisme està trencat:</strong> el reparen. Això és la sessió, no una interrupció.</li>
+            <li><strong>Van molt endarrerits:</strong> que quedin amb dues regles sense el cas no previst, i deixa la pregunta oberta per a la sessió 9.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi</h3>
+        <p style="margin-bottom:8px">Format: <strong>auditoria / regla1-regla2-altres / validació barrejada</strong></p>
+        <table><thead><tr><th>Part</th><th>Què és</th></tr></thead><tbody>
+          <tr><td class="t">Primer número</td><td>Proves encertades a l'auditoria d'inici, sobre 5</td></tr>
+          <tr><td class="t">Dues lletres</td><td>Inicial del color i inicial de l'acció (O d'obrir-se, Q de quedar-se tancada)</td></tr>
+          <tr><td class="t">Lletra final</td><td>Cas no previst: E de tancada, S d'obrir-se, N de no previst</td></tr>
+          <tr><td class="t">Últim número</td><td>Proves encertades amb els colors barrejats, sobre 5</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>5/VO-BQ-E/5</strong> vol dir que la màquina va arribar sencera, obre amb vermell, es queda tancada amb blau, tancada amb qualsevol altre, i encerta cinc de cinc barrejats.</p>
+      </div>
+      <div class="alerta"><strong>La lletra que més t'informa és la del cas no previst.</strong> Una N vol dir que aquell equip encara no ha pensat què fa la màquina amb allò que no coneix. No és un error de programació: és el concepte de la sessió. És el que has de tornar a treure a la sessió 9.</div>
+      <div class="nota"><strong>Compara els dos números.</strong> Si l'auditoria surt baixa i la validació final alta, l'equip ha reparat la màquina i l'ha millorada: és la millor sessió possible. Si l'auditoria surt alta i la validació baixa, la segona regla els ha trencat el que funcionava, i val la pena parlar-hi.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",auditoria:"#s-auditoria",dues:"#s-dues",pont:"#s-pont",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+var COL={V:"Vermell",B:"Blau",G:"Verd",O:"Groc"};
+var ACC={O:"s'obre",Q:"es queda tancada"};
+var ALT={E:"es queda tancada",S:"s'obre",N:"no ho han previst"};
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim().toUpperCase();}).filter(function(l){return l.length>0;});
+  if(!linies.length){
+    $("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: 5/VO-BQ-E/5</div>';
+    return;
+  }
+  var h=linies.map(function(l,k){
+    var p=l.split("/");
+    if(p.length<3) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var a=parseInt(p[0],10), b=parseInt(p[2],10);
+    var r=p[1].split("-");
+    if(isNaN(a)||isNaN(b)||r.length<3) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var c1=COL[r[0].charAt(0)]||"?", a1=ACC[r[0].charAt(1)]||"?";
+    var c2=COL[r[1].charAt(0)]||"?", a2=ACC[r[1].charAt(1)]||"?";
+    var alt=ALT[r[2].charAt(0)]||"?";
+    var prev=(r[2].charAt(0)!=="N");
+    var lect;
+    if(b>a) lect="Han reparat la màquina i l'han millorada. La millor sessió possible.";
+    else if(b===a && b>=4) lect="Han mantingut la fiabilitat mentre hi afegien una regla nova.";
+    else if(b<a) lect="La segona regla els ha trencat el que ja funcionava. Val la pena parlar-hi.";
+    else lect="Encara els costa la fiabilitat, amb una regla i amb dues.";
+    return '<div class="plec"><div class="cap">Equip '+(k+1)+' · '+l+'</div>'+
+      '<p>Auditoria d\'inici · '+a+' de 5</p>'+
+      '<p>'+c1+' · '+a1+'</p>'+
+      '<p>'+c2+' · '+a2+'</p>'+
+      '<p>Qualsevol altre · '+alt+'</p>'+
+      '<p>Barrejats · '+b+' de 5</p>'+
+      '<p style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;color:'+(prev?"var(--ink-soft)":"var(--roig)")+';margin-top:10px">'+
+      (prev?"":"Encara no han previst què fa la màquina amb els colors que no coneix. ")+lect+'</p></div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' equips.</strong> Mira primer quants han previst el cas dels altres colors: és el concepte de la sessió i el pont directe cap a Scratch.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
