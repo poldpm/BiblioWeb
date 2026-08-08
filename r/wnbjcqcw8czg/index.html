@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:wnbjcqcw8czg:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIRCULA · El marcador · Sessió 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pas{font-family:var(--disp);font-size:20px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:22px 18px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+h3{font-family:var(--disp);font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px;max-width:540px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],textarea{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+textarea{min-height:100px;resize:vertical;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:11px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.panel{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.avis{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.avis strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.alerta{background:#FBE6E1;border:2px solid var(--roig);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.alerta strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--roig)}
+/* dades */
+.marcador{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.mbox{border:2px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:12px 8px;text-align:center;box-shadow:var(--shadow)}
+.mbox .k{font-family:var(--disp);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.mbox .v{font-family:var(--disp);font-size:clamp(30px,6vw,46px);line-height:1;font-variant-numeric:tabular-nums}
+.mbox input{width:100%;margin:6px 0 0;text-align:center;font-family:var(--disp);font-size:30px;min-height:56px;padding:4px}
+.b0{border-color:#B8930F}.b0 .v{color:#7A6A1E}
+.b1{border-color:#1F5C3C}.b1 .v{color:#1F5C3C}
+.b2{border-color:#234A80}.b2 .v{color:#234A80}
+.be{border-color:#8F2A19}.be .v{color:#8F2A19}
+.titular{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:20px;margin-top:18px;box-shadow:var(--shadow)}
+.titular p{font-family:var(--disp);font-size:clamp(22px,3.6vw,34px);text-transform:uppercase;line-height:1.08}
+.titular p b{color:var(--roig)}.titular p i{font-style:normal;color:var(--verd)}
+/* variable */
+.opcions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+@media(min-width:700px){.opcions{grid-template-columns:repeat(3,1fr)}}
+.op{border:2px solid var(--ink);border-radius:3px;background:#fff;padding:14px;text-align:left;box-shadow:var(--shadow);min-height:78px}
+.op[aria-pressed=true]{background:var(--verd);color:#fff}
+.op h4{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.op p{font-size:14px;color:var(--ink-soft)}
+.op[aria-pressed=true] p{color:#D8E5DC}
+/* blocs */
+.blq{display:inline-block;border-radius:5px;padding:9px 15px;font-family:var(--disp);font-size:19px;letter-spacing:.03em;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.25);margin:3px 0}
+.blq.ev{background:#C79A2A}.blq.ct{background:#C9962E}.blq.op{background:#59C059}
+.blq.ap{background:#9966FF}.blq.va{background:#FF8C1A}
+.pila{background:#fff;border:2px dashed var(--rule);border-radius:3px;padding:14px;margin-top:12px}
+.pila .ind{margin-left:26px}
+/* missatges */
+.msgbox{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow);margin-top:14px}
+.msgbox .cap{font-family:var(--disp);font-size:21px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.msgbox .cap span{color:var(--amber)}
+.msgbox .ex{font-size:15px;color:var(--ink-soft);font-style:italic;margin-bottom:10px}
+.nudge{background:#FFF7DB;border-left:5px solid var(--amber);padding:10px 14px;margin-top:8px;font-size:15px}
+.tipus{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:700px){.tipus{grid-template-columns:repeat(2,1fr)}}
+.tp{border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;background:var(--paper-2);padding:14px 16px;text-align:left;box-shadow:var(--shadow)}
+.tp[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.tp h4{font-family:var(--disp);font-size:21px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.tp p{font-size:14px;color:var(--ink-soft)}
+.tp[aria-pressed=true] p{color:#C2C7B9}
+.siNo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sn{border:2px solid var(--ink);border-radius:3px;padding:16px 8px;font-family:var(--disp);font-size:23px;letter-spacing:.08em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:64px}
+.sn[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(26px,5vw,44px);letter-spacing:.14em;color:#EFCB3A;line-height:1.2;word-break:break-all;margin-top:4px}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:10px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.resum{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-top:14px}
+.resum p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.resum .cita{font-family:var(--body);font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink-soft);font-style:italic;margin:2px 0 8px 14px}
+/* ajuda */
+.vel{position:fixed;inset:0;background:rgba(20,26,24,.74);display:flex;align-items:center;justify-content:center;padding:18px;z-index:100;overflow-y:auto}
+.vel[hidden]{display:none}
+.pop{background:var(--paper-2);border:3px solid var(--ink);border-radius:4px;padding:22px;max-width:640px;width:100%;box-shadow:0 6px 0 rgba(0,0,0,.28);margin:auto}
+.pop h3{border:none;padding:0;font-size:clamp(23px,4vw,30px);margin-bottom:6px;text-align:center}
+.pop .sot{text-align:center;font-size:15px;color:var(--ink-soft);margin-bottom:16px}
+.cat{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--ink);border-radius:3px;padding:11px 13px;margin-bottom:8px}
+.cat .pastilla{width:34px;height:34px;border-radius:6px;border:2px solid rgba(0,0,0,.28);flex:0 0 auto}
+.cat .tx{flex:1}
+.cat .tx b{display:block;font-family:var(--disp);font-size:19px;letter-spacing:.05em;text-transform:uppercase;line-height:1.1}
+.cat .tx span{font-size:14px;color:var(--ink-soft)}
+.pista{background:#fff;border:2px solid var(--ink);border-left:8px solid var(--amber);border-radius:3px;padding:14px 16px;margin-bottom:10px}
+.pista .niv{font-family:var(--disp);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.btn-ajuda{display:inline-block;border:2px solid var(--ink);border-radius:2px;background:#FFF7DB;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;box-shadow:var(--shadow)}
+.btn-ajuda:hover{background:var(--amber)}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+@media(max-width:560px){.marcador{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">CIRC<b>ULA</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="pas" id="pas" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <!-- 1 · ENTRADA -->
+    <section class="screen on" id="s1">
+      <div class="eyebrow">Sessió 8 · El marcador que explica</div>
+      <h2>Torneu a obrir el vostre programa</h2>
+      <p class="lede">El vostre programa ja sap decidir. Avui aprendrà a recordar quantes decisions ha pres, i a dir per què.</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="chips" id="grups"></div>
+        <label>Equip</label>
+        <div class="chips" id="equips"></div>
+        <button class="cta" id="anar1" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <!-- 2 · LES DADES -->
+    <section class="screen" id="s2">
+      <div class="eyebrow">Els números que vau fer vosaltres</div>
+      <h2>La primera sessió</h2>
+      <p class="lede">El primer dia del taller vau classificar dotze objectes cadascú. Copieu aquí els números que hi ha a la pantalla gran.</p>
+      <div class="marcador">
+        <div class="mbox b0"><div class="k">Via 0 · Evitar</div><input type="text" id="d0" inputmode="numeric" placeholder="0"></div>
+        <div class="mbox b1"><div class="k">Via 1 · Serveix</div><input type="text" id="d1" inputmode="numeric" placeholder="0"></div>
+        <div class="mbox b2"><div class="k">Via 2 · Reciclar</div><input type="text" id="d2" inputmode="numeric" placeholder="0"></div>
+        <div class="mbox be"><div class="k">Via E · Especial</div><input type="text" id="dE" inputmode="numeric" placeholder="0"></div>
+      </div>
+      <div id="titular"></div>
+      <div class="row"><button class="cta" id="anar2" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 3 · LA VARIABLE -->
+    <section class="screen" id="s3">
+      <div class="eyebrow">Primer repte</div>
+      <h2>Una cosa que recorda un número</h2>
+      <p class="lede">Fins ara el programa decidia i oblidava. Una variable és una capsa amb un nom que guarda un número i el va canviant.</p>
+      <div class="panel">
+        <h3>Com es veurà</h3>
+        <div class="pila">
+          <div class="blq ev">quan es clica la bandera verda</div><br>
+          <div class="blq va">posa <b>el comptador</b> a 0</div><br>
+          <div class="blq ct">si <span class="blq op" style="padding:4px 10px;font-size:16px">…</span> llavors</div>
+          <div class="ind"><div class="blq va">canvia <b>el comptador</b> per 1</div></div>
+        </div>
+        <p class="tip">El bloc de posar-la a zero va al principi. Si no hi és, el número de la partida anterior es queda.</p>
+      </div>
+      <div class="panel">
+        <h3>Què voleu que compti la vostra variable?</h3>
+        <div class="opcions" id="qVar">
+          <button class="op" data-v="Evitables" aria-pressed="false"><h4>Els evitables</h4><p>Quants objectes no calia ni que existissin.</p></button>
+          <button class="op" data-v="Aprofitables" aria-pressed="false"><h4>Els que serveixen</h4><p>Quants encara es poden fer servir.</p></button>
+          <button class="op" data-v="Contenidor" aria-pressed="false"><h4>Els que van al contenidor</h4><p>Quants s'han d'acabar reciclant.</p></button>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar3" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 4 · EL MISSATGE -->
+    <section class="screen" id="s4">
+      <div class="eyebrow">Segon repte · el més important del dia</div>
+      <h2>El programa ha d'explicar</h2>
+      <p class="lede">Un programa que només diu «bé» o «malament» no serveix de res: qui el fa servir no aprèn res. El vostre ha de dir <strong>per què</strong>.</p>
+
+      <div class="msgbox">
+        <div class="cap">Quan la decisió és <span>la millor possible</span>, el programa dirà…</div>
+        <div class="ex">Exemple del que NO val: «Molt bé!»</div>
+        <textarea id="msgBo" placeholder="Per exemple: aquest full encara té una cara en blanc, així que serveix per a esborranys."></textarea>
+        <div id="nudgeBo"></div>
+      </div>
+
+      <div class="msgbox">
+        <div class="cap">Quan <span>es podia haver evitat</span>, el programa dirà…</div>
+        <div class="ex">Exemple del que NO val: «Error.»</div>
+        <textarea id="msgMal" placeholder="Per exemple: amb una cantimplora no hi hauria hagut cap ampolla per llençar."></textarea>
+        <div id="nudgeMal"></div>
+      </div>
+
+      <div class="alerta"><strong>La prova</strong>Llegiu els dos missatges a algú que no hagi fet el taller. Si entén per què, estan bé. Si només sap si ha encertat, encara no.</div>
+      <div class="row"><button class="cta" id="anar4" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 5 · PREDICCIÓ -->
+    <section class="screen" id="s5">
+      <div class="eyebrow">Abans de programar-ho</div>
+      <h2>Què passarà</h2>
+      <div id="resumPre"></div>
+      <div class="form" style="max-width:100%">
+        <label for="pred">La nostra predicció</label>
+        <textarea id="pred" placeholder="Per exemple: cada vegada que surti un objecte evitable, el comptador pujarà i el programa explicarà com s'hauria pogut estalviar."></textarea>
+      </div>
+      <div class="row"><button class="cta" id="anar5" disabled>Anem a programar-ho</button></div>
+    </section>
+
+    <!-- 6 · PROVA -->
+    <section class="screen" id="s6">
+      <div class="eyebrow">Ara toca Scratch</div>
+      <h2>Programeu-ho i proveu-ho</h2>
+      <div class="panel">
+        <h3>Abans de dir que funciona</h3>
+        <ol style="margin-left:22px">
+          <li style="margin-bottom:7px">Proveu-ho amb tots els vestits de l'objecte, un per un.</li>
+          <li style="margin-bottom:7px">Mireu si el comptador puja quan toca i <strong>no puja</strong> quan no toca.</li>
+          <li style="margin-bottom:7px">Torneu a clicar la bandera: el comptador ha de tornar a zero.</li>
+          <li>Comproveu que els dos missatges surten i que són diferents.</li>
+        </ol>
+      </div>
+      <div class="avis"><strong>Deseu-ho amb el vostre nom</strong>Aquest programa tornarà a sortir a la darrera sessió.</div>
+      <div class="row"><button class="cta" id="anar6">Ja ho hem provat →</button></div>
+    </section>
+
+    <!-- 7 · DIAGNÒSTIC -->
+    <section class="screen" id="s7">
+      <div class="eyebrow">Diagnòstic</div>
+      <h2>Compta bé i explica bé?</h2>
+      <div class="siNo" id="funciona1">
+        <button class="sn" data-f="SI">Sí, tot</button>
+        <button class="sn" data-f="NO">No del tot</button>
+      </div>
+      <div id="blocError" hidden>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="quePassa">Què ha fet exactament</label>
+          <textarea id="quePassa" placeholder="Per exemple: el comptador no tornava a zero i cada vegada començava més alt."></textarea>
+        </div>
+        <h3 style="margin-top:22px">De quin tipus és el problema?</h3>
+        <div class="tipus" id="tipus">
+          <button class="tp" data-t="Variable"><h4>De variable</h4><p>No compta, o compta sempre encara que no toqui.</p></button>
+          <button class="tp" data-t="Posició del bloc"><h4>De posició del bloc</h4><p>El bloc de sumar està fora del «si», i per això suma sempre.</p></button>
+          <button class="tp" data-t="Reinici"><h4>De reinici</h4><p>No torna a zero quan es torna a engegar.</p></button>
+          <button class="tp" data-t="Missatge"><h4>De missatge</h4><p>Diu sempre el mateix, o no dona temps a llegir-lo.</p></button>
+        </div>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="queCanviem">Què canvieu · només una cosa</label>
+          <textarea id="queCanviem" placeholder="Per exemple: posarem el bloc de posar a zero just sota la bandera."></textarea>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar7" disabled>Guardar</button></div>
+    </section>
+
+    <!-- 8 · FINAL -->
+    <section class="screen" id="s8"></section>
+
+  </div></main>
+
+  <!-- MAPA DE LA PALETA -->
+  <div class="vel" id="velMapa" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="mapT">
+      <h3 id="mapT">On són els blocs</h3>
+      <p class="sot">Els colors de la llista de l'esquerra de Scratch</p>
+      <div class="cat"><span class="pastilla" style="background:#FF8C1A"></span>
+        <span class="tx"><b>Variables</b><span>Els que recorden un número o una paraula.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#FFAB19"></span>
+        <span class="tx"><b>Control</b><span>Els que decideixen, esperen o repeteixen.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#9966FF"></span>
+        <span class="tx"><b>Aparença</b><span>Els que fan dir coses i canviar de vestit.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#FFBF00"></span>
+        <span class="tx"><b>Esdeveniments</b><span>Els que fan que el programa comenci.</span></span></div>
+      <div class="cat"><span class="pastilla" style="background:#59C059"></span>
+        <span class="tx"><b>Operadors</b><span>Els que comparen dues coses i responen sí o no.</span></span></div>
+      <div class="row" style="justify-content:center"><button class="cta small" id="mapX">Ja ho tenim</button></div>
+    </div>
+  </div>
+
+  <!-- PISTES -->
+  <div class="vel" id="velPista" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="piT">
+      <h3 id="piT">Us hi ajudo una mica</h3>
+      <p class="sot" id="piSot"></p>
+      <div id="piCos"></div>
+      <div class="row" style="justify-content:center">
+        <button class="cta ghost small" id="piMes">Encara no ho veiem</button>
+        <button class="cta small" id="piX">Ja ho provem</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "";
+/* ═══════════════════════════════════════════════════════════ */
+
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+
+var PISTES={
+  variable:{
+    titol:"Crear la variable i fer-la pujar",
+    n:[
+      "Poseu-vos d'acord primer: quan hauria de pujar el número? Cada vegada que passa què, exactament?",
+      "Primer heu de crear la capsa i posar-li nom. Quan ja existeix, apareixen sols els blocs per posar-hi un número i per canviar-lo.",
+      "És a la categoria taronja fosc, Variables. Hi ha un botó per fer-ne una de nova."
+    ]
+  },
+  posicio:{
+    titol:"Que compti només quan toca",
+    n:[
+      "Si el número puja sempre, encara que la resposta sigui que no, on deu estar el bloc de sumar? Dins del «si» o fora?",
+      "El bloc de sumar ha d'estar a dins del buit del bloc que decideix, no a sota. Si és a sota, es fa sempre.",
+      "Arrossegueu-lo fins que quedi encaixat dins de la C taronja i es vegi el gaiato tancant-lo per sota."
+    ]
+  },
+  missatge:{
+    titol:"Fer que expliqui",
+    n:[
+      "Si algú que no ha fet el taller llegís el vostre missatge, entendria per què? O només sabria si ha encertat?",
+      "El missatge ha de dir alguna cosa d'aquell objecte en concret: què li passa, o com s'hauria pogut estalviar.",
+      "El bloc per dir coses és morat i és a Aparença. Si voleu que doni temps a llegir-ho, busqueu el que porta un número de segons."
+    ]
+  }
+};
+
+var st={grup:null,equip:null,noms:"",d0:null,d1:null,d2:null,dE:null,
+        variable:null,msgBo:"",msgMal:"",pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",
+        consultes:0,pistes:[],t0:0};
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function mostra(id,n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  if(n){$("#pas").hidden=false;$("#pas").textContent=n;} else $("#pas").hidden=true;
+  window.scrollTo(0,0);
+}
+function llegeix(id){
+  var v=$(id).value.replace(/[^0-9]/g,"");
+  $(id).value=v;
+  return v.length?parseInt(v,10):null;
+}
+
+/* ---------- 1 · entrada ---------- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa1();
+});
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa1();
+});
+$("#noms").addEventListener("input",function(e){st.noms=e.target.value.trim();revisa1();});
+function revisa1(){$("#anar1").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+$("#anar1").addEventListener("click",function(){
+  st.t0=Date.now(); $("#meta").textContent=st.equip; mostra("#s2","1 de 6");
+});
+
+/* ---------- 2 · dades ---------- */
+["#d0","#d1","#d2","#dE"].forEach(function(id){
+  $(id).addEventListener("input",function(){
+    st[id.substring(1)]=llegeix(id);
+    revisa2();
+  });
+});
+function revisa2(){
+  var ok=(st.d0!==null&&st.d1!==null&&st.d2!==null&&st.dE!==null);
+  if(ok){
+    var total=st.d0+st.d1+st.d2+st.dE;
+    var noCalia=st.d0+st.d1;
+    $("#titular").innerHTML='<div class="titular"><p>De <b>'+total+' objectes</b>,<br>'+
+      '<i>'+noCalia+'</i> no calia llençar-los.</p>'+
+      '<p class="tip" style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none">'+
+      'Els de la via 0 no havien d\'existir i els de la via 1 encara serveixen. Només '+st.d2+' havien d\'anar al contenidor.</p></div>';
+  } else $("#titular").innerHTML="";
+  $("#anar2").disabled=!ok;
+}
+$("#anar2").addEventListener("click",function(){mostra("#s3","2 de 6");});
+
+/* ---------- 3 · variable ---------- */
+$("#qVar").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-v]"); if(!b) return;
+  st.variable=b.dataset.v;
+  $$("#qVar .op").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.v===st.variable);});
+  $("#anar3").disabled=false;
+});
+$("#anar3").addEventListener("click",function(){mostra("#s4","3 de 6");});
+
+/* ---------- 4 · missatges ---------- */
+var POBRES=["be","bé","molt be","molt bé","malament","error","correcte","incorrecte","si","no","ok","bien","mal"];
+function nudge(txt,idNudge){
+  var net=txt.toLowerCase().replace(/[!.¡,]/g,"").trim();
+  if(!txt.length){$(idNudge).innerHTML="";return;}
+  if(POBRES.indexOf(net)>-1 || txt.length<15){
+    $(idNudge).innerHTML='<div class="nudge">Això diu si està bé o malament, però encara no diu <strong>per què</strong>. Proveu d\'explicar què li passa a aquell objecte en concret.</div>';
+  } else $(idNudge).innerHTML="";
+}
+$("#msgBo").addEventListener("input",function(e){
+  st.msgBo=e.target.value.trim(); nudge(st.msgBo,"#nudgeBo"); revisa4();
+});
+$("#msgMal").addEventListener("input",function(e){
+  st.msgMal=e.target.value.trim(); nudge(st.msgMal,"#nudgeMal"); revisa4();
+});
+function revisa4(){
+  $("#anar4").disabled=!(st.msgBo.length>=10 && st.msgMal.length>=10 && st.msgBo!==st.msgMal);
+}
+$("#anar4").addEventListener("click",function(){
+  $("#resumPre").innerHTML='<div class="resum">'+
+    '<p>La variable compta · '+st.variable+'</p>'+
+    '<p style="margin-top:10px">Quan la decisió és bona diu</p><div class="cita">«'+st.msgBo+'»</div>'+
+    '<p>Quan es podia evitar diu</p><div class="cita">«'+st.msgMal+'»</div></div>';
+  mostra("#s5","4 de 6");
+});
+$("#pred").addEventListener("input",function(e){
+  st.pred=e.target.value.trim();
+  $("#anar5").disabled=st.pred.length<10;
+});
+$("#anar5").addEventListener("click",function(){mostra("#s6","5 de 6");});
+$("#anar6").addEventListener("click",function(){mostra("#s7","6 de 6");});
+
+/* ---------- 7 · diagnòstic ---------- */
+$("#funciona1").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f1=b.dataset.f;
+  $$("#funciona1 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f1);});
+  $("#blocError").hidden=(st.f1==="SI");
+  revisa7();
+});
+$("#tipus").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-t]"); if(!b) return;
+  st.tipus=b.dataset.t;
+  $$("#tipus .tp").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.t===st.tipus);});
+  revisa7();
+});
+$("#quePassa").addEventListener("input",function(e){st.quePassa=e.target.value.trim();revisa7();});
+$("#queCanviem").addEventListener("input",function(e){st.queCanviem=e.target.value.trim();revisa7();});
+function revisa7(){
+  if(st.f1==="SI"){$("#anar7").disabled=false;return;}
+  $("#anar7").disabled=!(st.f1==="NO" && st.quePassa.length>5 && st.tipus && st.queCanviem.length>5);
+}
+
+/* ---------- ajuda ---------- */
+var pistaCtx=null,pistaNiv=0;
+function obreMapa(){st.consultes++;$("#velMapa").hidden=false;$("#mapX").focus();}
+function tancaMapa(){$("#velMapa").hidden=true;}
+$("#mapX").addEventListener("click",tancaMapa);
+$("#velMapa").addEventListener("click",function(ev){if(ev.target===$("#velMapa"))tancaMapa();});
+function obrePista(ctx){
+  pistaCtx=ctx;pistaNiv=0;
+  $("#piSot").textContent=PISTES[ctx].titol;
+  $("#piCos").innerHTML="";
+  mesPista();
+  $("#velPista").hidden=false;$("#piX").focus();
+}
+function mesPista(){
+  var p=PISTES[pistaCtx]; if(pistaNiv>=p.n.length) return;
+  pistaNiv++;
+  st.pistes.push(pistaCtx+":"+pistaNiv);
+  var d=document.createElement("div");
+  d.className="pista";
+  d.innerHTML='<div class="niv">Pista '+pistaNiv+' de '+p.n.length+'</div><p>'+p.n[pistaNiv-1]+'</p>';
+  $("#piCos").appendChild(d);
+  $("#piMes").hidden=(pistaNiv>=p.n.length);
+  if(pistaNiv>=p.n.length){
+    var f=document.createElement("p");
+    f.className="tip";f.style.marginTop="10px";
+    f.textContent="Fins aquí us puc ajudar. El que va dins dels blocs ho heu de decidir vosaltres.";
+    $("#piCos").appendChild(f);
+  }
+}
+function tancaPista(){$("#velPista").hidden=true;}
+$("#piMes").addEventListener("click",mesPista);
+$("#piX").addEventListener("click",tancaPista);
+$("#velPista").addEventListener("click",function(ev){if(ev.target===$("#velPista"))tancaPista();});
+document.addEventListener("keydown",function(ev){
+  if(ev.key!=="Escape") return;
+  if(!$("#velPista").hidden) tancaPista();
+  else if(!$("#velMapa").hidden) tancaMapa();
+});
+tancaMapa(); tancaPista();
+
+function ajuda(idPantalla,ctx){
+  var r=document.createElement("div");
+  r.className="row";
+  var b1=document.createElement("button");
+  b1.className="btn-ajuda"; b1.textContent="On són els blocs?";
+  b1.addEventListener("click",obreMapa);
+  var b2=document.createElement("button");
+  b2.className="btn-ajuda"; b2.textContent="Estem encallats";
+  b2.addEventListener("click",function(){obrePista(ctx);});
+  r.appendChild(b1); r.appendChild(b2);
+  $(idPantalla).appendChild(r);
+}
+ajuda("#s3","variable");
+ajuda("#s4","missatge");
+ajuda("#s6","posicio");
+
+/* ---------- final ---------- */
+function codi(){
+  return st.d0+"."+st.d1+"."+st.d2+"."+st.dE+"-"+st.variable.charAt(0)+"-"+(st.f1==="SI"?"O":"X");
+}
+function textPla(){
+  return "Dades del grup: "+st.d0+"/"+st.d1+"/"+st.d2+"/"+st.dE+
+    " | La variable compta: "+st.variable+
+    " | Missatge bo: «"+st.msgBo+"»"+
+    " | Missatge evitable: «"+st.msgMal+"»"+
+    " | Pistes: "+(st.pistes.length?st.pistes.join(", "):"cap")+
+    " | Consultes al mapa: "+st.consultes;
+}
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  return fetch(ENDPOINT,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({
+      activitat:"circula-marcador",
+      grup:st.grup,equip:st.equip,noms:st.noms,
+      codi:codi(), pla:textPla(), prediccio:st.pred,
+      mirades:st.consultes,
+      objectiu:"Una variable amb dades reals i un missatge que explica",
+      primera:st.f1, quePassa:st.quePassa,
+      tipusError:st.tipus||"", queCanviem:st.queCanviem,
+      dobleProva:"Explica: «"+st.msgMal+"»",
+      minuts:Math.round((Date.now()-st.t0)/60000)
+    })}).then(function(){return "ok";}).catch(function(){return "err";});
+}
+$("#anar7").addEventListener("click",function(){
+  $("#s8").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Guardat</h2>'+
+    '<p class="lede">El vostre programa ja no només decideix: recorda i explica. Això és el que fa que serveixi a algú altre.</p>'+
+    '<div class="codi-box"><div class="k">Codi del vostre marcador</div><div class="codi">'+codi()+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="resum">'+
+      '<p>La variable compta · '+st.variable+'</p>'+
+      '<p style="margin-top:10px">Quan la decisió és bona</p><div class="cita">«'+st.msgBo+'»</div>'+
+      '<p>Quan es podia evitar</p><div class="cita">«'+st.msgMal+'»</div>'+
+    '</div>'+
+    '<div class="avis"><strong>Deseu-ho abans de tancar</strong>Aquest programa tornarà a sortir a la darrera sessió.</div>'+
+    '<div class="row"><button class="cta ghost small" id="nova">Comença un altre equip</button></div>';
+  mostra("#s8");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Digueu el codi al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st={grup:null,equip:null,noms:"",d0:null,d1:null,d2:null,dE:null,
+        variable:null,msgBo:"",msgMal:"",pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",
+        consultes:0,pistes:[],t0:0};
+    ["#noms","#d0","#d1","#d2","#dE","#msgBo","#msgMal","#pred","#quePassa","#queCanviem"]
+      .forEach(function(i){$(i).value="";});
+    $$(".chip,.op,.sn").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$(".tp").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#blocError").hidden=true;
+    $("#titular").innerHTML="";$("#nudgeBo").innerHTML="";$("#nudgeMal").innerHTML="";
+    pistaCtx=null;pistaNiv=0;$("#piCos").innerHTML="";
+    ["#anar2","#anar3","#anar4","#anar5","#anar7"].forEach(function(b){$(b).disabled=true;});
+    $("#meta").textContent="";
+    revisa1(); mostra("#s1");
+  });
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
