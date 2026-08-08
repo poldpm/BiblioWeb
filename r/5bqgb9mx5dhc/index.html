@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:5bqgb9mx5dhc:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessió 5 · SPIKE-SORT · Recurs del mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.badge{font-family:var(--disp);font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:#EFCB3A;color:var(--ink);padding:3px 10px;border-radius:2px}
+.spacer{flex:1}
+.btn-back{font-family:var(--disp);font-size:18px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;padding:4px 8px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 20px 44px;width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(44px,7.5vw,88px)}
+h1 em{font-style:normal;color:var(--amber)}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(28px,4.4vw,44px);line-height:1}
+h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:21px;margin-bottom:6px}
+.lede{max-width:56ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.hero{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.card-btn{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px 16px;text-align:left;box-shadow:var(--shadow);transition:transform .12s}
+.card-btn:hover{transform:translate(-2px,-2px)}
+.card-btn .n{font-family:var(--disp);font-size:14px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.card-btn .t{font-family:var(--disp);font-size:29px;text-transform:uppercase;line-height:1;margin:6px 0 7px}
+.card-btn .d{font-size:14px;color:var(--ink-soft)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.bloc{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px;margin-top:18px}
+.bloc ul,.bloc ol{margin:8px 0 0 20px}
+.bloc li{margin-bottom:6px;font-size:16px}
+.gran{border:3px solid var(--ink);border-radius:3px;background:var(--paper-2);padding:26px;box-shadow:var(--shadow);margin-top:18px}
+.gran p{font-family:var(--disp);font-size:clamp(26px,4vw,44px);text-transform:uppercase;line-height:1.06}
+.gran p b{color:var(--roig)}
+.passos{display:grid;gap:12px;margin-top:18px}
+.pas{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px 18px;box-shadow:var(--shadow)}
+.pas .n{font-family:var(--disp);font-size:clamp(34px,4.4vw,50px);color:var(--amber);line-height:1;min-width:40px;text-align:center}
+.pas .t{font-family:var(--disp);font-size:clamp(20px,2.6vw,27px);text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.pas .a{font-size:15px;color:var(--ink-soft);margin-top:3px}
+.cadena{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+.cd{border:2px solid var(--ink);border-radius:3px;overflow:hidden;box-shadow:var(--shadow);background:var(--paper-2)}
+.cd .h{padding:12px 16px;color:#fff;font-family:var(--disp);font-size:25px;letter-spacing:.06em;text-transform:uppercase}
+.cd .b{padding:14px 16px;font-size:15px;color:var(--ink-soft)}
+.cd .b em{display:block;margin-top:8px;font-style:normal;font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.c1 .h{background:var(--roig)}.c2 .h{background:var(--amber);color:var(--ink)}.c3 .h{background:var(--blau)}.c4 .h{background:var(--verd)}
+.errors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+.er{background:var(--paper-2);border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+.er h4{font-family:var(--disp);font-size:23px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.er p{font-size:15px;color:var(--ink-soft)}
+.er .sig{display:block;margin-top:8px;font-size:14px;color:var(--roig)}
+.esquema{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px;box-shadow:var(--shadow);margin-top:16px}
+.esquema svg{width:100%;height:auto;display:block}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper-2);border:2px solid var(--ink)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);font-size:15px}
+th{font-family:var(--disp);font-size:16px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper-2);border:none}
+td.t{font-variant-numeric:tabular-nums;font-family:var(--disp);font-size:19px;white-space:nowrap}
+tr.clau td{background:#FFF7DB;font-weight:600}
+textarea{width:100%;min-height:110px;padding:14px;font-family:var(--disp);font-size:20px;letter-spacing:.08em;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);resize:vertical}
+.plec{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.plec .cap{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.plec p{font-family:var(--disp);font-size:19px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+.nota{background:var(--paper-2);border-left:5px solid var(--amber);padding:14px 18px;margin-top:14px;font-size:16px}
+.alerta{background:#FBE6E1;border-left:5px solid var(--roig);padding:14px 18px;margin-top:14px;font-size:16px}
+.tip{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.diu{background:#fff;border:2px dashed var(--ink);border-radius:3px;padding:14px 18px;margin-top:12px;font-size:17px;font-style:italic}
+.diu b{font-style:normal;font-family:var(--disp);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SESSIÓ <b>5</b></div>
+    <span class="badge">Mestre</span>
+    <button class="btn-back" id="back" hidden>← Inici</button>
+    <div class="spacer"></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <section class="screen on" id="s-home">
+      <div class="hero">
+        <div class="eyebrow">Taller de tecnologia, programació i robòtica · 3r</div>
+        <h1>La comporta<br><em>que decideix</em></h1>
+        <p class="lede">SPIKE Essential. Fins ara decidien ells on anava cada cosa. Avui construeixen una màquina que ho decideix sola: sensor, programa, actuador.</p>
+      </div>
+      <div class="menu">
+        <button class="card-btn" data-go="concepte"><div class="n">Projectar</div><div class="t">La cadena</div><div class="d">Sensor, programa, actuador, estructura.</div></button>
+        <button class="card-btn" data-go="muntatge"><div class="n">Projectar</div><div class="t">Què construeixen</div><div class="d">Els quatre passos del braç i el sensor.</div></button>
+        <button class="card-btn" data-go="sensor"><div class="n">Projectar</div><div class="t">On va el sensor</div><div class="d">La decisió que decideix si funciona.</div></button>
+        <button class="card-btn" data-go="errors"><div class="n">Projectar</div><div class="t">Quatre tipus d'error</div><div class="d">El cartell del dia.</div></button>
+        <button class="card-btn" data-go="rellotge"><div class="n">Només tu</div><div class="t">Rellotge</div><div class="d">Minut a minut i el repartiment dels 3 sets.</div></button>
+        <button class="card-btn" data-go="codis"><div class="n">Només tu</div><div class="t">Llegir codis</div><div class="d">Descodifica les màquines dels equips.</div></button>
+        <button class="card-btn" data-go="guia"><div class="n">Només tu</div><div class="t">Guia</div><div class="d">Preparació, safates, què observar i plans B.</div></button>
+      </div>
+    </section>
+
+    <!-- CONCEPTE -->
+    <section class="screen" id="s-concepte">
+      <div class="eyebrow">Projectar · 10 minuts</div>
+      <h2>Qui fa què</h2>
+      <p class="lede">Ensenya la comporta ja muntada i deixa-la funcionar una vegada. Després pregunta, i que hi arribin ells.</p>
+      <div class="diu"><b>La pregunta</b>«Qui li ha dit al motor que s'havia de moure? El motor no té ulls.»</div>
+      <div class="cadena">
+        <div class="cd c1"><div class="h">Sensor</div><div class="b">Mira i s'assabenta de què hi ha. No decideix res.<em>Els ulls</em></div></div>
+        <div class="cd c2"><div class="h">Programa</div><div class="b">Rep el que ha vist el sensor i decideix què s'ha de fer. El feu vosaltres.<em>El cap</em></div></div>
+        <div class="cd c3"><div class="h">Actuador</div><div class="b">Es mou i fa la feina. No sap per què.<em>Els braços</em></div></div>
+        <div class="cd c4"><div class="h">Estructura</div><div class="b">Sosté tota la resta. Si es mou, res funciona.<em>L'esquelet</em></div></div>
+      </div>
+      <div class="gran"><p>El sensor <b>no decideix</b>.<br>Només mira.<br>Qui decideix<br>sou vosaltres.</p></div>
+      <div class="row"><button class="cta" data-go="muntatge">Què construeixen →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- MUNTATGE -->
+    <section class="screen" id="s-muntatge">
+      <div class="eyebrow">Projectar · 20 minuts</div>
+      <h2>Només el braç i el sensor</h2>
+      <p class="lede">La base ja està muntada. Ells construeixen la part que es mou i decideixen on va el sensor. Aquí és on hi ha les decisions de veritat.</p>
+      <div class="passos">
+        <div class="pas"><div class="n">1</div><div><div class="t">Encaixeu el motor a la base</div><div class="a">Ben ferm. Si el motor es mou, el braç no anirà mai al mateix lloc.</div></div></div>
+        <div class="pas"><div class="n">2</div><div><div class="t">Feu el braç de la comporta</div><div class="a">Prou llarg per tapar el pas i prou curt per no fregar amb la rampa.</div></div></div>
+        <div class="pas"><div class="n">3</div><div><div class="t">Col·loqueu el sensor mirant la rampa</div><div class="a">Ha de veure l'objecte abans que arribi a la comporta, no just a sobre.</div></div></div>
+        <div class="pas"><div class="n">4</div><div><div class="t">Comproveu-ho amb la mà</div><div class="a">Moveu el braç a mà. Ha de fer tot el recorregut sense encallar-se enlloc.</div></div></div>
+      </div>
+      <div class="alerta"><strong>El pas 4 no és opcional.</strong> Si el braç frega abans de connectar res, quan el motor l'empenyi es desencaixarà. Val més trobar-ho ara movent-lo amb el dit que després amb el motor forçant.</div>
+      <div class="row"><button class="cta" data-go="sensor">On va el sensor →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- SENSOR -->
+    <section class="screen" id="s-sensor">
+      <div class="eyebrow">Projectar</div>
+      <h2>On es posa el sensor</h2>
+      <div class="esquema">
+        <svg viewBox="0 0 620 300" role="img" aria-label="Esquema d'una comporta amb rampa, sensor, motor amb braç i hub">
+          <rect x="10" y="10" width="600" height="280" fill="#fff" stroke="#141A18" stroke-width="2"/>
+          <path d="M60 120L330 200v40H60z" fill="#E6E8DF" stroke="#141A18" stroke-width="3"/>
+          <text x="150" y="228" font-family="Karla,system-ui,sans-serif" font-size="14" fill="#3E4844">rampa</text>
+          <rect x="150" y="128" width="34" height="34" fill="#B8930F" stroke="#141A18" stroke-width="2" transform="rotate(16 167 145)"/>
+          <rect x="330" y="150" width="90" height="90" fill="#F1F2EB" stroke="#141A18" stroke-width="3"/>
+          <circle cx="375" cy="195" r="22" fill="#234A80" stroke="#141A18" stroke-width="3"/>
+          <path d="M375 195l58-34" stroke="#141A18" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="90" cy="80" r="20" fill="#8F2A19" stroke="#141A18" stroke-width="3"/>
+          <path d="M96 96l40 34" stroke="#8F2A19" stroke-width="3" stroke-dasharray="6 5"/>
+          <rect x="455" y="150" width="105" height="90" rx="6" fill="#1F5C3C" stroke="#141A18" stroke-width="3"/>
+          <rect x="480" y="172" width="55" height="46" fill="#F1F2EB" stroke="#141A18" stroke-width="2"/>
+          <text x="90" y="40" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="26" fill="#8F2A19" text-anchor="middle">SENSOR</text>
+          <text x="375" y="268" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="26" fill="#234A80" text-anchor="middle">MOTOR</text>
+          <text x="507" y="140" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="26" fill="#1F5C3C" text-anchor="middle">HUB</text>
+          <text x="200" y="112" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="22" fill="#B8930F" text-anchor="middle">OBJECTE</text>
+        </svg>
+      </div>
+      <div class="grid2">
+        <div class="bloc"><h3>Ha de complir</h3>
+          <ul>
+            <li><strong>Veure l'objecte abans</strong> que arribi a la comporta. Si el veu just a sobre, el motor no té temps.</li>
+            <li><strong>Molt a prop</strong> de la superfície per on passa l'objecte. Uns pocs centímetres.</li>
+            <li><strong>Mirant de cara</strong>, no de gairell.</li>
+            <li><strong>Fixat</strong>. Si es belluga, cada prova donarà un resultat diferent.</li>
+          </ul></div>
+        <div class="bloc"><h3>El que farà que falli</h3>
+          <ul>
+            <li>Massa lluny: no distingeix el color.</li>
+            <li>Massa a prop: es queda sense llum i tot li sembla fosc.</li>
+            <li>Amb una ombra a sobre, o amb el sol de cara.</li>
+            <li>Enganxat només per un forat: es tomba sol.</li>
+          </ul></div>
+      </div>
+      <div class="nota"><strong>Deixa'ls equivocar-se.</strong> La posició del sensor és la decisió que més determina si la màquina funciona, i és la que aprendran millor si primer la posen malament. Quan un equip et digui que «el sensor no va», la pregunta és: <strong>«a quina distància el veu bé, i com ho heu comprovat?»</strong></div>
+      <div class="row"><button class="cta" data-go="errors">Tipus d'error →</button><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- ERRORS -->
+    <section class="screen" id="s-errors">
+      <div class="eyebrow">Projectar · deixar-ho a la vista tota la sessió</div>
+      <h2>Quan la comporta no fa el que toca</h2>
+      <div class="errors">
+        <div class="er"><h4>De muntatge</h4><p>Alguna peça es mou, l'engranatge patina o el braç frega.</p><span class="sig">Sona però no es mou · a vegades sí i a vegades no</span></div>
+        <div class="er"><h4>De sensor</h4><p>No veu el color: massa lluny, massa a prop, o li fa ombra.</p><span class="sig">No es mou mai · confon dos colors</span></div>
+        <div class="er"><h4>De programa</h4><p>Les ordres no són les que calien, o en falta alguna.</p><span class="sig">S'obre amb tots els colors · no es torna a tancar</span></div>
+        <div class="er"><h4>De posició</h4><p>Es mou bé però no torna al lloc de sortida.</p><span class="sig">Cada vegada comença una mica més tort</span></div>
+      </div>
+      <div class="gran" style="margin-top:22px"><p>Una màquina que va bé<br><b>una vegada</b><br>no serveix de res.</p></div>
+      <div class="nota">Per això avui es fan <strong>cinc proves</strong>, no dues. La diferència entre «ha funcionat» i «funciona sempre» és tota l'enginyeria.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- RELLOTGE -->
+    <section class="screen" id="s-rellotge">
+      <div class="eyebrow">Només tu</div>
+      <h2>Rellotge de la sessió</h2>
+      <table>
+        <thead><tr><th>Hora</th><th>Min</th><th>Què passa</th></tr></thead>
+        <tbody>
+          <tr><td class="t">15:00</td><td class="t">8</td><td><strong>Desplegament.</strong> Base muntada, safata de peces i tauleta per cèl·lula.</td></tr>
+          <tr class="clau"><td class="t">15:08</td><td class="t">10</td><td><strong>El concepte.</strong> Demostres la comporta. Surten sensor, programa i actuador.</td></tr>
+          <tr class="clau"><td class="t">15:18</td><td class="t">20</td><td><strong>Muntatge.</strong> Braç de la comporta i posició del sensor. La base ja està feta.</td></tr>
+          <tr><td class="t">15:38</td><td class="t">5</td><td><strong>Pausa activa</strong> i canvi de rol.</td></tr>
+          <tr><td class="t">15:43</td><td class="t">12</td><td><strong>Connectar i moure.</strong> Emparellen el hub i fan girar el motor. Res més.</td></tr>
+          <tr class="clau"><td class="t">15:55</td><td class="t">15</td><td><strong>El sensor mana.</strong> Quan veu el color, la comporta s'obre. I ha de tornar a tancar-se.</td></tr>
+          <tr class="clau"><td class="t">16:10</td><td class="t">7</td><td><strong>Cinc proves.</strong> Compten quantes surten bé.</td></tr>
+          <tr><td class="t">16:17</td><td class="t">5</td><td><strong>Registre</strong> del diagnòstic.</td></tr>
+          <tr><td class="t">16:22</td><td class="t">6</td><td><strong>Tancament.</strong></td></tr>
+          <tr><td class="t">16:28</td><td class="t">12</td><td><strong>Recollida.</strong> El mecanisme es guarda <strong>muntat</strong>.</td></tr>
+        </tbody>
+      </table>
+      <div class="bloc" style="margin-top:18px"><h3>Tres sets per a sis equips</h3>
+        <p style="margin-bottom:10px">Els dos equips de cada cèl·lula no fan torns d'espera. Canvien a la pausa del minut 15:38.</p>
+        <table>
+          <thead><tr><th>Equip A</th><th>Equip B</th></tr></thead>
+          <tbody>
+            <tr><td>Munta el braç i col·loca el sensor</td><td>Prepara el programa a la tauleta</td></tr>
+            <tr><td>Prova el moviment amb la mà</td><td>Prova quins colors distingeix el sensor i a quina distància</td></tr>
+            <tr><td>Deixa caure l'objecte</td><td>Compta les cinc proves i omple el registre</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nota">Les quatre files marcades no es poden escurçar. Si vas tard, retalla la connexió lliure del minut 15:43: n'hi ha prou que el motor giri una vegada.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+    <!-- CODIS -->
+    <section class="screen" id="s-codis">
+      <div class="eyebrow">Només tu</div>
+      <h2>Llegir les màquines</h2>
+      <p class="lede">Enganxa un codi per línia. Si tens l'enviament automàtic connectat, ja et surten al full i aquesta pantalla només és de reserva.</p>
+      <textarea id="entrada" placeholder="12-VO-5de5&#10;31-BQ-3de5&#10;..."></textarea>
+      <div class="row">
+        <button class="cta" id="calc">Llegir</button>
+        <button class="cta ghost small" id="neteja">Buidar</button>
+        <button class="cta ghost" data-go="home">Inici</button>
+      </div>
+      <div id="sortida" style="margin-top:20px"></div>
+    </section>
+
+    <!-- GUIA -->
+    <section class="screen" id="s-guia">
+      <div class="eyebrow">Només tu</div>
+      <h2>Guia de la sessió</h2>
+      <div class="grid2">
+        <div class="bloc"><h3>Preparació · abans</h3>
+          <ul>
+            <li><strong>Muntar les tres bases</strong>: suport del hub, rampa i punt d'ancoratge del motor. Aquesta feina no cap dins la sessió.</li>
+            <li><strong>Safates amb les peces preseleccionades</strong> per al braç i el sensor. Amb 449 peces a taula, la sessió se'n va.</li>
+            <li>Carregar els tres hubs.</li>
+            <li>Comprovar que l'aplicació obre i <strong>que desa els projectes</strong>: la sessió 6 hi continua.</li>
+            <li>Anomenar els hubs SPIKE-A, SPIKE-B i SPIKE-C.</li>
+            <li>Preparar els objectes de colors: han de ser iguals de mida i pes, i de colors ben plans.</li>
+            <li>Fotografia de la caixa ordenada dins la tapa i recompte de peces crítiques.</li>
+          </ul></div>
+        <div class="bloc"><h3>Preparació · els 30 minuts</h3>
+          <ul>
+            <li>Tres bases muntades i comprovades a les taules.</li>
+            <li>Safates de peces i objectes de colors per cèl·lula.</li>
+            <li>Tauletes amb l'app oberta i el hub ja emparellat.</li>
+            <li>Cartell dels quatre tipus d'error penjat.</li>
+            <li>La teva comporta de demostració, provada.</li>
+            <li>Espai a l'armari per guardar els tres mecanismes <strong>sense desmuntar</strong>.</li>
+          </ul></div>
+        <div class="bloc"><h3>Què has d'observar</h3>
+          <ul>
+            <li>Qui sap dir <strong>què és el sensor i què és l'actuador</strong> assenyalant la seva pròpia màquina.</li>
+            <li>Qui es recorda que la comporta <strong>ha de tornar</strong> sense que tu ho diguis.</li>
+            <li>Qui mou el braç amb la mà abans de connectar el motor.</li>
+            <li>Qui, quan falla, mira el sensor abans de canviar el programa.</li>
+            <li>Tres alumnes per sessió.</li>
+          </ul></div>
+        <div class="bloc"><h3>Si falla</h3>
+          <ul>
+            <li><strong>El hub no connecta:</strong> apaga'l i torna'l a encendre, i comprova que cap altra tauleta hi estigui connectada.</li>
+            <li><strong>El sensor no distingeix els colors:</strong> gairebé sempre és la distància o la llum. Prova amb la persiana baixada.</li>
+            <li><strong>Un set queda inutilitzat:</strong> tres equips a cada un dels altres dos, i el tercer equip fa de verificador i registra igualment.</li>
+            <li><strong>Van molt endarrerits:</strong> que la comporta només s'obri, sense tornar. El retorn passa a ser el primer objectiu de la sessió 6.</li>
+            <li><strong>L'app no desa:</strong> foto del programa amb la tauleta abans de recollir. És el pla B per a la sessió 6.</li>
+          </ul></div>
+      </div>
+      <div class="bloc" style="margin-top:15px"><h3>Com es llegeix un codi de màquina</h3>
+        <p style="margin-bottom:8px">Tres parts: <strong>identificació · regla · fiabilitat</strong></p>
+        <table><thead><tr><th>Part</th><th>Què és</th></tr></thead><tbody>
+          <tr><td class="t">Dos dígits</td><td>Quin número han dit que és el sensor i quin l'actuador. Al diagrama, el sensor és l'1 i el motor el 2.</td></tr>
+          <tr><td class="t">Dues lletres</td><td>Inicial del color triat i inicial de l'acció (O d'obrir-se, Q de quedar-se tancada).</td></tr>
+          <tr><td class="t">n de 5</td><td>Quantes proves de cinc han sortit bé.</td></tr>
+        </tbody></table>
+        <p class="tip">Exemple: <strong>12-VO-5de5</strong> vol dir que han identificat bé sensor i actuador, la regla és obrir-se amb el vermell, i funciona cinc de cinc.</p>
+      </div>
+      <div class="alerta"><strong>Les dues primeres xifres són evidència directa.</strong> Al diagrama de l'activitat, el sensor és el número 1 i el motor el 2. Un equip que hagi posat 21 o 34 encara no distingeix qui mira de qui es mou, i això és exactament el que has d'avaluar avui. L'activitat <strong>no els corregeix</strong>: només ho registra.</div>
+      <div class="nota"><strong>Sobre les cinc proves.</strong> El número que t'informa no és si arriben a cinc: és què fan quan en treuen tres. Un equip que treu 3 de 5 i sap que el problema és el muntatge o la posició del sensor, i no el programa, ha entès com funciona una màquina.</div>
+      <div class="row"><button class="cta ghost" data-go="home">Inici</button></div>
+    </section>
+
+  </div></main>
+</div>
+
+<script>
+"use strict";
+var MAP={home:"#s-home",concepte:"#s-concepte",muntatge:"#s-muntatge",sensor:"#s-sensor",errors:"#s-errors",rellotge:"#s-rellotge",codis:"#s-codis",guia:"#s-guia"};
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function go(n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(MAP[n]).classList.add("on");
+  $("#back").hidden=(n==="home");
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]"); if(b) go(b.dataset.go);});
+$("#back").addEventListener("click",function(){go("home");});
+
+var COL={V:"Vermell",B:"Blau",G:"Verd",O:"Groc"};
+var ACC={O:"obrir-se",Q:"quedar-se tancada"};
+
+$("#neteja").addEventListener("click",function(){$("#entrada").value="";$("#sortida").innerHTML="";});
+$("#calc").addEventListener("click",function(){
+  var linies=$("#entrada").value.split("\n").map(function(l){return l.trim().toUpperCase();}).filter(function(l){return l.length>0;});
+  if(!linies.length){
+    $("#sortida").innerHTML='<div class="nota">Enganxa almenys un codi. Per exemple: 12-VO-5de5</div>';
+    return;
+  }
+  var h=linies.map(function(l,k){
+    var p=l.split("-");
+    if(p.length<3) return '<div class="plec"><div class="cap">Equip '+(k+1)+'</div><p>No es pot llegir ('+l+')</p></div>';
+    var ids=p[0], regla=p[1], fiab=p[2].replace(/[^0-9]/g,"");
+    var ok=(ids.charAt(0)==="1" && ids.charAt(1)==="2");
+    var col=COL[regla.charAt(0)]||"?", acc=ACC[regla.charAt(1)]||"?";
+    var n=parseInt(fiab.charAt(0),10); if(isNaN(n)) n=0;
+    var lect1= ok ? "Identifiquen bé el sensor i l'actuador."
+                  : "Encara confonen qui mira i qui es mou (han dit "+ids.charAt(0)+" i "+ids.charAt(1)+").";
+    var lect2;
+    if(n===5) lect2="Màquina fiable.";
+    else if(n>=3) lect2="Funciona gairebé sempre: mira si el sensor està ben fixat.";
+    else if(n>=1) lect2="Molt inestable: probablement muntatge o posició del sensor.";
+    else lect2="No funciona: comprova connexió i programa.";
+    return '<div class="plec"><div class="cap">Equip '+(k+1)+' · '+l+'</div>'+
+      '<p>Regla · quan vegi '+col+', '+acc+'</p>'+
+      '<p>Fiabilitat · '+n+' de 5</p>'+
+      '<p style="font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;color:'+(ok?"var(--ink-soft)":"var(--roig)")+';margin-top:10px">'+lect1+' '+lect2+'</p></div>';
+  }).join("");
+  $("#sortida").innerHTML=h+'<div class="nota"><strong>'+linies.length+' equips.</strong> Mira primer quants han identificat bé sensor i actuador: és el concepte de la sessió. La fiabilitat ja la treballareu la setmana vinent.</div>';
+  $("#sortida").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
