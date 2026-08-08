@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<!--bw-inici-->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<!--bw:t4b26v6bvz48:v1-->
+<!--bw-fi-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPIKE-SORT · Sessió 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6E8DF;--paper-2:#F1F2EB;--ink:#141A18;--ink-soft:#3E4844;--rule:#C2C7B9;
+  --amber:#B8930F;--verd:#1F5C3C;--blau:#234A80;--roig:#8F2A19;
+  --shadow:0 2px 0 rgba(20,26,24,.2);
+  --disp:'Barlow Condensed','Arial Narrow','Helvetica Neue Condensed','Liberation Sans Narrow','Nimbus Sans Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;min-height:44px;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.app{min-height:100%;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--ink);color:var(--paper-2);position:sticky;top:0;z-index:60}
+.brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand b{color:#EFCB3A}
+.spacer{flex:1}
+.meta{font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pas{font-family:var(--disp);font-size:20px;letter-spacing:.06em;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:2px}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:22px 18px 40px;width:100%}
+.wrap{width:100%;max-width:1000px;margin:0 auto}
+.screen{display:none;animation:fade .25s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--disp);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(30px,5vw,46px);line-height:1}
+h3{font-family:var(--disp);font-size:21px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lede{max-width:54ch;color:var(--ink-soft);margin-top:12px;font-size:18px}
+.form{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:20px;max-width:540px;box-shadow:var(--shadow);margin-top:18px}
+label{display:block;font-family:var(--disp);font-size:18px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],textarea{width:100%;padding:12px 14px;font-family:var(--body);font-size:18px;border:2px solid var(--ink);border-radius:2px;background:#fff;color:var(--ink);margin-bottom:16px;min-height:48px}
+textarea{min-height:100px;resize:vertical;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:2px solid var(--ink);border-radius:2px;padding:11px 16px;font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cta{display:inline-block;background:var(--ink);color:var(--paper-2);font-family:var(--disp);font-size:23px;letter-spacing:.12em;text-transform:uppercase;padding:12px 26px;border-radius:2px;box-shadow:var(--shadow)}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta.small{font-size:18px;padding:9px 18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.panel{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.avis{background:#FFF7DB;border:2px solid var(--amber);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.avis strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.alerta{background:#FBE6E1;border:2px solid var(--roig);border-radius:3px;padding:13px 16px;margin-top:14px;font-size:16px}
+.alerta strong{font-family:var(--disp);font-size:18px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--roig)}
+.esquema{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:14px;box-shadow:var(--shadow);margin-top:16px}
+.esquema svg{width:100%;height:auto;display:block;max-height:320px}
+.pregunta{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow);margin-top:14px}
+.pregunta .q{font-family:var(--disp);font-size:clamp(21px,3.2vw,28px);text-transform:uppercase;line-height:1.1;margin-bottom:4px}
+.pregunta .a{font-size:15px;color:var(--ink-soft);margin-bottom:12px}
+.opcions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.op{border:2px solid var(--ink);border-radius:3px;min-height:60px;font-family:var(--disp);font-size:26px;background:#fff;box-shadow:var(--shadow)}
+.op[aria-pressed=true]{background:var(--verd);color:#fff}
+.opcions.tres{grid-template-columns:repeat(3,1fr)}
+.opcions.tres .op{font-size:18px;letter-spacing:.05em;text-transform:uppercase;padding:0 6px}
+.regles{display:grid;gap:12px;margin-top:16px}
+.re{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;box-shadow:var(--shadow)}
+.re .cap{font-family:var(--disp);font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.re .sub{font-family:var(--disp);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px}
+.cols{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.cl{border:2px solid var(--ink);border-radius:3px;min-height:52px;padding:0 14px;font-family:var(--disp);font-size:17px;letter-spacing:.05em;text-transform:uppercase;box-shadow:var(--shadow);background:#fff}
+.cl[aria-pressed=true]{outline:4px solid var(--ink);outline-offset:2px}
+.accions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ac{border:2px solid var(--ink);border-radius:3px;min-height:56px;font-family:var(--disp);font-size:18px;letter-spacing:.05em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);padding:0 8px}
+.ac[aria-pressed=true]{background:var(--verd);color:#fff}
+.tipus{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:700px){.tipus{grid-template-columns:repeat(2,1fr)}}
+.tp{border:2px solid var(--ink);border-left:8px solid var(--roig);border-radius:3px;background:var(--paper-2);padding:14px 16px;text-align:left;box-shadow:var(--shadow)}
+.tp[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.tp h4{font-family:var(--disp);font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.tp p{font-size:14px;color:var(--ink-soft)}
+.tp[aria-pressed=true] p{color:#C2C7B9}
+.siNo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sn{border:2px solid var(--ink);border-radius:3px;padding:16px 8px;font-family:var(--disp);font-size:24px;letter-spacing:.08em;text-transform:uppercase;background:#fff;box-shadow:var(--shadow);min-height:64px}
+.sn[aria-pressed=true]{background:var(--ink);color:var(--paper-2)}
+.cinc{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+.cc{border:2px solid var(--ink);border-radius:3px;min-height:64px;font-family:var(--disp);font-size:28px;background:#fff;box-shadow:var(--shadow)}
+.cc[aria-pressed=true]{background:var(--verd);color:#fff}
+.barra{height:26px;border:2px solid var(--ink);border-radius:2px;background:#fff;overflow:hidden;margin-top:14px}
+.barra i{display:block;height:100%;background:var(--verd);transition:width .4s ease}
+.codi-box{background:var(--ink);color:#fff;border-radius:3px;padding:22px 18px;text-align:center;margin:18px 0}
+.codi-box .k{font-family:var(--disp);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#B9C1B8}
+.codi{font-family:var(--disp);font-size:clamp(28px,5.4vw,48px);letter-spacing:.14em;color:#EFCB3A;line-height:1.2;word-break:break-all;margin-top:4px}
+.codi-box .sub{font-size:15px;color:#B9C1B8;margin-top:10px}
+.estat{font-family:var(--disp);font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:2px;display:inline-block}
+.estat.ok{background:#2E7D4F;color:#fff}
+.estat.err{background:#C24A34;color:#fff}
+.resum{background:var(--paper-2);border:2px solid var(--ink);border-radius:3px;padding:16px;margin-top:14px}
+.resum p{font-family:var(--disp);font-size:20px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.vel{position:fixed;inset:0;background:rgba(20,26,24,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100}
+.vel[hidden]{display:none}
+.pop{background:var(--paper-2);border:3px solid var(--ink);border-radius:4px;padding:22px;max-width:700px;width:100%;box-shadow:0 6px 0 rgba(0,0,0,.28)}
+.pop h3{border:none;padding:0;font-size:clamp(24px,4vw,32px);margin-bottom:14px;text-align:center}
+.pop svg{width:100%;height:auto;display:block;margin-bottom:14px}
+@media(max-width:560px){.opcions{grid-template-columns:repeat(2,1fr)}.cinc{grid-template-columns:repeat(3,1fr)}.accions{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">SPIKE<b>-SORT</b></div>
+    <div class="spacer"></div>
+    <div class="meta" id="meta"></div>
+    <div class="pas" id="pas" hidden></div>
+  </header>
+  <main class="stage"><div class="wrap">
+
+    <!-- 1 · ENTRADA -->
+    <section class="screen on" id="s1">
+      <div class="eyebrow">Sessió 5 · La comporta que decideix</div>
+      <h2>Qui construeix avui?</h2>
+      <p class="lede">Fins ara éreu vosaltres qui decidíeu on anava cada cosa. Avui construireu una màquina que ho decideixi sola.</p>
+      <div class="form">
+        <label for="noms">Els vostres noms</label>
+        <input type="text" id="noms" placeholder="Per exemple: Jana i Aliou" autocomplete="off">
+        <label>Classe</label>
+        <div class="chips" id="grups"></div>
+        <label>Equip</label>
+        <div class="chips" id="equips"></div>
+        <button class="cta" id="anar1" disabled>Comencem</button>
+      </div>
+    </section>
+
+    <!-- 2 · EL CONCEPTE -->
+    <section class="screen" id="s2">
+      <div class="eyebrow">Abans de tocar cap peça</div>
+      <h2>Qui fa què a la màquina</h2>
+      <p class="lede">Mireu bé el vostre mecanisme i l'esquema. Cada part fa una feina diferent.</p>
+      <div class="esquema" id="esqCaixa">
+        <svg viewBox="0 0 620 300" role="img" aria-label="Esquema d'una comporta: rampa amb un objecte, un sensor que mira la rampa, un motor amb un braç i el hub">
+          <rect x="10" y="10" width="600" height="280" fill="#fff" stroke="#141A18" stroke-width="2"/>
+          <path d="M60 120L330 200v40H60z" fill="#E6E8DF" stroke="#141A18" stroke-width="3"/>
+          <text x="150" y="228" font-family="Karla,system-ui,sans-serif" font-size="14" fill="#3E4844">rampa</text>
+          <rect x="150" y="128" width="34" height="34" fill="#B8930F" stroke="#141A18" stroke-width="2" transform="rotate(16 167 145)"/>
+          <rect x="330" y="150" width="90" height="90" fill="#F1F2EB" stroke="#141A18" stroke-width="3"/>
+          <circle cx="375" cy="195" r="22" fill="#234A80" stroke="#141A18" stroke-width="3"/>
+          <path d="M375 195l58-34" stroke="#141A18" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="90" cy="80" r="20" fill="#8F2A19" stroke="#141A18" stroke-width="3"/>
+          <path d="M96 96l40 34" stroke="#8F2A19" stroke-width="3" stroke-dasharray="6 5"/>
+          <rect x="455" y="150" width="105" height="90" rx="6" fill="#1F5C3C" stroke="#141A18" stroke-width="3"/>
+          <rect x="480" y="172" width="55" height="46" fill="#F1F2EB" stroke="#141A18" stroke-width="2"/>
+          <circle cx="90" cy="80" r="34" fill="none" stroke="#141A18" stroke-width="2"/>
+          <text x="90" y="40" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">1</text>
+          <circle cx="375" cy="195" r="40" fill="none" stroke="#141A18" stroke-width="2"/>
+          <text x="375" y="266" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">2</text>
+          <text x="200" y="115" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">3</text>
+          <path d="M195 122v22" stroke="#141A18" stroke-width="2"/>
+          <text x="507" y="140" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="30" fill="#141A18" text-anchor="middle">4</text>
+        </svg>
+      </div>
+
+      <div class="pregunta">
+        <div class="q">Quin número és el sensor?</div>
+        <div class="a">El que mira i s'assabenta de què hi ha.</div>
+        <div class="opcions" id="qSensor"></div>
+      </div>
+      <div class="pregunta">
+        <div class="q">Quin número és l'actuador?</div>
+        <div class="a">El que es mou i fa la feina.</div>
+        <div class="opcions" id="qActuador"></div>
+      </div>
+      <div class="pregunta">
+        <div class="q">I el programa, on és?</div>
+        <div class="a">Les ordres que dieu vosaltres i que la màquina segueix.</div>
+        <div class="opcions tres" id="qPrograma"></div>
+      </div>
+      <div class="row"><button class="cta" id="anar2" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 3 · LA REGLA -->
+    <section class="screen" id="s3">
+      <div class="eyebrow">Planificació</div>
+      <h2>Quina és la regla de la comporta?</h2>
+      <p class="lede">La màquina ha de decidir sola. Vosaltres li dieu quan.</p>
+      <div class="regles">
+        <div class="re">
+          <div class="cap">Quan el sensor vegi aquest color…</div>
+          <div class="sub">Trieu-ne un</div>
+          <div class="cols" id="colorTria"></div>
+          <div class="sub">…la comporta ha de</div>
+          <div class="accions" id="accioTria">
+            <button class="ac" data-a="Obrir-se" aria-pressed="false">Obrir-se</button>
+            <button class="ac" data-a="Quedar-se tancada" aria-pressed="false">Quedar-se tancada</button>
+          </div>
+        </div>
+      </div>
+      <div class="alerta"><strong>No us oblideu del final</strong>Si la comporta s'obre i es queda oberta, el següent objecte passarà encara que no toqui. <strong>Ha de tornar a la posició de sortida.</strong></div>
+      <div class="pregunta" style="margin-top:16px">
+        <div class="q">Com torna a tancar-se?</div>
+        <div class="opcions tres" id="qRetorn"></div>
+      </div>
+      <div class="row"><button class="cta" id="anar3" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 4 · PREDICCIÓ -->
+    <section class="screen" id="s4">
+      <div class="eyebrow">Abans de provar-ho</div>
+      <h2>Què farà la màquina?</h2>
+      <p class="lede">Llegiu la vostra regla en veu alta i digueu què passarà amb els dos objectes: el del color que heu triat, i un altre qualsevol.</p>
+      <div class="resum" id="resum"></div>
+      <div class="form" style="max-width:100%">
+        <label for="pred">La nostra predicció</label>
+        <textarea id="pred" placeholder="Per exemple: quan hi passi el vermell, la comporta s'obrirà i el deixarà caure. Amb el blau no es mourà."></textarea>
+      </div>
+      <div class="row"><button class="cta" id="anar4" disabled>Anem a provar-ho</button></div>
+    </section>
+
+    <!-- 5 · PROVA -->
+    <section class="screen" id="s5">
+      <div class="eyebrow">Ara toca la màquina</div>
+      <h2>Proveu-ho</h2>
+      <div class="panel">
+        <h3>Abans de deixar caure res</h3>
+        <ol style="margin-left:22px">
+          <li style="margin-bottom:7px">Comproveu que el hub està connectat i que el programa hi és.</li>
+          <li style="margin-bottom:7px">Poseu la comporta a la posició de sortida, tancada.</li>
+          <li style="margin-bottom:7px">Un de vosaltres diu en veu alta què passarà, abans de deixar caure l'objecte.</li>
+          <li>L'altre mira el <strong>sensor</strong>, no la comporta. És allà on comença tot.</li>
+        </ol>
+      </div>
+      <div class="avis"><strong>No toqueu la tauleta fins que ho hàgiu provat</strong>Quan la màquina hagi acabat, torneu aquí.</div>
+      <div class="row"><button class="cta" id="anar5">Ja ho hem provat →</button></div>
+    </section>
+
+    <!-- 6 · DIAGNÒSTIC -->
+    <section class="screen" id="s6">
+      <div class="eyebrow">Diagnòstic</div>
+      <h2>Ha fet el que havíeu dit?</h2>
+      <div class="siNo" id="funciona1">
+        <button class="sn" data-f="SI">Sí, exacte</button>
+        <button class="sn" data-f="NO">No del tot</button>
+      </div>
+      <div id="blocError" hidden>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="quePassa">Què ha fet exactament</label>
+          <textarea id="quePassa" placeholder="Per exemple: la comporta s'ha obert però no s'ha tornat a tancar."></textarea>
+        </div>
+        <h3 style="margin-top:22px">De quin tipus és el problema?</h3>
+        <div class="tipus" id="tipus">
+          <button class="tp" data-t="Muntatge"><h4>De muntatge</h4><p>Alguna peça es mou, l'engranatge patina o el braç frega.</p></button>
+          <button class="tp" data-t="Sensor"><h4>De sensor</h4><p>No veu el color: massa lluny, massa a prop, o li fa ombra.</p></button>
+          <button class="tp" data-t="Programa"><h4>De programa</h4><p>Les ordres no són les que calien, o falta la de tornar.</p></button>
+          <button class="tp" data-t="Posició"><h4>De posició</h4><p>Es mou bé però no torna al lloc on havia de començar.</p></button>
+        </div>
+        <div class="form" style="max-width:100%;margin-top:18px">
+          <label for="queCanviem">Què canvieu · només una cosa</label>
+          <textarea id="queCanviem" placeholder="Per exemple: acostarem el sensor un forat més a la rampa."></textarea>
+        </div>
+      </div>
+      <div class="row"><button class="cta" id="anar6" disabled>Continuar →</button></div>
+    </section>
+
+    <!-- 7 · CINC PROVES -->
+    <section class="screen" id="s7">
+      <div class="eyebrow">Fiabilitat</div>
+      <h2>Cinc vegades seguides</h2>
+      <p class="lede">Una màquina que funciona una vegada no serveix de res. Deixeu caure l'objecte cinc vegades sense tocar res i compteu quantes surten bé.</p>
+      <div class="cinc" id="cinc"></div>
+      <div class="barra"><i id="barraOk" style="width:0%"></i></div>
+      <div id="lectura"></div>
+      <div class="row"><button class="cta" id="anar7" disabled>Guardar</button></div>
+    </section>
+
+    <!-- 8 · FINAL -->
+    <section class="screen" id="s8"></section>
+
+  </div></main>
+
+  <div class="vel" id="velEsq" hidden>
+    <div class="pop" role="dialog" aria-modal="true" aria-labelledby="esqT">
+      <h3 id="esqT">L'esquema</h3>
+      <div id="esqCopia"></div>
+      <div class="row" style="justify-content:center"><button class="cta small" id="esqX">Ja ho tenim</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   L'ÚNICA LÍNIA QUE HAS DE TOCAR
+   Enganxa aquí l'URL de l'Apps Script publicat (acaba amb /exec).
+   ═══════════════════════════════════════════════════════════ */
+var ENDPOINT = "";
+/* ═══════════════════════════════════════════════════════════ */
+
+var GRUPS=["3r A","3r B","3r C","Desdoblament"];
+var EQUIPS=["Equip 1","Equip 2","Equip 3","Equip 4","Equip 5","Equip 6"];
+var COLORS=[{k:"Vermell",h:"#8F2A19",t:"#fff"},{k:"Blau",h:"#234A80",t:"#fff"},
+            {k:"Verd",h:"#1F5C3C",t:"#fff"},{k:"Groc",h:"#B8930F",t:"#141A18"}];
+var PROGRAMA=["Al motor","Dins el hub","Al sensor"];
+var RETORN=["Amb una espera","Amb un altre color","No hi hem pensat"];
+
+var st={grup:null,equip:null,noms:"",sensor:null,actuador:null,programa:null,
+        color:null,accio:null,retorn:null,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",proves:null,consultes:0,t0:0};
+
+function $(s){return document.querySelector(s);}
+function $$(s){return document.querySelectorAll(s);}
+function mostra(id,n){
+  $$(".screen").forEach(function(s){s.classList.remove("on");});
+  $(id).classList.add("on");
+  if(n){$("#pas").hidden=false;$("#pas").textContent=n;} else $("#pas").hidden=true;
+  window.scrollTo(0,0);
+}
+function grup(cont,dades,camp,cb){
+  cont.innerHTML=dades.map(function(d){
+    return '<button class="op" data-v="'+d+'" aria-pressed="false">'+d+'</button>';}).join("");
+  cont.addEventListener("click",function(ev){
+    var b=ev.target.closest("[data-v]"); if(!b) return;
+    st[camp]=b.dataset.v;
+    cont.querySelectorAll(".op").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.v===st[camp]);});
+    cb();
+  });
+}
+
+/* ---------- 1 · entrada ---------- */
+$("#grups").innerHTML=GRUPS.map(function(g){return '<button class="chip" data-g="'+g+'" aria-pressed="false">'+g+'</button>';}).join("");
+$("#equips").innerHTML=EQUIPS.map(function(e){return '<button class="chip" data-e="'+e+'" aria-pressed="false">'+e+'</button>';}).join("");
+$("#grups").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-g]"); if(!b) return;
+  st.grup=b.dataset.g;
+  $$("#grups .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.g===st.grup);});
+  revisa1();
+});
+$("#equips").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-e]"); if(!b) return;
+  st.equip=b.dataset.e;
+  $$("#equips .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.e===st.equip);});
+  revisa1();
+});
+$("#noms").addEventListener("input",function(e){st.noms=e.target.value.trim();revisa1();});
+function revisa1(){$("#anar1").disabled=!(st.grup&&st.equip&&st.noms.length>1);}
+$("#anar1").addEventListener("click",function(){
+  st.t0=Date.now(); $("#meta").textContent=st.equip; mostra("#s2","1 de 6");
+});
+
+/* ---------- 2 · concepte ---------- */
+grup($("#qSensor"),["1","2","3","4"],"sensor",revisa2);
+grup($("#qActuador"),["1","2","3","4"],"actuador",revisa2);
+grup($("#qPrograma"),PROGRAMA,"programa",revisa2);
+function revisa2(){$("#anar2").disabled=!(st.sensor&&st.actuador&&st.programa);}
+$("#anar2").addEventListener("click",function(){mostra("#s3","2 de 6");});
+
+/* ---------- 3 · regla ---------- */
+$("#colorTria").innerHTML=COLORS.map(function(c){
+  return '<button class="cl" data-c="'+c.k+'" aria-pressed="false" style="background:'+c.h+';color:'+c.t+'">'+c.k+'</button>';}).join("");
+$("#colorTria").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-c]"); if(!b) return;
+  st.color=b.dataset.c;
+  $$("#colorTria .cl").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.c===st.color);});
+  revisa3();
+});
+$("#accioTria").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-a]"); if(!b) return;
+  st.accio=b.dataset.a;
+  $$("#accioTria .ac").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.a===st.accio);});
+  revisa3();
+});
+grup($("#qRetorn"),RETORN,"retorn",revisa3);
+function revisa3(){$("#anar3").disabled=!(st.color&&st.accio&&st.retorn);}
+$("#anar3").addEventListener("click",function(){
+  $("#resum").innerHTML='<p>Quan vegi '+st.color+' · '+st.accio+'</p>'+
+    '<p style="color:var(--ink-soft)">Torna a la posició · '+st.retorn+'</p>';
+  mostra("#s4","3 de 6");
+});
+$("#pred").addEventListener("input",function(e){
+  st.pred=e.target.value.trim();
+  $("#anar4").disabled=st.pred.length<10;
+});
+$("#anar4").addEventListener("click",function(){mostra("#s5","4 de 6");});
+$("#anar5").addEventListener("click",function(){mostra("#s6","5 de 6");});
+
+/* ---------- 6 · diagnòstic ---------- */
+$("#funciona1").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-f]"); if(!b) return;
+  st.f1=b.dataset.f;
+  $$("#funciona1 .sn").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.f===st.f1);});
+  $("#blocError").hidden=(st.f1==="SI");
+  revisa6();
+});
+$("#tipus").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-t]"); if(!b) return;
+  st.tipus=b.dataset.t;
+  $$("#tipus .tp").forEach(function(o){o.setAttribute("aria-pressed",o.dataset.t===st.tipus);});
+  revisa6();
+});
+$("#quePassa").addEventListener("input",function(e){st.quePassa=e.target.value.trim();revisa6();});
+$("#queCanviem").addEventListener("input",function(e){st.queCanviem=e.target.value.trim();revisa6();});
+function revisa6(){
+  if(st.f1==="SI"){$("#anar6").disabled=false;return;}
+  $("#anar6").disabled=!(st.f1==="NO" && st.quePassa.length>5 && st.tipus && st.queCanviem.length>5);
+}
+$("#anar6").addEventListener("click",function(){mostra("#s7","6 de 6");});
+
+/* ---------- 7 · cinc proves ---------- */
+$("#cinc").innerHTML=[0,1,2,3,4,5].map(function(n){
+  return '<button class="cc" data-n="'+n+'" aria-pressed="false">'+n+'</button>';}).join("");
+$("#cinc").addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-n]"); if(!b) return;
+  st.proves=+b.dataset.n;
+  $$("#cinc .cc").forEach(function(o){o.setAttribute("aria-pressed",+o.dataset.n===st.proves);});
+  $("#barraOk").style.width=(st.proves/5*100)+"%";
+  var t;
+  if(st.proves===5) t="Cinc de cinc. Això ja és una màquina de veritat: fa el mateix sempre.";
+  else if(st.proves>=3) t="Funciona gairebé sempre, però encara no sempre. Alguna cosa canvia entre una prova i l'altra: mireu si el sensor es mou o si l'objecte no cau sempre igual.";
+  else if(st.proves>=1) t="Ha funcionat alguna vegada. Quan una màquina va bé de tant en tant, gairebé sempre és el muntatge o la posició del sensor, no el programa.";
+  else t="Cap de cinc. Val la pena tornar a mirar si el hub segueix connectat i si el programa s'ha enviat.";
+  $("#lectura").innerHTML='<div class="avis"><strong>'+st.proves+' de 5</strong>'+t+'</div>';
+  $("#anar7").disabled=false;
+});
+
+/* ---------- esquema consultable ---------- */
+function obreEsq(){
+  var svg=$("#esqCaixa svg");
+  if(svg && !$("#esqCopia").firstChild) $("#esqCopia").appendChild(svg.cloneNode(true));
+  st.consultes++; $("#velEsq").hidden=false; $("#esqX").focus();
+}
+function tancaEsq(){$("#velEsq").hidden=true;}
+$("#esqX").addEventListener("click",tancaEsq);
+$("#velEsq").addEventListener("click",function(ev){if(ev.target===$("#velEsq"))tancaEsq();});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&!$("#velEsq").hidden)tancaEsq();});
+tancaEsq();
+
+/* ---------- final ---------- */
+function codi(){
+  return st.sensor+st.actuador+"-"+st.color.charAt(0)+st.accio.charAt(0)+"-"+st.proves+"de5";
+}
+function textPla(){
+  return "Sensor: "+st.sensor+" | Actuador: "+st.actuador+" | Programa: "+st.programa+
+         " | Regla: quan vegi "+st.color+" -> "+st.accio+" | Torna: "+st.retorn;
+}
+function envia(){
+  if(!ENDPOINT) return Promise.resolve("off");
+  return fetch(ENDPOINT,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({
+      activitat:"spike-sort",
+      grup:st.grup,equip:st.equip,noms:st.noms,
+      codi:codi(), pla:textPla(), prediccio:st.pred,
+      mirades:st.consultes,
+      objectiu:"Comporta que s'obre amb el color "+st.color,
+      primera:st.f1, quePassa:st.quePassa,
+      tipusError:st.tipus||"", queCanviem:st.queCanviem,
+      dobleProva:st.proves+" de 5",
+      minuts:Math.round((Date.now()-st.t0)/60000)
+    })}).then(function(){return "ok";}).catch(function(){return "err";});
+}
+$("#anar7").addEventListener("click",function(){
+  var m = (st.proves===5)
+    ? "La vostra màquina decideix sola i ho fa sempre igual."
+    : (st.f1==="SI" ? "Funciona, però encara no sempre. Això és el que arreglareu la setmana vinent."
+                    : "Heu sabut dir per què no anava. La setmana vinent hi continuem.");
+  $("#s8").innerHTML=
+    '<div class="eyebrow">'+st.grup+' · '+st.equip+' · '+st.noms+'</div>'+
+    '<h2>Guardat</h2><p class="lede">'+m+'</p>'+
+    '<div class="codi-box"><div class="k">Codi de la vostra màquina</div><div class="codi">'+codi()+'</div>'+
+    '<div id="estat" class="sub">Desant…</div></div>'+
+    '<div class="resum"><p>Regla · quan vegi '+st.color+', '+st.accio.toLowerCase()+'</p>'+
+    '<p>Fiabilitat · '+st.proves+' de 5</p></div>'+
+    '<div class="alerta"><strong>No desmunteu res</strong>La màquina es guarda tal com està. La setmana vinent hi continuareu.</div>'+
+    '<div class="row"><button class="cta ghost small" id="nova">Comença un altre equip</button></div>';
+  mostra("#s8");
+  envia().then(function(r){
+    var e=$("#estat"); if(!e) return;
+    if(r==="ok") e.innerHTML='<span class="estat ok">Enviat</span>';
+    else if(r==="off") e.textContent="Digueu el codi al mestre.";
+    else e.innerHTML='<span class="estat err">No s\'ha enviat · digueu el codi al mestre</span>';
+  });
+  $("#nova").addEventListener("click",function(){
+    st={grup:null,equip:null,noms:"",sensor:null,actuador:null,programa:null,
+        color:null,accio:null,retorn:null,pred:"",
+        f1:null,quePassa:"",tipus:null,queCanviem:"",proves:null,consultes:0,t0:0};
+    ["#noms","#pred","#quePassa","#queCanviem"].forEach(function(i){$(i).value="";});
+    $$(".chip,.op,.cl,.ac,.sn,.cc").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $$(".tp").forEach(function(c){c.setAttribute("aria-pressed","false");});
+    $("#blocError").hidden=true; $("#lectura").innerHTML=""; $("#barraOk").style.width="0%";
+    ["#anar2","#anar3","#anar4","#anar6","#anar7"].forEach(function(b){$(b).disabled=true;});
+    $("#meta").textContent="";
+    revisa1(); mostra("#s1");
+  });
+});
+
+/* botó de consulta de l'esquema a les pantalles de treball */
+["#s3","#s6"].forEach(function(id){
+  var r=document.createElement("div");
+  r.className="row";
+  r.innerHTML='<button class="cta ghost small">Tornar a veure l\'esquema</button>';
+  r.firstChild.addEventListener("click",obreEsq);
+  $(id).appendChild(r);
+});
+</script>
+<!--bw-inici--><div id="bw-carrega" aria-hidden="true"><i></i><i></i><i></i></div><style>#bw-carrega{position:fixed;inset:0;z-index:2147483647;display:flex;gap:11px;align-items:center;justify-content:center;background:#fdfcf8;transition:opacity .25s ease}#bw-carrega.fora{opacity:0;pointer-events:none}#bw-carrega i{width:15px;height:15px;border-radius:50%;background:#e0a800;animation:bw-bot 1s infinite ease-in-out}#bw-carrega i:nth-child(2){animation-delay:.15s;background:#2563a8}#bw-carrega i:nth-child(3){animation-delay:.3s;background:#3f9142}@keyframes bw-bot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-13px)}}@media (prefers-reduced-motion:reduce){#bw-carrega i{animation:none}}</style><script>(function(){var d=document.getElementById("bw-carrega");if(!d)return;var fora=function(){if(!d)return;d.className="fora";setTimeout(function(){if(d&&d.parentNode)d.parentNode.removeChild(d);d=null},300)};if(document.readyState==="complete")setTimeout(fora,120);else window.addEventListener("load",fora);setTimeout(fora,2500);})();</script><!--bw-fi-->
+</body>
+</html>
